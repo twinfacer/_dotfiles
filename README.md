@@ -2,7 +2,7 @@
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ### System requirements:
-For now only tested on archlinux/manjaro distros.
+For now only tested on archlinux/manjaro, cygwin and termux shells.
 Required packages:
 - [git](https://git-scm.com/)
 - [zsh](http://zsh.sourceforge.net/)
@@ -10,6 +10,9 @@ Required packages:
 - [tmux](https://github.com/ryanoasis/nerd-fonts)
 
 ### Installation:
+via curl
 ```shell
 curl -L "https://git.io/fNdqS" | zsh
 ```
+
+### Binaries

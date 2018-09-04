@@ -1,6 +1,5 @@
-#! /usr/bin/zsh
+#! /usr/bin/env zsh
 
-function take() {
-  mkdir -p $1
-  cd $1
-}
+# Small shortcut for creating and cd'ing into <TARGET_DIR>
+mkdir -p $1
+cd $1

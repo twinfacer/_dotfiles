@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+case $1 in
+  window)
+    echo -n "#[fg=colour4]#[bg=colour0] #I"
+    echo -n "#[fg=colour0]#[bg=colour4]$(echo -e '\Ue0b0') "
+    echo -n "#[bg=colour4]#[fg=colour0]#W "
+    ;;
+  current_window)
+    echo -n "#[fg=colour11,nodim]#[bg=colour0] #I "
+    echo -n "#[fg=colour0]#[bg=colour11]#(echo -e '\Ue0b0') "
+    echo -n "#[fg=black]#[bg=brightyellow]#W "
+    ;;
+  left)
+    echo -n "#[fg=colour11]#[bg=colour11] #[fg=colour8]\ufb82 #S "
+    ;;
+  right)
+    echo -n "#[fg=colour11]#[bg=colour0]\ue0b2#[fg=colour8]#[bg=colour11] \uf303  #H "
+    echo -n "#[fg=colour4]#[bg=colour11]\uE0B2#[fg=colour8]#[bg=colour4] \uf073  #(date +'%a %d %r')"
+    ;;
+esac

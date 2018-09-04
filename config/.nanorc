@@ -5,5 +5,3 @@ set morespace
 set nohelp
 
 include "/usr/share/nano/*.nanorc"
-
-bind ^D copytext all
