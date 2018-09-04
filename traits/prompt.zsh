@@ -39,9 +39,9 @@ rvm_prompt() {
 build_left_prompt() {
   local _prompt=""
   _prompt+=$(build_segment "$(mode_prompt)" 008 blue)
-  _prompt+=$(build_segment $(echo -e "\ue0b0") blue 008)
-  _prompt+=$(build_segment "$(path_prompt)" blue 008)
-  _prompt+=$(build_segment $(echo -e "\ue0b0") 008 blue)
+  _prompt+=$(build_segment $(echo -e "\ue0b0") blue 000)
+  _prompt+=$(build_segment "$(path_prompt)" blue 000)
+  _prompt+=$(build_segment $(echo -e "\ue0b0") 000 blue)
   echo "${_prompt} "
 }
 
@@ -49,12 +49,12 @@ build_right_prompt() {
   local _prompt=""
   if [[ -d "$(pwd)/.git" ]]; then
     _prompt+=$(build_segment $(echo -ne "\ue0b2") 008 green)
-    _prompt+=$(build_segment "$(git_prompt)" green 008)
+    _prompt+=$(build_segment "$(git_prompt)" green 000)
     _prompt+=$(build_segment $(echo -ne "\ue0b2") green red)
   else
-    _prompt+=$(build_segment $(echo -ne "\ue0b2") 008 red)
+    _prompt+=$(build_segment $(echo -ne "\ue0b2") 000 red)
   fi
-  _prompt+=$(build_segment "$(rvm_prompt)" red 008)
+  _prompt+=$(build_segment "$(rvm_prompt)" red 000)
   echo -n "${_prompt}"
 }
 

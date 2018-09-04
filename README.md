@@ -1,6 +1,8 @@
 ## \_dotflies
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
+![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
+
 ### System requirements:
 For now only tested on archlinux/manjaro, cygwin and termux shells.
 Required packages:
@@ -14,5 +16,3 @@ via curl
 ```shell
 curl -L "https://git.io/fNdqS" | zsh
 ```
-
-### Binaries

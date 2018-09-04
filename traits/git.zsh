@@ -24,6 +24,10 @@ alias gpush!='git push -f origin $(git_current_branch)'
 # reset
 alias grt='git reset'
 alias grt!='git reset --hard'
+# rebase
+alias grbi="git rebase -i"
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
 # show
 alias gsh='git show'
 # status

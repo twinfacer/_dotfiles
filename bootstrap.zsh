@@ -29,6 +29,6 @@ echo "$(colorize_fg "\ufb82" green) Symbiont connection established for $(colori
 
 # jump to `default` tmux session
 if [[ -z "$TMUX" ]];then
-  tmux has-session -t $TMUX_DEFAULT_SESSION || tmux new-session -s $TMUX_DEFAULT_SESSION &&
+  tmux has-session -t $TMUX_DEFAULT_SESSION || tmux new-session -s $TMUX_DEFAULT_SESSION
   tmux attach-session -t $TMUX_DEFAULT_SESSION
 fi
