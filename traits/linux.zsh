@@ -11,6 +11,8 @@ alias ed="${EDITOR}"
 alias wh="which"
 
 alias wcl="wc -l"
+alias duh="du -h"
+alias duhs="du -sh"
 
 alias nuke="rm -rf"
 alias yolo="sudo"
