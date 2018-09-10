@@ -5,8 +5,6 @@ alias m="mount"
 
 alias ll="ls -lAhF"
 
-which lolcat 1>/dev/null && alias lll="ll | lolcat"
-
 alias ed="${EDITOR}"
 alias wh="which"
 
