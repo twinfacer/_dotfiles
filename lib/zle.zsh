@@ -1,5 +1,7 @@
 # Less typing - moar time for having fun!
 setopt auto_cd
+# Sometimes we wanna to paste something that can contains comments, right?
+setopt interactive_comments
 
 # Removes pesky last space at right prompt
 ZLE_RPROMPT_INDENT=0
