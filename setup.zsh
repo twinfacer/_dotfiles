@@ -6,12 +6,7 @@ colorify() {
 }
 
 say() {
-  print -P "$(colorify "=>" green) $1"
-}
-
-die() {
-  say $(colorify $1 red)
-  exit 0
+  print -P "$(colorify "=>" yellow) $1"
 }
 
 backup() {
@@ -29,7 +24,7 @@ if [[ $(ls -A $DOTDIR 2>/dev/null | wc -l) -gt 0 ]]; then
   if [[ $overwrite_dotdir == 'y' ]]; then
     rm -rf $DOTDIR
   else
-    die "fatal: cannot clone git repo"
+    say $(colorify "fatal: cannot clone git repo" red) && exit 0
   fi
 fi
 git clone --depth=1 https://github.com/twinfacer/_dotfiles.git $DOTDIR

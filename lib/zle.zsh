@@ -26,15 +26,10 @@ bindkey '\ew' kill-region
 # [Esc-r] - Reload
 bindkey -s '\er' "source ~/.zshrc; clear ^M"
 
-# # [PageUp] - Up a line of history
-# if [[ "${terminfo[kpp]}" != "" ]]; then
-#   bindkey "${terminfo[kpp]}" up-line-or-history
-# fi
-#
-# # [PageDown] - Down a line of history
-# if [[ "${terminfo[knp]}" != "" ]]; then
-#   bindkey "${terminfo[knp]}" down-line-or-history
-# fi
+# Edit the current command line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\ee' edit-command-line
 
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -82,11 +77,6 @@ else
   bindkey "^[3;5~" delete-char
   bindkey "\e[3~" delete-char
 fi
-
-# Edit the current command line in $EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
 
 # file rename magick
 bindkey "^[m" copy-prev-shell-word

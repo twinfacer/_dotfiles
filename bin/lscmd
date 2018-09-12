@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+check_cmd() {
+  cmd = $1
+  if [[ $(which $cmd) =~ 'not\sfound' ]]
+  then
+    # print -P "$cmd is %F{green}free%f"
+  else
+    print -P "$cmd is %F{red}used%f"
+  fi
+}
+
+build_variants() {
+
+}
+
+for first_letter in {a..z}; do
+  for second_letter in {a..z}; do
+    check_cmd "$first_letter$second_letter"
+  done
+done
