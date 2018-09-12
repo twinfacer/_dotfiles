@@ -32,7 +32,7 @@ git_prompt() {
     branch_type_icon=$bug_icon
   fi
   local status_color=black
-  echo " %F{$status_color}$branch_type_icon%f $current_branch "
+  echo " %F{$status_color}$branch_type_icon%f %F{black}$current_branch%f "
 }
 
 rvm_prompt() {
