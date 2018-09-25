@@ -7,6 +7,12 @@ alias gae='git add -e'
 # branch
 alias gb='git --no-pager branch'
 alias gbl='gb -l'
+alias gbr='git branch -d'
+alias gbr!='git branch -D'
+alias gbc='git branch -c'
+alias gbc!='git branch -C'
+alias gbm='git branch -m'
+alias gbm!='git branch -M'
 # checkout
 alias gc='git checkout'
 alias gcb='git checkout -b'
