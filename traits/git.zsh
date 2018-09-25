@@ -21,6 +21,7 @@ alias gcp='git cherry-pick'
 # commit
 alias gcm='git commit -m'
 alias gcma='git commit -am'
+alias gfix='git add . ; git commit --amend'
 # diff
 alias gd='git diff --color'
 alias gdc='git diff --color --cached HEAD'
