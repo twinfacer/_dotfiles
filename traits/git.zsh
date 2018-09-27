@@ -1,4 +1,5 @@
 alias -g h1="HEAD~1"
+alias -g mt="master"
 
 # add
 alias ga='git add'
@@ -38,8 +39,10 @@ alias grl='git reflog'
 alias grt='git reset'
 alias grt!='git reset --hard'
 # rebase
+alias grb="git rebase"
 alias grbi="git rebase -i"
 alias grbc="git rebase --continue"
+alias grbs="git rebase --skip"
 alias grba="git rebase --abort"
 # show
 alias gsh='git show'
