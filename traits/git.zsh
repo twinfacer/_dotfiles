@@ -26,6 +26,8 @@ alias gfix='git add . ; git commit --amend'
 # diff
 alias gd='git diff --color'
 alias gdc='git diff --color --cached HEAD'
+# fetch
+alias gf='git fetch'
 # log
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # pull
