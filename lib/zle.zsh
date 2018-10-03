@@ -21,8 +21,10 @@ fi
 
 # Use emacs key bindings
 bindkey -e
+
 # [Esc-w] - Kill from the cursor to the mark
 bindkey '\ew' kill-region
+
 # [Esc-r] - Reload
 bindkey -s '\er' "source ~/.zshrc; clear ^M"
 
@@ -37,6 +39,7 @@ if [[ "${terminfo[kcuu1]}" != "" ]]; then
   zle -N up-line-or-beginning-search
   bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
 fi
+
 # start typing + [Down-Arrow] - fuzzy find history backward
 if [[ "${terminfo[kcud1]}" != "" ]]; then
   autoload -U down-line-or-beginning-search
@@ -48,6 +51,7 @@ fi
 if [[ "${terminfo[khome]}" != "" ]]; then
   bindkey "${terminfo[khome]}" beginning-of-line
 fi
+
 # [End] - Go to end of line
 if [[ "${terminfo[kend]}" != "" ]]; then
   bindkey "${terminfo[kend]}"  end-of-line
@@ -58,6 +62,7 @@ bindkey ' ' magic-space
 
 # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5C' forward-word
+
 # [Ctrl-LeftArrow] - move backward one word
 bindkey '^[[1;5D' backward-word
 
