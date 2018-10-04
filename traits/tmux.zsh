@@ -1,3 +1,5 @@
+silent which tmux || return
+
 export TMUX_DEFAULT_SESSION="system"
 
 # jump to desired or `default` tmux session
