@@ -1,5 +1,5 @@
-alias -g h1="HEAD~1"
-alias -g mt="master"
+alias -g h1='HEAD~1'
+alias -g mt='master'
 
 # add
 alias ga='git add'

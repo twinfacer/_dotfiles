@@ -1,4 +1,4 @@
-### systemd aliases (sc)
+# systemd aliases (sc*)
 alias sc="sudo systemctl"
 alias scs="sudo systemctl status"
 alias scr="sudo systemctl restart"

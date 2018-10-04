@@ -1,12 +1,11 @@
 #!/usr/bin/env zsh
 
 check_cmd() {
-  cmd = $1
-  if [[ $(which $cmd) =~ 'not\sfound' ]]
+  if [[ $(which $1) =~ 'not\sfound' ]]
   then
-    # print -P "$cmd is %F{green}free%f"
+    print -P "$1 is %F{green}free%f"
   else
-    print -P "$cmd is %F{red}used%f"
+    print -P "$1 is %F{red}used%f"
   fi
 }
 
