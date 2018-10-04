@@ -3,9 +3,13 @@ alias p="echo"
 alias h="man"
 alias m="mount"
 
+alias -g L="less"
+alias -g G="grep"
+
 alias ll="ls -lAhF"
 
 alias ed="${EDITOR}"
+alias ved="${VISUAL}"
 alias wh="which"
 
 alias wcl="wc -l"
