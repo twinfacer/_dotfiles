@@ -31,7 +31,7 @@ alias gf='git fetch'
 # log
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # pull
-alias gref='git pull -r origin dev'
+alias gref='git pull -r origin master'
 # push
 alias gpush='git push origin $(git_current_branch)'
 alias gpush!='git push -f origin $(git_current_branch)'
