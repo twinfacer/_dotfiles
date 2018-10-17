@@ -15,7 +15,7 @@ swapon /dev/sda2
 mount /dev/sda1 /mnt
 
 # Install packages
-pacstrap /mnt base base-devel grub git zsh sudo
+pacstrap /mnt base base-devel grub git zsh sudo tmux
 
 # Generate fstab file
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -61,3 +61,4 @@ git clone https://aur.archlinux.org/yaourt.git
 cd yaourt
 makepkg -si
 cd ..
+rm -rf {package-query, yourt}
