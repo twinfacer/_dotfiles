@@ -1,3 +1,4 @@
+alias -g hd='HEAD'
 alias -g h1='HEAD~1'
 alias -g mt='master'
 
