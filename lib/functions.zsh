@@ -1,5 +1,5 @@
-#! /usr/bin/env zsh
-
 # Small shortcut for creating and cd'ing into <TARGET_DIR>
-mkdir -p $1
-cd $1
+take() {
+  mkdir -p $1
+  cd $1
+}
