@@ -15,9 +15,11 @@ alias gbc='git branch -c'
 alias gbc!='git branch -C'
 alias gbm='git branch -m'
 alias gbm!='git branch -M'
+alias gbum="git branch --no-merged=master"
 # checkout
 alias gc='git checkout'
 alias gcb='git checkout -b'
+alias gcmt='git checkout master'
 # cherry-pick
 alias gcp='git cherry-pick'
 # commit
