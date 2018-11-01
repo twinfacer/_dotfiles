@@ -8,6 +8,12 @@ ppb() {
   print -Pn "%K{$2}$1%k"
 }
 
+# Colorizes both foreground and background
+colorize() {
+  echo -n "%K{$2}%F{${3}}$1%f%k"
+}
+
+
 # Prints colors map
 lscolors() {
   for row in {0..15}; do
