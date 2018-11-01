@@ -18,4 +18,9 @@ source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
 clear
-echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  local connection="over ssh";
+else
+  local connection="locally";
+fi
+echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) $(pp $connection 75) on $(pp $HOST white) hive"

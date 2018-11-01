@@ -3,7 +3,12 @@ setopt PROMPT_SUBST
 # promt parts
 mode_prompt() {
   # TODO: Add last exit status
-  echo " $(icon "fcb5") "
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    local connection="f817";
+  else
+    local connection="fcb5";
+  fi
+  echo " $(icon $connection) "
 }
 
 path_prompt() {
