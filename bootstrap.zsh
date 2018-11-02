@@ -23,4 +23,4 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 else
   local connection="locally";
 fi
-echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) $(pp $connection 75) on $(pp $HOST white) hive"
+echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive $(pp $connection 75)"
