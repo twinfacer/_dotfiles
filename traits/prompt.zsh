@@ -27,8 +27,11 @@ git_prompt() {
     current_branch=${current_branch//bugfix\//}
     branch_type_icon=$bug_icon
   fi
-  # TODO: Add dirty status check
-  local status_color=black
+  if [[ -n $(git status -s) ]]; then
+    local status_color=yellow
+  else
+    local status_color=black
+  fi
   echo " %F{$status_color}$branch_type_icon%f %F{black}$current_branch%f "
 }
 
