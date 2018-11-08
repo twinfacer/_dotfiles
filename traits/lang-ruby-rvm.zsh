@@ -11,3 +11,7 @@ alias rl="rvm list"
 alias rlk="rvm list known"
 alias ru="rvm use"
 alias ru!="rvm use --default"
+
+# rubygems
+alias rgl="gem list"
+alias rgi="gem install"
