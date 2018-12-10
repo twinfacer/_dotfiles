@@ -22,6 +22,8 @@ alias gcb='git checkout -b'
 alias gcmt='git checkout master'
 # cherry-pick
 alias gcp='git cherry-pick'
+# git clone
+alias gcl='git clone'
 # commit
 alias gcm='git commit -m'
 alias gcma='git commit -am'
