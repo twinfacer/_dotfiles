@@ -49,6 +49,14 @@ alias grbi='git rebase -i'
 alias grbc='git rebase --continue'
 alias grbs='git rebase --skip'
 alias grba='git rebase --abort'
+# remove
+alias grm='git remote'
+alias grma='git remote add'
+alias grmr='git remote rename'
+alias grmd='git remote remove'
+alias grmv='git remote -v'
+alias grmu='git remote get-url'
+alias grmu!='git remote set-url'
 # show
 alias gsh='git show'
 # status
