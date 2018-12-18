@@ -1,4 +1,4 @@
-silent which tmux || return
+mute which tmux || return
 
 export TMUX_DEFAULT_SESSION="system"
 
