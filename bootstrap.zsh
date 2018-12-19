@@ -1,5 +1,4 @@
 # enviroment
-export DOTDIR="${HOME}/.dotfiles"
 export EDITOR="nano"
 export VISUAL="atom"
 export GIT_EDITOR="nano"
