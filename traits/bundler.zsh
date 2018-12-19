@@ -1,3 +1,3 @@
-mute which bundle || return
+callable bundle || return
 
 alias b="bundle"

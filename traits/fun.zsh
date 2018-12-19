@@ -1,2 +1,2 @@
-mute which sl && mute which lolcat && alias hype="sl | lolcat"
-mute which cmatrix && alias neo="cmatrix"
+callable sl && callable lolcat && alias hype="sl | lolcat"
+callable cmatrix && alias neo="cmatrix"
