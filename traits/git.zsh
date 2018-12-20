@@ -19,6 +19,10 @@ alias gbum="git branch --no-merged=master"
 # checkout
 alias gc='git checkout'
 alias gcb='git checkout -b'
+_git_checkout_feature() {
+  git checkout -b feature/$1
+}
+alias gcf='_git_checkout_feature'
 alias gcmt='git checkout master'
 # cherry-pick
 alias gcp='git cherry-pick'
