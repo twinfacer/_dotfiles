@@ -2,7 +2,7 @@
 
 case $1 in
   window)
-    echo -n "#[fg=colour4]#[bg=colour0] #I"
+    echo -n "#[fg=colour4]#[bg=colour0] #I "
     echo -n "#[fg=colour0]#[bg=colour4]$(echo -e '\Ue0b0') "
     echo -n "#[bg=colour4]#[fg=colour0]#W "
     ;;
