@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+# serve - small ruby-powered HTTP SERVER.
+
+callable ruby || (echo "No ruby found - no fun for ya" && exit 0)
+ruby -run -e httpd . -p ${1:-8000}
