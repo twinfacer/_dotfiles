@@ -27,7 +27,7 @@ if [[ $(ls -A $DOTDIR 2>/dev/null | wc -l) -gt 0 ]]; then
     say $(colorify "fatal: cannot clone git repo" red) && exit 0
   fi
 fi
-git clone --depth=1 https://github.com/twinfacer/_dotfiles.git $DOTDIR
+git clone --depth=1 https://github.com/twinfacer/_dotfiles.git $DOTDIR 2>&1 1>/dev/null
 
 say "$(colorify repo orange): symlinking"
 for source_file ($DOTDIR/config/**/*(.D)); do
