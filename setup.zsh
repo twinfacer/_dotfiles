@@ -31,7 +31,7 @@ git clone --depth=1 https://github.com/twinfacer/_dotfiles.git $DOTDIR 2>&1 1>/d
 
 say "$(colorify repo orange): symlinking"
 for source_file ($DOTDIR/config/**/*(.D)); do
-  target_file = $(echo $source_file | sed -e "s:$DOTDIR/config:$HOME:")
+  target_file=$(echo $source_file | sed -e "s:$DOTDIR/config:$HOME:")
   [ -f $target_file ] && backup $target_file
   ln -sf $source_file $target_file
 done
