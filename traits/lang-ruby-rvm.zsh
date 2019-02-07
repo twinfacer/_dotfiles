@@ -1,6 +1,10 @@
-# TODO: Add guard against rvm absense
-# TODO: Add completion for `use`
+# rubygems
+alias rgl="gem list"
+alias rgi="gem install"
 
+# Ruby enVironment Manager aka RVM
+# TODO: Add completion for `use`
+[[ -d $HOME/.rvm ]] || return
 
 export PATH="$PATH:$HOME/.rvm/bin/"
 
@@ -11,7 +15,6 @@ alias rl="rvm list"
 alias rlk="rvm list known"
 alias ru="rvm use"
 alias ru!="rvm use --default"
-
-# rubygems
-alias rgl="gem list"
-alias rgi="gem install"
+alias ri="rvm install"
+alias rr!="rvm reinstall"
+alias rd!="rvm remove"
