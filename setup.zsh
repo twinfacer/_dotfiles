@@ -18,7 +18,7 @@ DOTDIR=${DOTDIR:-$HOME/.dotfiles}
 say "installation path: ${DOTDIR}"
 
 say "$(colorify repo orange): cloning"
-if [[ $(ls -A $DOTDIR 2>/dev/null | wc -l) -gt 0 ]]; then
+if [[ -d $DOTDIR ]]; then
   local overwrite_dotdir
   vared -p "$DOTDIR is not empty! remove it contents and continue? : " overwrite_dotdir
   if [[ $overwrite_dotdir == 'y' ]]; then
