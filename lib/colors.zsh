@@ -1,7 +1,12 @@
 # Monocolored terminal - boring terminal! Let's paint it up!
 
+# diff
 alias diff="diff --color=auto"
 
+# grep
+alias -g grep="grep --color=auto"
+
+# ls
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 # Find the option for using colors in ls, depending on the version
