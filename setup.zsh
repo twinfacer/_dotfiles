@@ -1,4 +1,6 @@
 #! /usr/bin/zsh
+DOTFILES_REPO=https://github.com/twinfacer/_dotfiles.git
+DOTDIR=${DOTDIR:-$HOME/.dotfiles}
 
 # toolbox
 colorify() {
@@ -14,7 +16,6 @@ backup() {
   mv $1 "$1.$(date +%s).bak"
 }
 
-DOTDIR=${DOTDIR:-$HOME/.dotfiles}
 say "installation path: ${DOTDIR}"
 
 say "$(colorify repo orange): cloning"
@@ -27,7 +28,7 @@ if [[ -d $DOTDIR ]]; then
     say $(colorify "fatal: cannot clone git repo" red) && exit 0
   fi
 fi
-git clone --depth=1 https://github.com/twinfacer/_dotfiles.git $DOTDIR &> /dev/null
+git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
 
 say "$(colorify repo orange): symlinking"
 for source_file ($DOTDIR/config/**/*(.D)); do
