@@ -12,8 +12,7 @@ mode_prompt() {
 }
 
 path_prompt() {
-  local replacer="$(icon "e5ff") $icon"
-  local current_path=$(pwd | sed "s:$HOME/:$replacer:")
+  local current_path=$(pwd | sed "s:$HOME:~:")
   echo " $current_path "
 }
 
@@ -49,10 +48,10 @@ build_segment() {
 build_left_prompt() {
   local separator="e0b0"
   local _prompt=""
-  _prompt+=$(build_segment "$(path_prompt)" blue black)
-  _prompt+=$(build_segment $(icon "$separator") yellow blue)
-  _prompt+=$(build_segment "$(mode_prompt)" yellow)
-  _prompt+=$(build_segment $(icon "$separator") transparent yellow)
+  _prompt+=$(build_segment "$(mode_prompt)" yellow black )
+  _prompt+=$(build_segment $(icon "$separator") blue yellow)
+  _prompt+=$(build_segment "$(path_prompt)" blue)
+  _prompt+=$(build_segment $(icon "$separator") transparent blue)
   echo "${_prompt} "
 }
 
