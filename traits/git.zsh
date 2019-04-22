@@ -1,3 +1,4 @@
+# Global aliases
 alias -g hd='HEAD'
 alias -g h1='HEAD~1'
 alias -g mt='master'
@@ -56,7 +57,7 @@ alias grbi='git rebase -i'
 alias grbc='git rebase --continue'
 alias grbs='git rebase --skip'
 alias grba='git rebase --abort'
-# remove
+# remote
 alias grm='git remote'
 alias grma='git remote add'
 alias grmr='git remote rename'
