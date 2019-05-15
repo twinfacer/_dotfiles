@@ -25,7 +25,7 @@ ssh to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpf
 This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) fullstack web developer. Feel free to add your own zsh scripts, just put whem into ~/.dotfiles/local/ dir. Useful for per mashine configuration (env variables, credentials, hardware hacks, etc ...).
 
 ### Features:
-  - __zsh__ is shell of choice. 
+  - __zsh__ is shell of choice.
   - __tmux__ is multiplexor of choice. Mouse is on by default but __tmux__ is configured to be mousless as possible.
   - Easy navigation via __AUTO_CD__ zsh option && integrated [__wd__](https://github.com/mfaerevaag/wd). Wow, so much speed!
   - Alias all the things! (Over ~120 aliases for linux, git and other tools, see [this](#aliases) for full reference)
@@ -56,137 +56,136 @@ __tmux__ is configured to enter copy mode by mouse scrolling.
 - [Prefix, -] - Split panes verticaly (with current path).
 
 ### Aliases
-_*_ means global.
-Generic linux stuff:
+_*_ means _global_.
+
+#### Generic Linux stuff:
 - [...] - Cd 2 dirs back.
 - [....] - Cd 3 dirs back.
-- [G]* - __grep__
-- [L]* - __less__
-- [_, yolo] - __sudo__.
-Ruby stuff:
- - [b] - __bundle__
- - [cov] - Show coverage [simplecov gem](https://github.com/colszowka/simplecov)
-dref='_refresh_dotfiles()'
-duh='du -h'
-duhs='du -sh'
-ed=nano
-Git stuff:
-ga='git add'
-gaa='git add .; git status -s'
-gae='git add -e'
-gb='git --no-pager branch'
-gbc='git branch -c'
-'gbc!'='git branch -C'
-gbl='gb -l'
-gbm='git branch -m'
-'gbm!'='git branch -M'
-gbr='git branch -d'
-'gbr!'='git branch -D'
-gbum='git branch --no-merged=master'
-gc='git checkout'
-gcb='git checkout -b'
-gcf=_git_checkout_feature
-gcl='git clone'
-gcm='git commit -m'
-gcma='git commit -am'
-gcmt='git checkout master'
-gcp='git cherry-pick'
-gct='git checkout --track'
-gd='git diff --color'
-gdc='git diff --color --cached HEAD'
-gf='git fetch'
-gfix='git add . ; git commit --amend'
-glog='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
-gpush='git push origin $(git_current_branch)'
-'gpush!'='git push -f origin $(git_current_branch)'
-grb='git rebase'
-grba='git rebase --abort'
-grbc='git rebase --continue'
-grbi='git rebase -i'
-grbs='git rebase --skip'
-gref='git pull -r origin master'
-grep='grep --color=auto'
-grl='git reflog'
-grm='git remote'
-grma='git remote add'
-grmd='git remote remove'
-grmr='git remote rename'
-grmu='git remote get-url'
-'grmu!'='git remote set-url'
-grmv='git remote -v'
-grt='git reset'
-'grt!'='git reset --hard'
-gsa='git stash apply'
-gsd='git stash drop'
-gsh='git show'
-gsl='git stash list'
-gss='git stash save -u'
-gst='git status -s'
-gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
-h=man
-h1='HEAD~1'
-hd=HEAD
-history=history_wrapper
-hype='sl | lolcat'
-ll='ls -lAhF'
-lll='ls -lAhF | lolcat'
-lol=lolcat
-ls='ls --color=tty'
-m=mount
-mt=master
-neo=cmatrix
-nuke='rm -rf'
-p=echo
-pacl='pacman -Q'
-pacr='sudo pacman -R'
-pacu='sudo pacman -Suyy'
-prconf='ved ~/.pryrc'
-prh='ved ~/.pry_history'
-r=rvm
-rc='rails console'
-'rd!'='rvm remove'
-rdm='rails db:migrate'
-rgi='gem install'
-rgl='gem list'
-rgm='rails generate migration'
-ri='rvm install'
-rl='rvm list'
-rlk='rvm list known'
-rr='rails routes'
-'rr!'='rvm reinstall'
-rs='rails server'
-ru='rvm use'
-'ru!'='rvm use --default'
-run-help=man
-rvm-restart='rvm_reload_flag=1 source '\''/home/twinfacer/.rvm/scripts/rvm'\'
-sc='sudo systemctl'
-scdn='sudo systemctl stop'
-'scdn!'='sudo systemctl disable'
-scr='sudo systemctl restart'
-scs='sudo systemctl status'
-scup='sudo systemctl start'
-'scup!'='sudo systemctl enable'
-Tmux Stuff: 
+- [G]* - __grep__.
+- [L]* - __less__.
+- [_, yolo] - __sudo__. (Just do it!)
+- [duh] - __du -h__ (Disc usage, huminized).
+- [duhs] - __du -sh__ (Disc usage, hummanized, summarize).
+- [ed] - __nano__ (when you too young for vim, simple but powerfull).
+- [ved] - __atom__ (stands for VISUAL EDITOR, stuff with GUI).
+- [h] - __man__ (RTFM && TLDR).
+- [wcl] - __wc -l__ (How many sweel aliases I have __alias | wcl__).
+- [ll] __ls -lAhF__ (ls all as list for humans).
+- [m] - __mount__ ( Mount 'em!).
+- [nuke] - __rm -rf__( :city_sunrise: ).
+- [p] - __echo__ (because __ruby__).
+- [wh] - __which__ (WTF is that???).
+
+#### Ruby/Rails stuff:
+- [b] - __bundle(r)__.
+- [cov] - Show coverage in browser [simplecov gem](https://github.com/colszowka/simplecov).
+- [r] - __rvm__. (Because one ruby just isn't enought!)
+- [ri] - __rvm install__.
+- [rl] - __rvm list__.
+- [rlk] - __rvm list known__
+- [rr!!] - __rvm reinstall__. (Damn OpenSSl!)
+- [rd!]  - __rvm remove__.
+- [ru] - __rvm use__.
+- [ru!] - __rvm use --default__.
+- [rs] - __rails server__.
+- [rc]  - __rails console__.
+- [rr] - __rails routes__.
+- [rdm] - __rails db:migrate__. (Keep your DB up to date)
+- [rgm] - __rails generate migration__.
+- [rgi] - __gem install__.
+- [rgl] - __gem list__.
+- [prconf] - __ved ~/.pryrc__.
+- [prh] - __ved ~/.pry_history__.
+
+#### Git stuff:
+- [mt]* - __master__ (your know, THAT branch).
+- [h1]* - __HEAD~1__
+- [hd]* - __HEAD__ (Where is my head )
+- [ga] - __git add__ (you know, adds your stuff to index).
+- [gaa] - __git add .; git status -s__ (add stuff, show stuff)
+- [gae] - __git add -e__ (when simple __git add__ just isn't enough).
+- [gb] - __git --no-pager branch__ (I'm groot!).
+- [gbc] - __git branch -c__.
+- [gbc!] - __git branch -C__.
+- [gbl]  - __gb -l__ (Show me my roots!).
+- [gbm] - __git branch -m__.
+- [gbm!] - __git branch -M__.
+- [gbr] - __git branch -__.
+- [gbr!] - __git branch -D__.
+- [gbum] - __git branch --no-merged=master__.
+- [gc] - __git checkout__.
+- [gcb] - __git checkout -b__.
+- [gcf] - __git_checkout_feature__.
+- [gcl] - __git clone__.
+- [gcm] - __git commit -m__.
+- [gcma] - __git commit -am__.
+- [gcmt] - __git checkout master__.
+- [gcp] - __git cherry-pick__. ( :cherries: )
+- [gct] - __git checkout --track__.
+- [gd] - __git diff --color__
+- [gdc] - __git diff --color --cached HEAD__.
+- [gf] - __git fetch__.
+- [gfix] - __git add . ; git commit --amend__.
+- [glog] - Pretty git logs.
+- [gpush] - Push current branch to origin.
+- [gpush!] - Push current branch to origin. With force.
+- [grb] - __git rebase__. (Use with care)
+- [grba] - __git rebase --abort__.
+- [grbc] - __git rebase --continue__.
+- [grbi] - __git rebase -i__.
+- [grbs] - __git rebase --skip__.
+- [gref] - __git pull -r origin master__.
+- [grl] - __git reflog__. (In case of REAL emergency)
+- [grm] - __git remote__.
+- [grma] - __git remote add__.
+- [grmd] - __git remote remove__.
+- [grmr] - __git remote rename__.
+- [grmu] - __git remote get-url__.
+- [grmu!] - __git remote set-url__.
+- [grmv] - __git remote -v__.
+- [grt] - __git reset__.
+- [grt!] - __git reset --hard__
+- [gsa] - __git stash apply__.
+- [gsd] - __git stash drop__.
+- [gsh] - __git show__.
+- [gsl] - __git stash list__.
+- [gss] - __git stash save -u__.
+- [gst] - __git status -s__.
+- [gwip] - Add all files to index and commit them with temp name. Usefull for fast branch switching.
+
+#### Archlinux stuff (pacman):
+- [pacl] - __pacman -Q <package_name>__. (Get stuff in)
+- [pacr] - __sudo pacman -R <package_name>__. (Get :poop: out)
+- [pacu] - __sudo pacman -Suyy__. (Keep it up to date!)
+
+#### Systemd stuff:
+- [sc] - __sudo systemctl__ (to ctrl 'em all!).
+- [scdn]  - __sudo systemctl stop__ (Just die).
+- [scdn!] - __sudo systemctl disable__. (...and stay dead).
+- [scr] - __sudo systemctl restart__. (rebirth!)
+- [scs] - __sudo systemctl status__. (sup?)
+- [scup] - __sudo systemctl start__. (Rise and shine)
+- [scup!] - __sudo systemctl enable__. (...and stay up)
+
+#### Tmux Stuff:
 - [tconf] - __ed ~/.tmux.conf__ (open tux config file in editor)
-tdc='tmux detach-client'
-tlc='tmux list-clients'
-tref='tmux source-file ~/.tmux.conf'
-tsa='tmux attach-session -t'
-tsc='tmux new-session -s'
-tsk='tmux kill-session -t'
-tsl='tmux list-sessions'
-tsr=restore
-ved=atom
-wcl='wc -l'
-wh=which
-WD stuff:
-- [wp] - __wd__ (aka warp directory)
+- [tdc] - __tmux detach-client__.
+- [tlc] - __tmux list-clients__.
+- [tref] - __tmux source-file ~/.tmux.conf__.
+- [tsa] - __tmux attach-session -t__.
+- [tsc] - __tmux new-session -s__.
+- [tsk] - __tmux kill-session -t__.
+- [tsl] - __tmux list-sessions__.
+- [tsr] - __restore__.
+
+#### WD stuff:
+- [wp] - __wd__ (aka warp directory).
 - [wpa] - wd add <name> (add current dir as waypoint named <name>)
 - [wpl] - wd list (lists all known waypoints)
 - [wpr] - __wd rm__ <name> (remove waypoint named <name>)
- JS stuff:
-- [ya] - __yarn__.
-- [yaa]  - __yarn add__
-- [zref] - source ~/.zshrc
-- [zref!] - source ~/.zshrc; clear
 
+#### JS stuff:
+- [ya] - __yarn__.
+- [yaa]  - __yarn add__.
+- [zref] - __source ~/.zshrc__.
+- [zref!] - __source ~/.zshrc; clear__.
