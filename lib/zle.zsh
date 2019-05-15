@@ -1,3 +1,5 @@
+### ZSH Line editor (aka ZLE) config
+
 # Less typing - moar time for having fun!
 setopt auto_cd
 # Sometimes we wanna to paste something that can contains comments, right?
@@ -9,6 +11,7 @@ alias ....="cd ../../.."
 # Removes pesky last space at right prompt
 ZLE_RPROMPT_INDENT=0
 
+# TODO: Do we really need this legacy stuff nowdays?
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
@@ -24,14 +27,13 @@ fi
 
 # Use emacs key bindings
 bindkey -e
-
 # [Esc-w] - Kill from the cursor to the mark
 bindkey '\ew' kill-region
-
 # [Esc-r] - Reload
 bindkey -s '\er' "source ~/.zshrc; clear ^M"
 
-# Edit the current command line in $EDITOR
+# TODO: Seems broken (mb already defined keybind ???) =(
+# [ESC+e] Edit the current command line in $EDITOR
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
