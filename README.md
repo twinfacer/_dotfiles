@@ -35,7 +35,7 @@ This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git
 
 ### Keybindings:
 #### ZSH
-zsh uses __emacs__ keybindings by default with addition of following:
+__zsh__ uses _emacs_ keybindings by default with addition of following:
 - [Ctrl+Left/Right Arrow] - Move backward/forward by word.
 - [Home/End] - Move to beginning/end of line.
 - [Ctrl+W] - Delete word backward.
@@ -157,6 +157,7 @@ _*_ means _global_.
 - [pacl] - __pacman -Q <package_name>__. (Get stuff in)
 - [pacr] - __sudo pacman -R <package_name>__. (Get :poop: out)
 - [pacu] - __sudo pacman -Suyy__. (Keep it up to date!)
+- [pacc] - __sudo pacman -Scc__. (Clear pacman cache)
 
 #### Systemd stuff:
 - [sc] - __sudo systemctl__ (to ctrl 'em all!).
