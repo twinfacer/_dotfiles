@@ -100,7 +100,7 @@ _*_ means _global_.
 #### Git stuff:
 - [mt]* - __master__ (your know, THAT branch).
 - [h1]* - __HEAD~1__
-- [hd]* - __HEAD__ (Where is my head )
+- [hd]* - __HEAD__ (Where is my head)
 - [ga] - __git add__ (you know, adds your stuff to index).
 - [gaa] - __git add .; git status -s__ (add stuff, show stuff)
 - [gae] - __git add -e__ (when simple __git add__ just isn't enough).
@@ -128,7 +128,7 @@ _*_ means _global_.
 - [gfix] - __git add . ; git commit --amend__.
 - [glog] - Pretty git logs.
 - [gpush] - Push current branch to origin.
-- [gpush!] - Push current branch to origin. With force.
+- [gpush!] - Same as above but with force.
 - [grb] - __git rebase__. (Use with care)
 - [grba] - __git rebase --abort__.
 - [grbc] - __git rebase --continue__.
@@ -188,5 +188,7 @@ _*_ means _global_.
 #### JS stuff:
 - [ya] - __yarn__.
 - [yaa]  - __yarn add__.
+
+#### zsh stuff
 - [zref] - __source ~/.zshrc__.
 - [zref!] - __source ~/.zshrc; clear__.
