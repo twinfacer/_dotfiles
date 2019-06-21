@@ -22,7 +22,7 @@ Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> 
 
 ssh to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
-This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) fullstack web developer. Feel free to add your own zsh scripts, just put whem into ~/.dotfiles/local/ dir. Useful for per mashine configuration (env variables, credentials, hardware hacks, etc ...).
+This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) fullstack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/ _ dir. Useful for per mashine configuration (env variables, credentials, hardware hacks, etc ...) and defaults override.
 
 ### Features:
   - __zsh__ is shell of choice.
@@ -32,6 +32,8 @@ This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git
   - Colorize all the things! Most usual terminal stuff (grep/ls/git/etc...) is colorized by default.
   - Mouse is aweful, so keybind as much as possible (see [this](#keybindings) for full reference).
   - Abuse __zsh__ autocomplete as much as possible. Wow, so less typing, so much fun stuff (I mean, eh, productivity)!
+  - Usefull toolbox of shell [functions](#functions) for any kind of common problems.
+  - Smart defaults, full custiomization.
 
 ### Keybindings:
 #### ZSH
@@ -78,12 +80,13 @@ _*_ means _global_.
 
 #### Ruby/Rails stuff:
 - [b] - __bundle(r)__.
-- [cov] - Show coverage in browser [simplecov gem](https://github.com/colszowka/simplecov).
+- [bu] - __bundle update__.
+- [cov] - Show coverage in default browser [simplecov gem](https://github.com/colszowka/simplecov).
 - [r] - __rvm__. (Because one ruby just isn't enought!)
 - [ri] - __rvm install__.
 - [rl] - __rvm list__.
 - [rlk] - __rvm list known__
-- [rr!!] - __rvm reinstall__. (Damn OpenSSl!)
+- [rr!] - __rvm reinstall__. (Damn OpenSSl!)
 - [rd!]  - __rvm remove__.
 - [ru] - __rvm use__.
 - [ru!] - __rvm use --default__.
@@ -192,3 +195,16 @@ _*_ means _global_.
 #### zsh stuff
 - [zref] - __source ~/.zshrc__.
 - [zref!] - __source ~/.zshrc; clear__.
+
+#### ssh stuff
+- [ssg] - generate new ssh keypair.
+- [ssc] - copy open key to clipboard.
+
+### functions
+__TODO__
+
+### variables
+- $EDITOR - terminal text editor  (default: nano).
+- $VISUAL - GUI text editor (default: atom).
+- $BROWSER - GUI web browser (default: firefox)
+- $GIT_EDITOR - (default: nano)

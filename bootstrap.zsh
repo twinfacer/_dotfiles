@@ -1,8 +1,11 @@
 # enviroment
+export PATH="$PATH:$DOTDIR/bin"
+
+# default tools
 export EDITOR="nano"
 export VISUAL="atom"
 export GIT_EDITOR="nano"
-export PATH="$PATH:$DOTDIR/bin"
+export DEFAULT_BROWSER="firefox"
 
 source_dir() {
   [ -d $1 ] || return
@@ -11,15 +14,15 @@ source_dir() {
   done
 }
 
-# load all stuff
+# load all stuff in order
 source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
+# replace defaults if any found
+# TODO: defaultize other things too
+export BROWSER=${BROWSER:-$DEFAULT_BROWSER}
+
 clear
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  local connection="over ssh";
-else
-  local connection="locally";
-fi
-echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive $(pp $connection 75)"
+
+echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive $(pp $(_conn_type) 75)"
