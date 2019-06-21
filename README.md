@@ -20,7 +20,7 @@ curl -L "https://git.io/fNdqS" | zsh
 ### Usage:
 Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> You are ready!
 
-ssh to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
+__ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
 This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) fullstack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/ _ dir. Useful for per mashine configuration (env variables, credentials, hardware hacks, etc ...) and defaults override.
 
@@ -28,12 +28,12 @@ This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git
   - __zsh__ is shell of choice.
   - __tmux__ is multiplexor of choice. Mouse is on by default but __tmux__ is configured to be mousless as possible.
   - Easy navigation via __AUTO_CD__ zsh option && integrated [__wd__](https://github.com/mfaerevaag/wd). Wow, so much speed!
-  - Alias all the things! (Over ~120 aliases for linux, git and other tools, see [this](#aliases) for full reference)
+  - Alias all the things! (Over ~130 aliases for linux, git and other tools, see [this](#aliases) for full reference)
   - Colorize all the things! Most usual terminal stuff (grep/ls/git/etc...) is colorized by default.
   - Mouse is aweful, so keybind as much as possible (see [this](#keybindings) for full reference).
   - Abuse __zsh__ autocomplete as much as possible. Wow, so less typing, so much fun stuff (I mean, eh, productivity)!
   - Usefull toolbox of shell [functions](#functions) for any kind of common problems.
-  - Smart defaults, full custiomization.
+  - Smart [defaults](#variables), full custiomization.
 
 ### Keybindings:
 #### ZSH
@@ -68,10 +68,10 @@ _*_ means _global_.
 - [_, yolo] - __sudo__. (Just do it!)
 - [duh] - __du -h__ (Disc usage, huminized).
 - [duhs] - __du -sh__ (Disc usage, hummanized, summarize).
-- [ed] - __nano__ (when you too young for vim, simple but powerfull).
-- [ved] - __atom__ (stands for VISUAL EDITOR, stuff with GUI).
+- [ed] - __$EDITOR__.
+- [ved] - __$VISUAL__.
 - [h] - __man__ (RTFM && TLDR).
-- [wcl] - __wc -l__ (How many sweel aliases I have __alias | wcl__).
+- [wcl] - __wc -l__ (How many sweel aliases I have? __alias | wcl__).
 - [ll] __ls -lAhF__ (ls all as list for humans).
 - [m] - __mount__ ( Mount 'em!).
 - [nuke] - __rm -rf__( :city_sunrise: ).
@@ -123,9 +123,9 @@ _*_ means _global_.
 - [gcm] - __git commit -m__.
 - [gcma] - __git commit -am__.
 - [gcmt] - __git checkout master__.
-- [gcp] - __git cherry-pick__. ( :cherries: )
+- [gcp] - __git cherry-pick__. (:cherries:)
 - [gct] - __git checkout --track__.
-- [gd] - __git diff --color__
+- [gd] - __git diff --color__.
 - [gdc] - __git diff --color --cached HEAD__.
 - [gf] - __git fetch__.
 - [gfix] - __git add . ; git commit --amend__.
@@ -197,13 +197,13 @@ _*_ means _global_.
 - [zref!] - __source ~/.zshrc; clear__.
 
 #### ssh stuff
-- [ssg] - generate new ssh keypair.
+- [ssg] - generate new 4096 RSA keypair.
 - [ssc] - copy open key to clipboard.
 
-### functions
+### Functions
 __TODO__
 
-### variables
+### Variables
 - $EDITOR - terminal text editor  (default: nano).
 - $VISUAL - GUI text editor (default: atom).
 - $BROWSER - GUI web browser (default: firefox)
