@@ -5,6 +5,8 @@ alias rr="rails routes"
 alias rdm="rails db:migrate"
 alias rgm="rails generate migration"
 
+alias -g L3="localhost:3000"
+
 function _show_coverage() {
   coverage_file=$(pwd)/coverage/index.html
   [ -f $coverage_file ] || (echo "No coverage file found!" && return)

@@ -99,6 +99,7 @@ _*_ means _global_.
 - [rgl] - __gem list__.
 - [prconf] - __ved ~/.pryrc__.
 - [prh] - __ved ~/.pry_history__.
+- [L3]* - __localhost:3000__.
 
 #### Git stuff:
 - [mt]* - __master__ (your know, THAT branch).
