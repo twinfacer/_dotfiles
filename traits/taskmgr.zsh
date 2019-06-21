@@ -5,11 +5,11 @@ _task_number() {
 }
 
 _task_link() {
-  "$TASK_TRACKER_PATH$(_task_number)"
+  echo "$TASK_TRACKER_PATH$(_task_number)"
 }
 
 _task_open() {
-  $BROWSER _task_link
+  $BROWSER $(_task_link)
 }
 
 alias tk="_task_number"
