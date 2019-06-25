@@ -19,8 +19,9 @@ source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
-# replace defaults if any found
-# TODO: defaultize other things too
+# replace default apps if any override found
+export EDITOR=${EDITOR:-$DEFAULT_EDITOR}
+export VISUAL=${VISUAL:-$DEFAULT_VISUAL}
 export BROWSER=${BROWSER:-$DEFAULT_BROWSER}
 
 clear
