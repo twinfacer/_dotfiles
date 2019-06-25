@@ -10,7 +10,7 @@ alias -g L3="localhost:3000"
 function _show_coverage() {
   coverage_file=$(pwd)/coverage/index.html
   [ -f $coverage_file ] || (echo "No coverage file found!" && return)
-  firefox $coverage_file >/dev/null
+  $BROWSER $coverage_file >/dev/null
 }
 
 alias cov="_show_coverage"
