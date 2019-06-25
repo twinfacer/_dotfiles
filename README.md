@@ -205,6 +205,8 @@ _*_ means _global_.
 __TODO__
 
 ### Variables
+This environment variables controls most customizable apps.
+
 - $EDITOR - terminal text editor  (default: nano).
 - $VISUAL - GUI text editor (default: atom).
 - $BROWSER - GUI web browser (default: firefox)
