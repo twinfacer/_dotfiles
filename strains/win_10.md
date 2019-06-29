@@ -5,7 +5,6 @@
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
-  - Synced Out Of Box
   - [Packages](about:addons):
     - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
     - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/)
@@ -14,7 +13,7 @@
     - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
     - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
     - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
-  - [Deluge](https://deluge-torrent.org/)
+- [Deluge](https://deluge-torrent.org/)
 
 ### Development
 - [Atom](https://atom.io/)
