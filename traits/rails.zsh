@@ -14,3 +14,4 @@ function _show_coverage() {
 }
 
 alias cov="_show_coverage"
+alias tt="bundle exec rspec"
