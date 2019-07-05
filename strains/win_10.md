@@ -13,6 +13,7 @@
     - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
     - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
     - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
+- [Tor](https://www.torproject.org/download/)
 - [Deluge](https://deluge-torrent.org/)
 
 ### Development
@@ -28,6 +29,7 @@
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html)
 - [AIMP](http://ru.aimp.ru/?do=download)
+- [GIMP](https://www.gimp.org/downloads/)
 - Fl Studio 20
 
 ### Games
