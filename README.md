@@ -100,6 +100,8 @@ _*_ means _global_.
 - [prconf] - __ved ~/.pryrc__.
 - [prh] - __ved ~/.pry_history__.
 - [L3]* - __localhost:3000__.
+- [tt] - __bundle exec rspec__.
+
 
 #### Git stuff:
 - [mt]* - __master__ (your know, THAT branch).
