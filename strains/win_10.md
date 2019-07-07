@@ -6,13 +6,18 @@
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
   - [Packages](about:addons):
-    - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
-    - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/)
-    - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/)
-    - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/)
-    - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
-    - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
-    - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
+    - Privacy & AdBlockers:
+      - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
+      - [I don't care about cookies](https://addons.mozilla.org/ru/firefox/addon/i-dont-care-about-cookies/?src=search)
+      - [Privacy Badger](https://addons.mozilla.org/ru/firefox/addon/privacy-badger17/)
+      - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
+    - Utils:
+      - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/)
+      - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/)
+    - Web Development:
+      - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/)
+      - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
+      - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
 - [Tor](https://www.torproject.org/download/)
 - [Deluge](https://deluge-torrent.org/)
 
