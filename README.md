@@ -4,7 +4,7 @@
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
 
 ### System requirements:
-For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https://manjaro.org/), [cygwin](https://www.cygwin.com/) and [termux](https://termux.com/) shells.
+For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https://manjaro.org/), [cygwin](https://www.cygwin.com/) and [termux](https://termux.com/) shells. But probably on other distros too.
 Required packages:
 - [git](https://git-scm.com/)
 - [zsh](http://zsh.sourceforge.net/)
