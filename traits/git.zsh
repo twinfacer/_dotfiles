@@ -17,6 +17,12 @@ alias gbc!='git branch -C'
 alias gbm='git branch -m'
 alias gbm!='git branch -M'
 alias gbum="git branch --no-merged=master"
+# bisect
+alias gbs="git bisect"
+alias gbss="git bisect start"
+alias gbsb="git bisect bad"
+alias gbsg="git bisect good"
+alias gbsr="git bisect reset"
 # checkout
 alias gc='git checkout'
 alias gcb='git checkout -b'
