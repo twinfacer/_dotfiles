@@ -20,11 +20,11 @@
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
 - [Tor](https://www.torproject.org/download/)
 - [Deluge](https://deluge-torrent.org/)
+- [OpenVPN](https://openvpn.net/community-downloads/)
 
 ### Development
 - [Atom](https://atom.io/)
-  - Packages:
-
+- [Cygwin](https://www.cygwin.com/setup-x86_64.exe)
 - [Github Desktop](https://desktop.github.com/)
 
 ### Tweaks & Utils
