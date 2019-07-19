@@ -35,10 +35,13 @@ git_prompt() {
 }
 
 rvm_prompt() {
-  echo "No RVM" && return
-  local icon=$(icon "\ue21e")
-  local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
-  echo " $icon $ruby_version "
+  if [[ -d $HOME/.rvm ]]; then
+    local icon=$(icon "\ue21e")
+    local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
+    echo " $icon $ruby_version "
+  else
+    echo "No RVM"
+  fi
 }
 
 build_segment() {
