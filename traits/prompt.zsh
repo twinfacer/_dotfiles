@@ -76,8 +76,8 @@ build_prompt() {
   local segments_varname=${(U)position}_SEGMENTS
   local default_segments_varname=DEFAULT_${segments_varname}
   segments=(${${(P)segments_varname}:-${(P)default_segments_varname}})
-  for segment_index in {1..${#segments[@]}}; do
-    local segment_name=${segments[$segment_index]}
+  for index in {1..${#segments[@]}}; do
+    local segment_name=${segments[$index]}
     local fg_varname=${(U)segment_name}_PROMPT_FG_COLOR
     local bg_varname=${(U)segment_name}_PROMPT_BG_COLOR
     local segment_fg=${${(P)fg_varname}:-008}
@@ -86,31 +86,22 @@ build_prompt() {
     if [[ -z $segment ]]; then
       echo "empty!"
     else
-      if [[ $segment_index == 1 ]]; then
-        if [[ $position == 'right' ]]; then
-          _prompt+="$(build_segment right_separator transparent $segment_bg)"
-        fi
+      if [[ $index == 1 && $position == 'right' ]]; then
+        _prompt+="$(build_segment right_separator transparent $segment_bg)"
       fi
       _prompt+="$segment"
-
-      if [[ $segment_index == ${#segments[@]} ]]; then
-        #  Is prompt position == 'left' ? -> INSERT left separator
+      if [[ $index == ${#segments[@]} ]]; then
         if [[ $position == 'left' ]]; then
           _prompt+="$(build_segment left_separator transparent $segment_bg) "
         fi
-        #  Is prompt position == 'right' ? -> NOP
       else
-        # Am I in the middle ? ->
-        #  Is prompt position == 'left' ? -> INSERT left separator
-        #  Is prompt position == 'right' ? -> NOP
-        next_segment_name=${segments[$(($segment_index + 1))]}
-        # echo "next_segment_name: $next_segment_name"
+        next_segment_name=${segments[$(($index + 1))]}
         next_bg_varname=${(U)next_segment_name}_PROMPT_BG_COLOR
         next_segment_bg=${${(P)next_bg_varname}:-blue}
         if [[ $position == 'left' ]]; then
-          _prompt+="$(build_segment left_separator $next_segment_bg $segment_bg)"
+          _prompt+="$(build_segment ${position}_separator $next_segment_bg $segment_bg)"
         else
-          _prompt+="$(build_segment right_separator $segment_bg $next_segment_bg )"
+          _prompt+="$(build_segment ${position}_separator $segment_bg $next_segment_bg )"
         fi
       fi
     fi
