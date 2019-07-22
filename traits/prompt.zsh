@@ -1,38 +1,60 @@
 setopt PROMPT_SUBST
 
+export DEFAULT_LEFT_SEGMENTS=(status path)
+export DEFAULT_RIGHT_SEGMENTS=(git rvm)
+
 # promt parts
-mode_prompt() {
-  # TODO: Add last exit status
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    local connection="f817";
-  else
-    local connection="fcb5";
-  fi
-  echo " $(icon $connection) "
+left_separator_prompt() {
+  echo "$(icon e0b0)"
 }
+
+right_separator_prompt() {
+  echo "$(icon e0b2)"
+}
+
+export STATUS_PROMPT_BG_COLOR="yellow"
+
+status_prompt() {
+  # TODO: Fix me
+  if [[ $? -eq 0 ]]; then
+    local color=008;
+  else
+    local color=red;
+  fi
+  echo " %F{$color}$(icon 'fcb5')%f "
+}
+
+export PATH_PROMPT_BG_COLOR="blue"
 
 path_prompt() {
-  local current_path=$(pwd | sed "s:$HOME:~:")
-  echo " $current_path "
+  echo " $(pwd | sed "s:$HOME:~:") "
 }
 
+export GIT_PROMPT_BG_COLOR="green"
+
 git_prompt() {
-  local current_branch=$(git_current_branch)
-  local branch_type_icon=$(icon "e725")
-  local bug_icon=$(icon "f188")
-  if [[ $current_branch =~ 'feature/' ]]; then
-    current_branch=${current_branch//feature\//}
-  elif [[ $current_branch =~ 'bugfix/' ]]; then
-    current_branch=${current_branch//bugfix\//}
-    branch_type_icon=$bug_icon
-  fi
-  if [[ -n $(git status -s) ]]; then
-    local status_color=yellow
+  if [[ -d "./.git" ]]; then
+    local current_branch=$(git_current_branch)
+    local branch_type_icon=$(icon "e725")
+    local bug_icon=$(icon "f188")
+    if [[ $current_branch =~ 'feature/' ]]; then
+      current_branch=${current_branch//feature\//}
+    elif [[ $current_branch =~ 'bugfix/' ]]; then
+      current_branch=${current_branch//bugfix\//}
+      branch_type_icon=$bug_icon
+    fi
+    if [[ -n $(git status -s) ]]; then
+      local status_color=yellow
+    else
+      local status_color=black
+    fi
+    echo " %F{$status_color}$branch_type_icon%f %F{black}$current_branch%f "
   else
-    local status_color=black
+    echo ""
   fi
-  echo " %F{$status_color}$branch_type_icon%f %F{black}$current_branch%f "
 }
+
+export RVM_PROMPT_BG_COLOR="red"
 
 rvm_prompt() {
   if [[ -d $HOME/.rvm ]]; then
@@ -40,37 +62,61 @@ rvm_prompt() {
     local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
     echo " $icon $ruby_version "
   else
-    echo "No RVM"
+    echo ""
   fi
 }
 
 build_segment() {
-  local segment=$(colorize "$1" $2 $3)
-  echo "$segment"
+  echo $(colorize "$($1_prompt)" $2 $3)
 }
 
-build_left_prompt() {
-  local separator="e0b0"
+build_prompt() {
+  local position=$1
   local _prompt=""
-  _prompt+=$(build_segment "$(mode_prompt)" yellow black )
-  _prompt+=$(build_segment $(icon "$separator") blue yellow)
-  _prompt+=$(build_segment "$(path_prompt)" blue)
-  _prompt+=$(build_segment $(icon "$separator") transparent blue)
-  echo "${_prompt} "
-}
+  local segments_varname=${(U)position}_SEGMENTS
+  local default_segments_varname=DEFAULT_${segments_varname}
+  segments=(${${(P)segments_varname}:-${(P)default_segments_varname}})
+  for segment_index in {1..${#segments[@]}}; do
+    local segment_name=${segments[$segment_index]}
+    local fg_varname=${(U)segment_name}_PROMPT_FG_COLOR
+    local bg_varname=${(U)segment_name}_PROMPT_BG_COLOR
+    local segment_fg=${${(P)fg_varname}:-008}
+    local segment_bg=${${(P)bg_varname}:-blue}
+    local segment=$(build_segment $segment_name $segment_bg $segment_fg)
+    if [[ -z $segment ]]; then
+      echo "empty!"
+    else
+      if [[ $segment_index == 1 ]]; then
+        if [[ $position == 'right' ]]; then
+          _prompt+="$(build_segment right_separator transparent $segment_bg)"
+        fi
+      fi
+      _prompt+="$segment"
 
-build_right_prompt() {
-  local _prompt=""
-  if [[ -d "$(pwd)/.git" ]]; then
-    _prompt+=$(build_segment $(icon "e0b2") transparent green)
-    _prompt+=$(build_segment "$(git_prompt)" green black)
-    _prompt+=$(build_segment $(icon "e0b2") green red)
-  else
-    _prompt+=$(build_segment $(icon "e0b2") transparent red)
-  fi
-  _prompt+=$(build_segment "$(rvm_prompt)" red 008)
+      if [[ $segment_index == ${#segments[@]} ]]; then
+        #  Is prompt position == 'left' ? -> INSERT left separator
+        if [[ $position == 'left' ]]; then
+          _prompt+="$(build_segment left_separator transparent $segment_bg) "
+        fi
+        #  Is prompt position == 'right' ? -> NOP
+      else
+        # Am I in the middle ? ->
+        #  Is prompt position == 'left' ? -> INSERT left separator
+        #  Is prompt position == 'right' ? -> NOP
+        next_segment_name=${segments[$(($segment_index + 1))]}
+        # echo "next_segment_name: $next_segment_name"
+        next_bg_varname=${(U)next_segment_name}_PROMPT_BG_COLOR
+        next_segment_bg=${${(P)next_bg_varname}:-blue}
+        if [[ $position == 'left' ]]; then
+          _prompt+="$(build_segment left_separator $next_segment_bg $segment_bg)"
+        else
+          _prompt+="$(build_segment right_separator $segment_bg $next_segment_bg )"
+        fi
+      fi
+    fi
+  done
   echo -n "${_prompt}"
 }
 
-PROMPT='$(build_left_prompt)'
-RPROMPT='$(build_right_prompt)'
+PROMPT='$(build_prompt left)'
+RPROMPT='$(build_prompt right)'
