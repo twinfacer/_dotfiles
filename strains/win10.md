@@ -26,10 +26,11 @@
 - [Atom](https://atom.io/)
 - [Cygwin](https://www.cygwin.com/setup-x86_64.exe)
 - [Github Desktop](https://desktop.github.com/)
+- [Virtualbox](https://www.virtualbox.org/)
 
 ### Tweaks & Utils
 - [Punto Switcher](https://yandex.ru/soft/punto/)
-- WinRaR
+- [PeaZIP](https://www.peazip.org/)
 
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html)
