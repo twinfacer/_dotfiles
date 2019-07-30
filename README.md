@@ -17,7 +17,7 @@ via curl
 curl -L "https://git.io/fNdqS" | zsh
 ```
 
-### Usage:
+### Advanced Usage:
 Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> You are ready!
 
 __ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
