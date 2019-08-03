@@ -5,7 +5,7 @@
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
-  - [Packages](about:addons):
+  - [Addons](about:addons):
     - Privacy & AdBlockers:
       - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
       - [I don't care about cookies](https://addons.mozilla.org/ru/firefox/addon/i-dont-care-about-cookies/?src=search)
@@ -34,9 +34,9 @@
 
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html)
+  - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
 - [AIMP](http://ru.aimp.ru/?do=download)
 - [GIMP](https://www.gimp.org/downloads/)
-- Fl Studio 20
 
 ### Games
 - [Steam](https://store.steampowered.com/about/)
