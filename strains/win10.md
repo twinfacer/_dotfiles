@@ -22,10 +22,11 @@
 - [Deluge](https://deluge-torrent.org/)
 - [OpenVPN](https://openvpn.net/community-downloads/)
 
-### Development
+### Development/Work
 - [Atom](https://atom.io/)
 - [Cygwin](https://www.cygwin.com/setup-x86_64.exe)
 - [Github Desktop](https://desktop.github.com/)
+- [Libre Office](https://www.libreoffice.org/download/download/)
 - [Virtualbox](https://www.virtualbox.org/)
 
 ### Tweaks & Utils
