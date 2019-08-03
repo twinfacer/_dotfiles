@@ -1,7 +1,7 @@
 ### Core
 - Fresh Win10
   - __Enabled__: Volume Equalization
-  - __Tweak__: O&O ShutUp10 (Disables telemetry and stuff)
+  - __Tweak__: [O&O ShutUp10](https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe) (Disables telemetry and stuff)
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
@@ -41,6 +41,7 @@
 - [GIMP](https://www.gimp.org/downloads/)
 
 ### Games
+- [Battle.NET](https://www.blizzard.com/en-us/apps/battle.net/desktop)
 - [Steam](https://store.steampowered.com/about/)
 - [Forge](https://releases.cardforge.org/forge/forge-gui-desktop/)
 - [Heroes 3: HOTA](http://download.h3hota.com/HotA_full_setup)
