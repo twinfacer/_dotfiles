@@ -27,6 +27,7 @@
 - [Cygwin](https://www.cygwin.com/setup-x86_64.exe)
 - [Github Desktop](https://desktop.github.com/)
 - [Libre Office](https://www.libreoffice.org/download/download/)
+- [Postman](https://www.getpostman.com/downloads/)
 - [Virtualbox](https://www.virtualbox.org/)
 
 ### Tweaks & Utils
