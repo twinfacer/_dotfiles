@@ -2,6 +2,7 @@
 - Fresh Win10
   - __Enabled__: Volume Equalization
   - __Tweak__: [O&O ShutUp10](https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe) (Disables telemetry and stuff)
+  - __Tweak__: [Enable Photo Viewer](https://www.howtogeek.com/wp-content/uploads/2017/03/Activate-Windows-Photo-Viewer-on-Windows-10.zip)
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
