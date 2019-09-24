@@ -1,5 +1,7 @@
 # pacman (pac*)
 alias pacl="pacman -Q"
-alias pacr="sudo pacman -R"
+alias pacl!="pacman -Qe"
+alias pacs="pacman -Qo"
+alias pacr="sudo pacman -Rsu"
 alias pacu="sudo pacman -Suyy"
 alias pacc="sudo pacman -Scc"
