@@ -36,12 +36,12 @@ git_prompt() {
   if [[ -d "./.git" ]]; then
     local current_branch=$(git_current_branch)
     local branch_type_icon=$(icon "e725")
-    local bug_icon=$(icon "f188")
     if [[ $current_branch =~ 'feature/' ]]; then
       current_branch=${current_branch//feature\//}
+      branch_type_icon=$(icon "e726")
     elif [[ $current_branch =~ 'bugfix/' ]]; then
       current_branch=${current_branch//bugfix\//}
-      branch_type_icon=$bug_icon
+      branch_type_icon=$(icon "f188")
     fi
     if [[ -n $(git status -s) ]]; then
       local status_color=yellow
