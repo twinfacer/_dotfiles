@@ -1,4 +1,4 @@
-## \_dotflies 1.0.0
+## \_dotflies 1.0.1
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -202,9 +202,6 @@ _*_ means _global_.
 #### ssh stuff
 - [ssg] - generate new 4096 RSA keypair.
 - [ssc] - copy open key to clipboard.
-
-### Functions
-__TODO__
 
 ### Variables
 This environment variables controls most customizable apps.
