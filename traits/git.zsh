@@ -1,7 +1,11 @@
 # Global aliases
 alias -g hd='HEAD'
-alias -g h1='HEAD~1'
 alias -g mt='master'
+
+# Allows to quickly dig up to 10 levels of commits.
+for (( i = 1; i < 10; i++ )); do
+  alias -g "h$i"="HEAD~$i"
+done
 
 # add
 alias ga='git add'

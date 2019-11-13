@@ -1,4 +1,4 @@
-## \_dotflies
+## \_dotflies 1.0.0
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -28,7 +28,7 @@ This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git
   - __zsh__ is shell of choice.
   - __tmux__ is multiplexor of choice. Mouse is on by default but __tmux__ is configured to be mousless as possible.
   - Easy navigation via __AUTO_CD__ zsh option && integrated [__wd__](https://github.com/mfaerevaag/wd). Wow, so much speed!
-  - Alias all the things! (Over ~130 aliases for linux, git and other tools, see [this](#aliases) for full reference)
+  - Alias all the things! (Over ~165 aliases for linux, git and other tools, see [this](#aliases) for full reference)
   - Colorize all the things! Most usual terminal stuff (grep/ls/git/etc...) is colorized by default.
   - Mouse is aweful, so keybind as much as possible (see [this](#keybindings) for full reference).
   - Abuse __zsh__ autocomplete as much as possible. Wow, so less typing, so much fun stuff (I mean, eh, productivity)!
@@ -102,10 +102,9 @@ _*_ means _global_.
 - [L3]* - __localhost:3000__.
 - [tt] - __bundle exec rspec__.
 
-
 #### Git stuff:
-- [mt]* - __master__ (your know, THAT branch).
-- [h1]* - __HEAD~1__
+- [mt]* - __master__ (your know, __THAT__ branch).
+- [h1,h2,..,h10]* - __HEAD~1-10__, Allows to quickly dig up to 10 levels of commits from HEAD.
 - [hd]* - __HEAD__ (Where is my head)
 - [ga] - __git add__ (you know, adds your stuff to index).
 - [gaa] - __git add .; git status -s__ (add stuff, show stuff)
@@ -187,8 +186,8 @@ _*_ means _global_.
 
 #### WD stuff:
 - [wp] - __wd__ (aka warp directory).
-- [wpa] - wd add <name> (add current dir as waypoint named <name>)
-- [wpl] - wd list (lists all known waypoints)
+- [wpa] - __wd add <name>__ (add current dir as waypoint named <name>)
+- [wpl] - __wd list__ (lists all known waypoints)
 - [wpr] - __wd rm__ <name> (remove waypoint named <name>)
 
 #### JS stuff:
@@ -198,6 +197,7 @@ _*_ means _global_.
 #### zsh stuff
 - [zref] - __source ~/.zshrc__.
 - [zref!] - __source ~/.zshrc; clear__.
+- [zha] - archivates current history file for ZSH.
 
 #### ssh stuff
 - [ssg] - generate new 4096 RSA keypair.
