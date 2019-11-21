@@ -1,8 +1,16 @@
 ### Core
 - Fresh Win10
   - __Enabled__: Volume Equalization
+  - __Settings__: Display Resolution - 1920x1080
   - __Tweak__: [O&O ShutUp10](https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe) (Disables telemetry and stuff)
   - __Tweak__: [Enable Photo Viewer](https://www.howtogeek.com/wp-content/uploads/2017/03/Activate-Windows-Photo-Viewer-on-Windows-10.zip)
+  
+  - __Tweak__: KMSAuto Lite Portable v1.5.6
+### Utility
+- [CPU-Z]
+- [Punto Switcher](https://yandex.ru/soft/punto/)
+- [PeaZIP](https://www.peazip.org/)
+- [WinCDEmu]
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
@@ -13,6 +21,7 @@
       - [Privacy Badger](https://addons.mozilla.org/ru/firefox/addon/privacy-badger17/)
       - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
     - Utils:
+      - [VkOpt]()
       - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/)
       - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/)
     - Web Development:
@@ -31,15 +40,15 @@
 - [Postman](https://www.getpostman.com/downloads/)
 - [Virtualbox](https://www.virtualbox.org/)
 
-### Tweaks & Utils
-- [Punto Switcher](https://yandex.ru/soft/punto/)
-- [PeaZIP](https://www.peazip.org/)
-
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html)
   - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
 - [AIMP](http://ru.aimp.ru/?do=download)
 - [GIMP](https://www.gimp.org/downloads/)
+- [OBS Studio] 
+- [Fl-Studio 20] 
+  -> [Plugin] Xfer Serum
+- [MusicBranz Picard] 
 
 ### Games
 - [Battle.NET](https://www.blizzard.com/en-us/apps/battle.net/desktop)
@@ -50,3 +59,5 @@
 ### Libs
 - [Java](https://java.com/ru/download/)
   - __Disable__: Updates
+- [AMD Radeon Display Driver]
+- [Microsoft Visual C++ 2008 Service Pack 1 Redistributable Package] 
