@@ -59,5 +59,5 @@
 ### Libs
 - [Java](https://java.com/ru/download/)
   - __Disable__: Updates
-- [AMD Radeon Display Driver]
-- [Microsoft Visual C++ 2008 Service Pack 1 Redistributable Package]
+- [AMD Radeon Display Driver](https://www.amd.com/en/support)
+- [Microsoft Visual C++ 2008 Service Pack 1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=26368)
