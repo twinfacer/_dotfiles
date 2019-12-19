@@ -29,16 +29,16 @@
       - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/)
       - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
-- [Tor](https://www.torproject.org/download/) - Deep web Browser.
+- [Tor](https://www.torproject.org/download/) - Deep web browser.
 - [Deluge](https://deluge-torrent.org/) - Torrent client.
 - [OpenVPN](https://openvpn.net/community-downloads/) - Free && cross-platform VPN client.
 
 ### Development/Work
-- [Libre Office](https://www.libreoffice.org/download/download/) -Fre office suite.
+- [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Atom](https://atom.io/) - 
 - [Cygwin](https://www.cygwin.com/setup-x86_64.exe) - *nix-like shell emulator.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
-- [Virtualbox](https://www.virtualbox.org/) - Hypervisor.
+- [Virtualbox](https://www.virtualbox.org/) - VM Hypervisor.
 
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
