@@ -8,13 +8,13 @@
 
 ## Apps
 ### Utility
-- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html)
-- [Punto Switcher](https://yandex.ru/soft/punto/)
-- [PeaZIP](https://www.peazip.org/)
-- [WinCDEmu](http://wincdemu.sysprogs.org/)
+- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - System information utility.
+- [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher.
+- [PeaZIP](https://www.peazip.org/) - Archiver.
+- [WinCDEmu](http://wincdemu.sysprogs.org/) - CD/DVD emulator.
 
 ### Internet
-- [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/)
+- [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/) - Web browser.
   - [Addons](about:addons):
     - Privacy & AdBlockers:
       - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
@@ -29,26 +29,27 @@
       - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/)
       - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
-- [Tor](https://www.torproject.org/download/)
-- [Deluge](https://deluge-torrent.org/)
-- [OpenVPN](https://openvpn.net/community-downloads/)
+- [Tor](https://www.torproject.org/download/) - Deep web Browser.
+- [Deluge](https://deluge-torrent.org/) - Torrent client.
+- [OpenVPN](https://openvpn.net/community-downloads/) - Free && cross-platform VPN client.
 
 ### Development/Work
-- [Libre Office](https://www.libreoffice.org/download/download/)
-- [Atom](https://atom.io/)
-- [Cygwin](https://www.cygwin.com/setup-x86_64.exe)
-- [Postman](https://www.getpostman.com/downloads/)
-- [Virtualbox](https://www.virtualbox.org/)
+- [Libre Office](https://www.libreoffice.org/download/download/) -Fre office suite.
+- [Atom](https://atom.io/) - 
+- [Cygwin](https://www.cygwin.com/setup-x86_64.exe) - *nix-like shell emulator.
+- [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
+- [Virtualbox](https://www.virtualbox.org/) - Hypervisor.
 
 ### Multimedia
-- [VLC](https://www.videolan.org/vlc/index.ru.html)
+- [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
   - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
-- [AIMP](http://ru.aimp.ru/?do=download)
-- [GIMP](https://www.gimp.org/downloads/)
-- [OBS Studio](https://obsproject.com/)
-- [Fl-Studio 20](https://www.image-line.com/flstudio/)
-  -> [Plugin] Xfer Serum
-- [MusicBranz Picard](https://picard.musicbrainz.org/)
+- [AIMP](http://ru.aimp.ru/?do=download) - Audio player.
+  - -> TODO: Plugins && Settings with sync
+- [GIMP](https://www.gimp.org/downloads/) - Image editor.
+- [OBS Studio](https://obsproject.com/) - Open broadcast software.
+- [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW.
+  - -> [Plugin] Xfer Serum
+- [MusicBranz Picard](https://picard.musicbrainz.org/) - Music identification and classification.
 
 ### Games
 - [Battle.NET](https://www.blizzard.com/en-us/apps/battle.net/desktop)
