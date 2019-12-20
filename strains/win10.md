@@ -31,6 +31,7 @@
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
 - [Tor](https://www.torproject.org/download/) - Deep web browser.
 - [Deluge](https://deluge-torrent.org/) - Torrent client.
+  - Settings/Queue: `Total Active torrent` Up to 20.
 - [OpenVPN](https://openvpn.net/community-downloads/) - Free && cross-platform VPN client.
 
 ### Development/Work
