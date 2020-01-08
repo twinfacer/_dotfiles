@@ -36,7 +36,7 @@
 
 ### Development/Work
 - [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
-- [Atom](https://atom.io/) - 
+- [Atom](https://atom.io/) - Text editing powerhorse.
 - [Cygwin](https://www.cygwin.com/setup-x86_64.exe) - *nix-like shell emulator.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
 - [Virtualbox](https://www.virtualbox.org/) - VM Hypervisor.
@@ -44,8 +44,7 @@
 ### Multimedia
 - [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
   - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
-- [AIMP](http://ru.aimp.ru/?do=download) - Audio player.
-  - -> TODO: Plugins && Settings with sync
+- [AIMP](http://ru.aimp.ru/?do=download) - Audio Swiss army knife (Player/MP3 Tag Editor/Converter/Renamer).
 - [GIMP](https://www.gimp.org/downloads/) - Image editor.
 - [OBS Studio](https://obsproject.com/) - Open broadcast software.
 - [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW.
