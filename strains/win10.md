@@ -1,6 +1,6 @@
 ## Core
 - Fresh Win10
-  - __Enabled__: Volume Equalization
+  - __Enabled__: Loudness Equalization
   - __Settings__: Display Resolution - 1920x1080
   - __Tweak__: [O&O ShutUp10](https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe) (Disables telemetry and stuff)
   - __Tweak__: [Enable Photo Viewer](https://www.howtogeek.com/wp-content/uploads/2017/03/Activate-Windows-Photo-Viewer-on-Windows-10.zip)
@@ -12,23 +12,24 @@
 - [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher.
 - [PeaZIP](https://www.peazip.org/) - Archiver.
 - [WinCDEmu](http://wincdemu.sysprogs.org/) - CD/DVD emulator.
+- [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files.
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/) - Web browser.
   - [Addons](about:addons):
     - Privacy & AdBlockers:
-      - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/)
-      - [I don't care about cookies](https://addons.mozilla.org/ru/firefox/addon/i-dont-care-about-cookies/?src=search)
-      - [Privacy Badger](https://addons.mozilla.org/ru/firefox/addon/privacy-badger17/)
-      - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/)
+      - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/) - Free VPN.
+      - [I don't care about cookies](https://addons.mozilla.org/ru/firefox/addon/i-dont-care-about-cookies/?src=search) - Who cares about cookies?)
+      - [Privacy Badger](https://addons.mozilla.org/ru/firefox/addon/privacy-badger17/) - Stop tracking my activity!
+      - [uBlock Origin](https://addons.mozilla.org/ru/firefox/addon/ublock-origin/) - Fast and furious ad blocker.
     - Utils:
-      - [VkOpt](https://vkopt.net/)
-      - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/)
-      - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/)
+      - [VkOpt](https://vkopt.net/) - vk.com social network enchancer.
+      - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/) - Check mails from gmail.com .
+      - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/) - Enable gestures, very productive.
     - Web Development:
-      - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/)
-      - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/)
-      - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/)
+      - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/) - To run custom js/css on sites.
+      - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/) - github/gitlab repo utility.
+      - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/) - Identify web technologies used by sites.
 - [Tor](https://www.torproject.org/download/) - Deep web browser.
 - [Deluge](https://deluge-torrent.org/) - Torrent client.
   - Settings/Queue: `Total Active torrent` Up to 20.
@@ -48,7 +49,7 @@
 - [GIMP](https://www.gimp.org/downloads/) - Image editor.
 - [OBS Studio](https://obsproject.com/) - Open broadcast software.
 - [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW.
-  - -> [Plugin] Xfer Serum
+  - -> [Plugin] Xfer Serum - One of the best wavetable synth.
 - [MusicBranz Picard](https://picard.musicbrainz.org/) - Music identification and classification.
 
 ### Games
