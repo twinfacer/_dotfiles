@@ -71,7 +71,7 @@ _*_ means _global_.
 - [ed] - __$EDITOR__.
 - [ved] - __$VISUAL__.
 - [h] - __man__ (RTFM && TLDR).
-- [wcl] - __wc -l__ (How many sweel aliases I have? __alias | wcl__).
+- [wcl] - __wc -l__ (How many sweet aliases I have? __alias | wcl__).
 - [ll] __ls -lAhF__ (ls all as list for humans).
 - [m] - __mount__ ( Mount 'em!).
 - [nuke] - __rm -rf__( :city_sunrise: ).
