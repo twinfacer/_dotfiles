@@ -210,3 +210,14 @@ This environment variables controls most customizable apps.
 - $VISUAL - GUI text editor (default: atom).
 - $BROWSER - GUI web browser (default: firefox)
 - $GIT_EDITOR - (default: nano)
+
+### Functions
+
+- callable $1 - Is $1 is available on my mashine?
+- mute $1 - Suppress all output from command $1
+- peek - Smart FS lookup utility.
+- serve - File serve from current directory using `ruby`.
+
+
+
+
