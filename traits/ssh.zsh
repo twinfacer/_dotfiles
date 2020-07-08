@@ -8,5 +8,5 @@ function _conn_type() {
   fi
 }
 
-alias ssg="ssh-keygen -t rsa -b 4096 -C"
+alias ssg="ssh-keygen -t rsa -b 4096"
 alias ssc="cat ~/.ssh/id_rsa.pub | clipcopy"
