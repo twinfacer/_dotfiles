@@ -1,4 +1,4 @@
-## \_dotflies 1.0.4
+## \_dotflies 1.0.5
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -217,7 +217,3 @@ This environment variables controls most customizable apps.
 - mute $1 - Suppress all output from command $1
 - peek - Smart FS lookup utility.
 - serve - File serve from current directory using `ruby`.
-
-
-
-
