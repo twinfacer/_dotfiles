@@ -39,7 +39,10 @@ alias gcmt='git checkout master'
 # cherry-pick
 alias gcp='git cherry-pick'
 # git clone
-alias gcl='git clone'
+_git_clone_and_cd() {
+  git clone $1 && cd $(basename $1 .git)
+}
+alias gcl='_git_clone_and_cd'
 # commit
 alias gcm='git commit -m'
 alias gcma='git commit -am'
