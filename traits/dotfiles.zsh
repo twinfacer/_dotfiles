@@ -18,8 +18,10 @@ _check_versions() {
 }
 
 _refresh_dotfiles() {
-  if [[ _get_dotfiles_local_version -eq _get_dotfiles_remote_version]]; then
-    echo "No update required! Latest version (pp $(_get_dotfiles_local_version) green) already installed"
+  local old=$(_get_dotfiles_local_version)
+  local new=$(_get_dotfiles_remote_version)
+  if [ $old = $new ]; then
+    echo "No update required! Latest version $(pp $new green) already installed"
   else
     local return_dir=$(pwd)
     cd $DOTDIR
@@ -28,7 +30,7 @@ _refresh_dotfiles() {
     cd $return_dir
     source ~/.zshrc
     clear
-    echo "Version $(pp $(_get_dotfiles_local_version) green) successfully installed!"
+    echo "Version $new successfully installed!""
   fi
 }
 
