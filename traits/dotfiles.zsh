@@ -26,6 +26,9 @@ _refresh_dotfiles() {
     # TODO: add guard if $DOTDIR is dirty
     git pull origin master &> /dev/null
     cd $return_dir
+    source ~/.zshrc
+    clear
+    echo "Version $(pp $(_get_dotfiles_local_version) green) successfully installed!"
   fi
 }
 
