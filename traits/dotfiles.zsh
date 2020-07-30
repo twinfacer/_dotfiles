@@ -25,4 +25,5 @@ _refresh_dotfiles() {
   cd $return_dir
 }
 
+alias dcomp="_compare_dotfiles"
 alias dref="_refresh_dotfiles"
