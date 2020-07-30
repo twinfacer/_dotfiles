@@ -44,7 +44,7 @@ git_prompt() {
       branch_type_icon=$(icon "f188")
     fi
     if [[ -n $(git status -s) ]]; then
-      local status_color=yellow
+      local status_color=red
     else
       local status_color=black
     fi
