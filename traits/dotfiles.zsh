@@ -14,16 +14,20 @@ _get_dotfiles_remote_version() {
 }
 
 _check_versions() {
-  echo "Local: ${_get_dotfiles_local_version}; Remote: ${_get_dotfiles_remote_version}"
+  echo "Local: $(pp $(_get_dotfiles_local_version) red); Remote: $(pp _get_dotfiles_remote_version green)"
 }
 
 _refresh_dotfiles() {
-  # TODO: add guard with version check
-  local return_dir=$(pwd)
-  cd $DOTDIR
-  git pull origin master &> /dev/null
-  cd $return_dir
+  if [[ _get_dotfiles_local_version -eq _get_dotfiles_remote_version]]; then
+    echo "No update required! Latest version (pp $(_get_dotfiles_local_version) green) already installed"
+  else
+    local return_dir=$(pwd)
+    cd $DOTDIR
+    # TODO: add guard if $DOTDIR is dirty
+    git pull origin master &> /dev/null
+    cd $return_dir
+  fi
 }
 
-alias dcomp="_compare_dotfiles"
+alias dcomp="_check_versions"
 alias dref="_refresh_dotfiles"
