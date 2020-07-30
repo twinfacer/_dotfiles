@@ -9,7 +9,7 @@ _get_dotfiles_local_version() {
 }
 
 _get_dotfiles_remote_version() {
-  local remote_path="https://raw.githubusercontent.com/twinfacer/_dotfiles/master/README.md"
+  local remote_path='https://raw.githubusercontent.com/twinfacer/_dotfiles/master/README.md'
   curl -s $remote_path | head -n 1 - | _extract_semver
 }
 
@@ -30,7 +30,8 @@ _refresh_dotfiles() {
     cd $return_dir
     source ~/.zshrc
     clear
-    echo "Version $new successfully installed!""
+    # TODO: Find out why dquotes behaves so unexpectingly
+    echo Version $(pp $new green) successfully installed!
   fi
 }
 
