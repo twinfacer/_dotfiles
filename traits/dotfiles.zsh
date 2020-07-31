@@ -14,7 +14,7 @@ _get_dotfiles_remote_version() {
 }
 
 _check_versions() {
-  echo "Local: $(pp $(_get_dotfiles_local_version) red); Remote: $(pp _get_dotfiles_remote_version green)"
+  echo "Local: $(pp $(_get_dotfiles_local_version) red); Remote: $(pp $(_get_dotfiles_remote_version) green)"
 }
 
 _refresh_dotfiles() {
