@@ -2,10 +2,10 @@
 export PATH="$PATH:$DOTDIR/bin"
 
 # default tools
-export EDITOR="nano"
-export VISUAL="atom"
-export GIT_EDITOR="nano"
+export DEFAULT_EDITOR="nano"
+export DEFAULT_VISUAL="atom"
 export DEFAULT_BROWSER="firefox"
+export GIT_EDITOR="nano"
 
 source_dir() {
   [ -d $1 ] || return
@@ -19,7 +19,7 @@ source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
-# replace default apps if any override found
+# set default apps unless any override found
 export EDITOR=${EDITOR:-$DEFAULT_EDITOR}
 export VISUAL=${VISUAL:-$DEFAULT_VISUAL}
 export BROWSER=${BROWSER:-$DEFAULT_BROWSER}
