@@ -122,7 +122,7 @@ _*_ means _global_.
 - [gc] - __git checkout__.
 - [gcb] - __git checkout -b__.
 - [gcf] - __git_checkout_feature__.
-- [gcl] - __git clone__.
+- [gcl] - Clones repo and cd's into it.
 - [gcm] - __git commit -m__.
 - [gcma] - __git commit -am__.
 - [gcmt] - __git checkout master__.
