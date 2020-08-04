@@ -80,7 +80,7 @@ _*_ means _global_.
 
 #### Ruby/Rails stuff:
 - [b] - __bundle(r)__.
-- [bu] - __bundle update__.
+- [bu] - __bundle update --conservative__.
 - [be] - __bundle exec__.
 - [cov] - Show coverage in default browser [simplecov gem](https://github.com/colszowka/simplecov).
 - [r] - __rvm__. (Because one ruby just isn't enought!)
