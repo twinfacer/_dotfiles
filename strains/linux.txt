@@ -1,0 +1,3 @@
+#
+terminal color scheme - solorized
+terminal text color #ebdbb2
