@@ -1,5 +1,6 @@
 #! /usr/bin/zsh
-DOTFILES_REPO=https://github.com/twinfacer/_dotfiles.git
+
+DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/twinfacer/_dotfiles.git}
 DOTDIR=${DOTDIR:-$HOME/.dotfiles}
 
 # toolbox
