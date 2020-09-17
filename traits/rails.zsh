@@ -15,3 +15,18 @@ function _show_coverage() {
 
 alias cov="_show_coverage"
 alias tt="bundle exec rspec"
+
+localize() {
+  sed -i "s|gem '$1'|gem '$1', path: '../$1' #|" Gemfile
+}
+
+delocalize() {
+  sed -i "s|gem '$1', path: '../$1' #|gem '$1'|" Gemfile
+}
+
+upd() {
+  localize $1
+  bundle install
+  delocalize $1
+  bundle install
+}
