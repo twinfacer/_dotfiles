@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
-
-# peek - smart filesystem lookup utility 
+# require 'ls cat wc pwd'
+# peek - smart filesystem lookup utility.
 # Display content of directory (current directory without arguments) of file (paginated if required).
 
 if [[ -d $1 || -z $1 ]]; then
