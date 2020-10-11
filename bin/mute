@@ -1,4 +1,5 @@
 #! /usr/bin/zsh
+# Utility that suppresses all output from noisy command.
+# Usage: -- mute npm i
 
-# Utility that suppresses all output from command
 eval "$@" 2>&1 1>/dev/null
