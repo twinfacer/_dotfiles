@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# require 'ls cat wc pwd'
+# require 'ls cat wc less'
 # peek - smart filesystem lookup utility.
 # Display content of directory (current directory without arguments) of file (paginated if required).
 
