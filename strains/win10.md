@@ -8,11 +8,11 @@
 
 ## Apps
 ### Utility
-- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - System information utility.
+- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - Hardware information utility.
 - [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher.
 - [PeaZIP](https://www.peazip.org/) - Archiver.
 - [WinCDEmu](http://wincdemu.sysprogs.org/) - CD/DVD emulator.
-- [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files.
+- [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files for various stupid reasons.
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/) - Web browser.
@@ -46,7 +46,7 @@
 - [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
   - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
 - [AIMP](http://ru.aimp.ru/?do=download) - Audio Swiss army knife (Player/MP3 Tag Editor/Converter/Renamer).
-- [GIMP](https://www.gimp.org/downloads/) - Image editor.
+- [GIMP](https://www.gimp.org/downloads/) - GNU Image Manipulation Program.
 - [OBS Studio](https://obsproject.com/) - Open broadcast software.
 - [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW.
   - -> [Plugin] Xfer Serum - One of the best wavetable synth.
