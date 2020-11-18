@@ -1,3 +1,4 @@
+callable pacman || return
 # pacman (pac*)
 alias pacl="pacman -Q"
 alias pacl!="pacman -Qe"

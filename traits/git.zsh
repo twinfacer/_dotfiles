@@ -38,7 +38,7 @@ alias gct='git checkout --track'
 alias gcmt='git checkout master'
 # cherry-pick
 alias gcp='git cherry-pick'
-# git clone
+# clone
 _git_clone_and_cd() {
   git clone $1 && cd $(basename $1 .git)
 }
@@ -87,5 +87,5 @@ alias gss='git stash save -u'
 alias gsl='git stash list'
 alias gsa='git stash apply'
 alias gsd='git stash drop'
-
+# misc
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'

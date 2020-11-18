@@ -1,4 +1,5 @@
 alias _="sudo"
+alias yolo="sudo"
 alias p="echo"
 alias h="man"
 alias m="mount"
@@ -17,4 +18,3 @@ alias duh="du -h"
 alias duhs="du -sh"
 
 alias nuke="rm -rf"
-alias yolo="sudo"
