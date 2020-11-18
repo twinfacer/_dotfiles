@@ -1,4 +1,4 @@
-## \_dotflies 1.0.22
+## \_dotflies 1.0.23
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -102,13 +102,18 @@ _*_ means _global_.
 - [prh] - __ved ~/.pry_history__.
 - [L3]* - __localhost:3000__.
 - [tt] - __bundle exec rspec__.
+- [dbup] - __rake db:create db:migrate db:seed__.
+- [dbup!] - __rake db:drop db:create db:migrate db:seed__.
+
+- [localize GEM_NAME] - replace GEM_NAME with local copy ($LOCALIZED_GEM_PREFIX(default: ~/projects/)).
+- [delocalize GEM_NAME] - return localized GEM_NAME to normal remote fetching. 
 
 #### Git stuff:
 - [mt]* - __master__ (your know, __THAT__ branch).
 - [h1,h2,..,h10]* - __HEAD~1-10__, Allows to quickly dig up to 10 levels of commits from HEAD.
 - [hd]* - __HEAD__ (Where is my head)
 - [ga] - __git add__ (you know, adds your stuff to index).
-- [gaa] - __git add .; git status -s__ (add stuff, show stuff)
+- [gaa] - __git add .; git status -s__ (add all changed stuff, show stuff in staging area)
 - [gae] - __git add -e__ (when simple __git add__ just isn't enough).
 - [gb] - __git --no-pager branch__ (I'm groot!).
 - [gbc] - __git branch -c__.
@@ -152,10 +157,10 @@ _*_ means _global_.
 - [grt] - __git reset__.
 - [grt!] - __git reset --hard__
 - [gsa] - __git stash apply__.
-- [gsd] - __git stash drop__.
-- [gsh] - __git show__.
 - [gsl] - __git stash list__.
+- [gsd] - __git stash drop__.
 - [gss] - __git stash save -u__.
+- [gsh] - __git show__.
 - [gst] - __git status -s__.
 - [gwip] - Add all files to index and commit them with temp name. Usefull for fast branch switching.
 

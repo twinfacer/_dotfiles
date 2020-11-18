@@ -5,6 +5,9 @@ alias rr="rails routes"
 alias rdm="rails db:migrate"
 alias rgm="rails generate migration"
 
+alias dbup="rake db:create db:migrate db:seed"
+alias dbup!="rake db:drop db:create db:migrate db:seed"
+
 alias -g L3="localhost:3000"
 
 function _show_coverage() {
@@ -16,12 +19,14 @@ function _show_coverage() {
 alias cov="_show_coverage"
 alias tt="bundle exec rspec"
 
+export LOCALIZED_GEM_PREFIX=${LOCALIZED_GEM_PREFIX:-~/projects/}
+
 localize() {
-  sed -i "s|gem '$1'|gem '$1', path: '../$1' #|" Gemfile
+  sed -i -e "s|gem '$1'|gem '$1', path: '$LOCALIZED_GEM_PREFIX$1' #|" Gemfile
 }
 
 delocalize() {
-  sed -i "s|gem '$1', path: '../$1' #|gem '$1'|" Gemfile
+  sed -i -e "s|gem '$1', path: '$LOCALIZED_GEM_PREFIX$1' #|gem '$1'|" Gemfile
 }
 
 upd() {
