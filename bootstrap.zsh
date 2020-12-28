@@ -8,7 +8,7 @@ export DEFAULT_BROWSER="firefox"
 export GIT_EDITOR="nano"
 
 source_dir() {
-  ([ -d $1 ] && [ -z "$(ls -A $1)" ]) || return
+  ([ -d $1 ] && ![ -z "$(ls -A $1)" ]) || return
   for source_file ($1/*.zsh); do
     [ -f $source_file ] && source $source_file
   done
