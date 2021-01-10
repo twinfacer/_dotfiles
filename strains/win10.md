@@ -1,6 +1,5 @@
 ## Core
 - Fresh Win10
-  - __Enabled__: Loudness Equalization
   - __Settings__: Display Resolution - 1920x1080
   - __Tweak__: [O&O ShutUp10](https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe) (Disables telemetry and stuff)
   - __Tweak__: [Enable Photo Viewer](https://www.howtogeek.com/wp-content/uploads/2017/03/Activate-Windows-Photo-Viewer-on-Windows-10.zip)
