@@ -10,6 +10,7 @@
 - [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - Hardware information utility.
 - [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher.
 - [PeaZIP](https://www.peazip.org/) - Archiver.
+- [Process Hacker](https://processhacker.sourceforge.io/downloads.php) - Advanced system monitor utility.
 - [WinCDEmu](http://wincdemu.sysprogs.org/) - CD/DVD emulator.
 - [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files for various stupid reasons.
 
@@ -29,6 +30,7 @@
       - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/) - To run custom js/css on sites.
       - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/) - github/gitlab repo utility.
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/) - Identify web technologies used by sites.
+- [Teamviewer](https://www.teamviewer.com/en/teamviewer-automatic-download/) - RDP client of choice.
 - [Tor](https://www.torproject.org/download/) - Deep web browser.
 - [Deluge](https://deluge-torrent.org/) - Torrent client.
   - Settings/Queue: `Total Active torrent` Up to 20.
