@@ -40,6 +40,7 @@
 - [Atom](https://atom.io/) - Text editing powerhorse.
 - [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
+- [Meld](https://meldmerge.org/) - Advanced comparison tool.
 - [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) - Native ssh client.
 - [Virtualbox](https://www.virtualbox.org/) - VM Hypervisor.
 
