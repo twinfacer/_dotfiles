@@ -7,12 +7,12 @@
 
 ## Apps
 ### Utility
-- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - Hardware information utility.
-- [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher.
+- [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - Hardware information utility (lacks HDD/SDD info).
+- [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher (made by Yandex, meh).
 - [PeaZIP](https://www.peazip.org/) - Archiver.
 - [Process Hacker](https://processhacker.sourceforge.io/downloads.php) - Advanced system monitor utility.
 - [WinCDEmu](http://wincdemu.sysprogs.org/) - CD/DVD emulator.
-- [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files for various stupid reasons.
+- [Unlocker](https://unlocker.ru.uptodown.com/windows/download) - In case you are unable to delete certain files for various stupid reasons. (Superseeds by Process Hacker?)
 
 ### Internet
 - [Firefox](https://www.mozilla.org/ru/firefox/download/thanks/) - Web browser.
@@ -27,7 +27,7 @@
       - [Checker Plus for Gmail](https://addons.mozilla.org/ru/firefox/addon/checker-plus-gmail/) - Check mails from gmail.com .
       - [Foxy Gestures](https://addons.mozilla.org/ru/firefox/addon/foxy-gestures/) - Enable gestures, very productive.
     - Web Development:
-      - [Custom Style Script](https://addons.mozilla.org/ru/firefox/addon/custom-style-script/) - To run custom js/css on sites.
+      - [Stylus](https://addons.mozilla.org/ru/firefox/addon/styl-us/) - To run custom js/css on sites.
       - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/) - github/gitlab repo utility.
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/) - Identify web technologies used by sites.
 - [Teamviewer](https://www.teamviewer.com/en/teamviewer-automatic-download/) - RDP client of choice.
