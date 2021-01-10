@@ -36,10 +36,10 @@
 - [OpenVPN](https://openvpn.net/community-downloads/) - Free && cross-platform VPN client.
 
 ### Development/Work
-- [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Atom](https://atom.io/) - Text editing powerhorse.
-- [Cygwin](https://www.cygwin.com/setup-x86_64.exe) - *nix-like shell emulator.
+- [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
+- [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) - Native ssh client.
 - [Virtualbox](https://www.virtualbox.org/) - VM Hypervisor.
 
 ### Multimedia
