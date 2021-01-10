@@ -45,14 +45,15 @@
 - [Virtualbox](https://www.virtualbox.org/) - VM Hypervisor.
 
 ### Multimedia
-- [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
-  - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
+- [ADSR Sample manager](https://www.adsrsounds.com/product/software/adsr-sample-manager/) - Sample library management utility.
 - [AIMP](http://ru.aimp.ru/?do=download) - Audio Swiss army knife (Player/MP3 Tag Editor/Converter/Renamer).
 - [GIMP](https://www.gimp.org/downloads/) - GNU Image Manipulation Program.
 - [OBS Studio](https://obsproject.com/) - Open broadcast software.
-- [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW.
+- [Fl-Studio 20](https://www.image-line.com/flstudio/) - DAW of choise.
   - -> [Plugin] Xfer Serum - One of the best wavetable synth.
 - [MusicBranz Picard](https://picard.musicbrainz.org/) - Music identification and classification.
+- [VLC](https://www.videolan.org/vlc/index.ru.html) - Video player.
+  - [eDark VLC Theme](https://www.videolan.org/vlc/download-skins2-go.php?url=eDark%20Vlc.vlt)
 
 ### Games
 - [Battle.NET](https://www.blizzard.com/en-us/apps/battle.net/desktop)
