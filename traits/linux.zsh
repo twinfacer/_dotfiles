@@ -18,3 +18,5 @@ alias duh="du -h"
 alias duhs="du -sh"
 
 alias nuke="rm -rf"
+
+alias sa="alias | grep"

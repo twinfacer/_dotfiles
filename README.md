@@ -1,4 +1,4 @@
-## \_dotflies 1.0.30
+## \_dotflies 1.0.31
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -77,6 +77,7 @@ _*_ means _global_.
 - [nuke] - __rm -rf__( :city_sunrise: ).
 - [p] - __echo__ (because __ruby__).
 - [wh] - __which__ (WTF is that???).
+- [sa] - __alias | grep__(search aliases with ez)
 
 #### Ruby/Rails stuff:
 - [b] - __bundle(r)__.
