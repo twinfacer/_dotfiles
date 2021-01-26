@@ -1,4 +1,4 @@
-## \_dotflies 1.0.31
+## \_dotflies 1.0.33
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -107,7 +107,7 @@ _*_ means _global_.
 - [dbup!] - __rake db:drop db:create db:migrate db:seed__.
 
 - [localize GEM_NAME] - replace GEM_NAME with local copy ($LOCALIZED_GEM_PREFIX(default: ~/projects/)).
-- [delocalize GEM_NAME] - return localized GEM_NAME to normal remote fetching. 
+- [delocalize GEM_NAME] - return localized GEM_NAME to normal remote fetching.
 
 #### Git stuff:
 - [mt]* - __master__ (your know, __THAT__ branch).
