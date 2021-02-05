@@ -1,4 +1,4 @@
-## \_dotflies 1.0.35
+## \_dotflies 1.1.1
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -84,14 +84,13 @@ _*_ means _global_.
 - [bu] - __bundle update --conservative__.
 - [be] - __bundle exec__.
 - [cov] - Show coverage in default browser [simplecov gem](https://github.com/colszowka/simplecov).
-- [r] - __rvm__. (Because one ruby just isn't enought!)
-- [ri] - __rvm install__.
-- [rl] - __rvm list__.
-- [rlk] - __rvm list known__
-- [rr!] - __rvm reinstall__. (Damn OpenSSl!)
-- [rd!]  - __rvm remove__.
-- [ru] - __rvm use__.
-- [ru!] - __rvm use --default__.
+- [r] - __rbenv__. (Because one ruby just isn't enought!)
+- [ri] - __rbenv install__.
+- [rl] - __rbenv versions__.
+- [rlk] - __rbenv install --list__
+- [rd!]  - __rbenv uninstall__.
+- [ru] - __rbenv local__.
+- [ru!] - __rbenv global__.
 - [rs] - __rails server__.
 - [rc]  - __rails console__.
 - [rr] - __rails routes__.
