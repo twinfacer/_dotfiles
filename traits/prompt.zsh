@@ -1,7 +1,7 @@
 setopt PROMPT_SUBST
 
 export DEFAULT_LEFT_SEGMENTS=(status path)
-export DEFAULT_RIGHT_SEGMENTS=(git rvm)
+export DEFAULT_RIGHT_SEGMENTS=(git rbenv)
 
 # promt parts
 left_separator_prompt() {
@@ -60,6 +60,18 @@ rvm_prompt() {
   if [[ -d $HOME/.rvm ]]; then
     local icon=$(icon "\ue21e")
     local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
+    echo " $icon $ruby_version "
+  else
+    echo ""
+  fi
+}
+
+export RBENV_PROMPT_BG_COLOR="red"
+
+rbenv_prompt() {
+  if [[ -d $HOME/.rbenv ]]; then
+    local icon=$(icon "\ue21e")
+    local ruby_version=$(rbenv local 2>/dev/null | grep -o -E '[0-9]+.[0-9]+.[0-9]+')
     echo " $icon $ruby_version "
   else
     echo ""
