@@ -1,0 +1,30 @@
+Minimal Text Editor Toolkit
+-----------------------------
+- Editor Control
+  - CTRL + O -- Open file.
+  - CTRL + S -- Save file.
+  - CTRL + W -- Close current buffer/tab.
+  - CTRL + SHIFT + S -- Save file as ...
+  - CTRL + F -- Search current buffer.
+  - CTRL + N -- New buffer/tab.
+  - CTRL + SHIFT + T -- Reopen previously closed tab.
+  - CTRL + Z/CTRL + SHIFT + Z -- Undo/redo last command.
+
+- Navigation
+  - CTRL + Left/Right -- Move cursor to beginning of previous word/end of the next word.
+  - Home/End -- Move cursor to start/end of a line.
+  - CTRL + Home/End -- Move cursor to beginning/end of buffer.
+- Text Selection
+  - CTRL + A -- select all
+  - CTRL + L -- select line at cursor
+  - CTRL + D -- select next occurrence
+  - SHIFT + Left/Right -- Add previous character/next character to selection.
+  - CTRL + SHIFT + Left/Right -- Add previous word/next word to selection.
+  - CTRL + SHIFT + Home/End -- Select from cursor to beginning/end of buffer.
+  - CTRL + SHIFT + L -- Split selection into lines.
+- Text Manipulation
+  - CTRL + C -- Cut current selection into clipboard.
+  - CTRL + V -- Paste current selection from clipboard
+  - CTRL + Up/Down -- Move selected text Up/Down.
+  - Tab/Shift + Tab -- Move selected on level forward/back.
+  - CTRL + / -- Comment out selection (lang required)

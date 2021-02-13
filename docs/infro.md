@@ -1,0 +1,16 @@
+- infrastructure
+  - dev infro
+    - dev mashines
+    - staging areas
+    - support
+      - wiki
+      - source/images repository
+      - mail
+      - chat
+      - private cloud storage
+      - issue tracker
+      - bug catcher
+      - log provider
+
+  - prod infro
+  - external

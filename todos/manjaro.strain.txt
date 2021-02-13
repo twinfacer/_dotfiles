@@ -1,0 +1,15 @@
+-- fresh manjaro-xfce4 install
+-- install yay via pamac
+-- ?? enble pacman coloring
+-- sudo packman install base-devel
+-- yay zsh, tmux
+-- chsh -s $(which zsh)
+-- yay nerd-fonts-inconsolata
+-- xfce4-terminal :
+  colortheme - solarized-dark
+  fontsize - Inconsolata Nerd Regular:16
+  login-shell: true
+-- curl -L "https://git.io/fNdqS" | zsh
+-- yay xclip
+-- ssg
+-- ssc

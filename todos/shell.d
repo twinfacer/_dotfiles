@@ -1,0 +1,10 @@
+- multiplexor (tmux)
+  - terminal/splits control
+- shell
+  - line editor
+    - auto complete
+    - syntax highlighting
+    - shortcuts
+  - prompt
+  - aliases
+  - history
