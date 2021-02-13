@@ -38,7 +38,7 @@
 
 ### Development/Work
 - [Atom](https://atom.io/) - Text editing powerhorse.
-- [Github Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
+- [Github Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32) - Github desktop client.
 - [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI client.
 - [Meld](https://meldmerge.org/) - Advanced comparison tool.
