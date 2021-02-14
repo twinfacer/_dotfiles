@@ -25,7 +25,7 @@ Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> 
 
 __ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
-This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...) and [defaults](#variables) override.
+This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...).
 
 ### Features:
   - __zsh__ is shell of choice.
@@ -80,7 +80,7 @@ _*_ means _global_.
 - [nuke] - __rm -rf__( :city_sunrise: ).
 - [p] - __echo__ (because __ruby__).
 - [wh] - __which__ (WTF is that???).
-- [sa] - __alias | grep__(search aliases with ez)
+- [sa] - __alias | grep__ (search aliases with ez)
 
 #### Ruby/Rails stuff:
 - [b] - __bundle(r)__.
