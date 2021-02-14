@@ -80,7 +80,7 @@ _*_ means _global_.
 - [nuke] - __rm -rf__( :city_sunrise: ).
 - [p] - __echo__ (because __ruby__).
 - [wh] - __which__ (WTF is that???).
-- [sa] - __alias | grep__(search aliases with ez)
+- [sa] - __alias | grep__ (search aliases with ez)
 
 #### Ruby/Rails stuff:
 - [b] - __bundle(r)__.
