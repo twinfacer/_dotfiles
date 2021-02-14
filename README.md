@@ -18,7 +18,7 @@ curl -L "https://git.io/fNdqS" | zsh
 ```
 This environment variables controls all things:
 - __DOTDIR__ controls where to store dotfiles. (default - __~/.dotfiles__)
-- __DOTFILES_REPO__ controls where to fetch dotfiles repo. (default - __github:$USER/_dotfiles__)
+- __DOTFILES_REPO__ controls where to fetch dotfiles repo. (default - __github:$USER/\_dotfiles__)
 
 ### Advanced Usage:
 Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> You are ready!
