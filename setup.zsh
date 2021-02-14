@@ -1,4 +1,5 @@
 #! /usr/bin/zsh
+## _dotfiles setup script.
 
 DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/twinfacer/_dotfiles.git}
 DOTDIR=${DOTDIR:-$HOME/.dotfiles}
@@ -37,5 +38,7 @@ for source_file ($DOTDIR/config/**/*(.D)); do
   [ -f $target_file ] && backup $target_file
   ln -sf $source_file $target_file
 done
+
+[ -f $DOTDIR/init.zsh ] && cp $DOTDIR/templates/init.zsh $DOTDIR/init.zsh
 
 source $HOME/.zshrc

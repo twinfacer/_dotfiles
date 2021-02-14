@@ -1,4 +1,4 @@
-## \_dotflies 1.1.1
+## \_dotflies 1.2.0
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -16,13 +16,16 @@ via curl
 ```shell
 curl -L "https://git.io/fNdqS" | zsh
 ```
+This environment variables controls all things:
+- __DOTDIR__ controls where to store dotfiles. (default - __~/.dotfiles__)
+- __DOTFILES_REPO__ controls where to fetch dotfiles repo. (default - __github:$USER/_dotfiles__)
 
 ### Advanced Usage:
 Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> You are ready!
 
 __ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
-This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) fullstack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per mashine configuration (env variables, credentials, hardware hacks, etc ...) and [defaults](#variables) override.
+This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...) and [defaults](#variables) override.
 
 ### Features:
   - __zsh__ is shell of choice.
@@ -33,7 +36,7 @@ This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git
   - Mouse is aweful, so keybind as much as possible (see [this](#keybindings) for full reference).
   - Abuse __zsh__ autocomplete as much as possible. Wow, so less typing, so much fun stuff (I mean, eh, productivity)!
   - Usefull toolbox of shell [functions](#functions) for any kind of common problems.
-  - Smart [defaults](#variables), full custiomization.
+  - Smart [defaults](#variables), full customization.
 
 ### Keybindings:
 #### ZSH
@@ -210,7 +213,7 @@ _*_ means _global_.
 - [ssc] - copy open key to clipboard.
 
 ### Variables
-This environment variables controls most customizable apps.
+This environment variables controls most customizable apps. To take effect just place them under in init.zsh file under you $DOTDIR.
 
 - $EDITOR - terminal text editor  (default: nano).
 - $VISUAL - GUI text editor (default: atom).

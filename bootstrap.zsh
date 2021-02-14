@@ -5,7 +5,7 @@ export PATH="$PATH:$DOTDIR/bin"
 export DEFAULT_EDITOR="nano"
 export DEFAULT_VISUAL="atom"
 export DEFAULT_BROWSER="firefox"
-export GIT_EDITOR="nano"
+export DEFAULT_GIT_EDITOR="nano"
 
 source_dir() {
   [ -d $1 ] || return
@@ -16,14 +16,16 @@ source_dir() {
 }
 
 # load all stuff in order
+[ -f $DOTDIR/init.zsh ] && source $DOTDIR/init.zsh
 source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
-# set default apps unless any override found
+# Set default apps unless any override found (place 'em in init.zsh)
 export EDITOR=${EDITOR:-$DEFAULT_EDITOR}
 export VISUAL=${VISUAL:-$DEFAULT_VISUAL}
 export BROWSER=${BROWSER:-$DEFAULT_BROWSER}
+export GIT_EDITOR=${GIT_EDITOR:-$DEFAULT_GIT_EDITOR}
 
 clear
 
