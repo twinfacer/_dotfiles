@@ -39,6 +39,4 @@ for source_file ($DOTDIR/config/**/*(.D)); do
   ln -sf $source_file $target_file
 done
 
-[ -f $DOTDIR/init.zsh ] && cp $DOTDIR/templates/init.zsh $DOTDIR/init.zsh
-
 source $HOME/.zshrc

@@ -4,6 +4,11 @@ take() {
   cd $1
 }
 
+# Check binary existence
+callable() {
+  mute which $1
+}
+
 # Colorizes foreground text color
 pp() {
   print -Pn "%F{$2}$1%f"
@@ -31,4 +36,9 @@ lscolors() {
 # Display icon by Unicode code
 icon() {
   echo -e "\u$1"
+}
+
+# Welcome string
+welcome() {
+  echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive $(pp $(_conn_type) 75)"
 }

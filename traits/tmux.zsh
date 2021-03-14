@@ -25,3 +25,5 @@ alias tsc="tmux new-session -s"
 alias tsa="tmux attach-session -t"
 alias tsk="tmux kill-session -t"
 alias tsr="restore"
+
+[ "$TMUX_AUTORESTORE" = true ] && restore

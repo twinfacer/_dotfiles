@@ -1,18 +1,15 @@
 - schema:
   - bin: (some integrated shell (or may be not only) binaries)
-    - callable
-    - [ex] -- currently missing
     - git_current_branch
-    - lscmd
     - mute
     - peek
     - serve
     - tmux_status
-    - wd -- Warp directory.
+    - wd -- Warp directory. (replace with warp.sh)
 
   - configs: (to symlink into home dir)
     - .dircolors -- ls(??) color config.
-    - .gemrc     -- rubygems config (currently seems to broken)
+    - .gemrc     -- rubygems config
     - .minittyrc -- minitty (cygwin??) config.
     - .nanorc    -- nano config.
     - .tmux.conf -- tmux config.
@@ -20,11 +17,10 @@
 
   - lib: (zsh main config)
     - colors
-    - completition
+    - completition (seams broken)
     - functions
     - history
     - zle
   - strains: ()
   - traits: ()
-  -- bootsrap.zsh
   -- setup.zsh

@@ -1,6 +1,0 @@
-#!/usr/bin/env zsh
-# == require (mute, which)
-# Small utility to check binary existance.
-# Sample usage -- callable ruby || return
-# -- $1 - binary name
-mute which $1

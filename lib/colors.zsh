@@ -1,4 +1,5 @@
 # Monocolored terminal - boring terminal! Let's paint it up!
+# Supported toolz: diff, grep, ls
 
 # diff
 alias diff="diff --color=auto"

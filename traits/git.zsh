@@ -109,3 +109,15 @@ alias gsd='git stash drop'
 
 # misc
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
+
+_add_git_hook() {
+	local src_path="$DOTDIR/templates/hooks/$1.sh"
+	local dest_path=".git/$1"
+
+	[ -d ".git" ] || echo "=> No git repo found!"
+	[ -f $src_path ] || echo "=> No hook named `$1` found!" && return 1
+	[ -f $dest_path ] || echo "=> Hook named `$1` already found!" && return 1
+	cp $src_path $dest
+}
+
+alias bumper_hook='_add_git_hook'

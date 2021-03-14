@@ -1,4 +1,28 @@
-export DOTDIR=$HOME/.dotfiles
-export LC_CTYPE=en_US.UTF-8
+# enviroment
+export DOTDIR="$HOME/.dotfiles"
+export PATH="$PATH:$DOTDIR/bin"
 
-source $DOTDIR/bootstrap.zsh
+# user customizations
+[ -f $DOTDIR/local/init.zsh ] || cp $DOTDIR/templates/init.zsh $DOTDIR/local/init.zsh
+source $DOTDIR/local/init.zsh
+
+# Set default apps unless any override found
+export EDITOR=${EDITOR:-nano}
+export VISUAL=${VISUAL:-atom}
+export BROWSER=${BROWSER:-firefox}
+export GIT_EDITOR=${GIT_EDITOR:-nano}
+
+source_dir() {
+  [ -d $1 ] || return
+  [[ ! -z $(ls $1) ]] || return
+  for source_file ($1/*.zsh); do
+    [ -f $source_file ] && source $source_file
+  done
+}
+
+# load all stuff in order
+source_dir $DOTDIR/lib
+source_dir $DOTDIR/traits
+source_dir $DOTDIR/local
+
+welcome
