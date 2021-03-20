@@ -8,6 +8,7 @@
 ## Apps
 ### Utility
 - [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) - Hardware information utility (lacks HDD/SDD info).
+- [CCleaner](https://www.ccleaner.com/ru-ru/ccleaner/download/standard) - Garbage collector.
 - [Punto Switcher](https://yandex.ru/soft/punto/) - Keyboard layout switcher (made by Yandex, meh).
 - [PeaZIP](https://www.peazip.org/) - Archiver.
 - [Process Hacker](https://processhacker.sourceforge.io/downloads.php) - Advanced system monitor utility.
