@@ -31,14 +31,15 @@ _install_yay() {
 which yay &>/dev/null || _install_yay
 
 # 3) passwordless sudo
-# TODO: BROKEN
+magic_string="%wheel ALL=(ALL) NOPASSWD: ALL"
+
 _enable_passwordless_sudo() {
   echo "[*] enable passwordless sudo"
-  sed -ie "s|# %wheel|%wheel|" /etc/sudoers
+  echo $magic_string >> /etc/sudoers
   usermod -G wheel $real_user
 }
 
-grep "# %wheel ALL=(ALL) NOPASSWD: ALL" /etc/sudoers &>/dev/null && _enable_passwordless_sudo
+tail -n 1 /etc/sudoers | grep $magic_string &>/dev/null || _enable_passwordless_sudo
 
 # 4) make pacman/yay use colors
 _setup_pacman() {
@@ -48,14 +49,21 @@ _setup_pacman() {
 
 grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
 
-# TODO: Fix
-# packages=(firefox atom tmux zsh sublime-merge sublime-text-3 meld flameshot postman-bin rbenv ruby-build postgresql xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-source-code-pro)
-#
-# echo "[*] installing packages"
-# cmd="yay -S --noconfirm --needed ${packages[@]}"
-# echo $real_user
-# echo $cmd
-# su -c "$cmd" $real_user
+# 5) packages sync via yay
+packages=(
+  firefox atom tmux zsh sublime-merge sublime-text-3 meld flameshot postman-bin rbenv ruby-build postgresql
+  xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-source-code-pro
+)
+
+_sync_packages() {
+  echo "[*] syncing packages"
+  cmd="yay -S --noconfirm --needed ${packages[@]}"
+  echo $real_user
+  echo $cmd
+  su -c "$cmd" $real_user
+}
+
+# _sync_packages
 
 # setup zsh
 _setup_zsh() {
@@ -66,6 +74,7 @@ _setup_zsh() {
   touch /home/$real_user/.zshrc
 }
 
+# copy wallpaper for terminal
 curl -s -L https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg > /home/$real_user/terminal_bg.jpg
 
 # setup ssh
