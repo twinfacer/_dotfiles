@@ -1,10 +1,4 @@
-#!/usr/bin/sh
-
-# setup.sh - one script for dev machine setup
-# Works with manjaro (possibly - with archlinux) with xfce4 DE.
-
-# setup.sh requires root/sudo access to modify some system confs.
-# Please, review this file manually to confirm that it contains no malicious code!
+# we need root
 if ! [ $(id -u) = 0 ]; then
   echo "The script need to be run as root." >&2
   exit 1
@@ -17,53 +11,96 @@ else
   real_user=$(whoami)
 fi
 
-## System setup
-# Passwordless sudo
-cp /etc/sudoers /etc/sudoers.backup
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# = Prepare
 
-# Add user to wheel group which now have passwordless sudo 
-usermod -G wheel $real_user
+# 1) enable NTP
+_enable_ntpd() {
+  echo "[*] enable FTP"
+  systemctl enable ntpd
+  systemctl start ntpd
+}
 
-# Make pacman/yay use colors
-sed -ie "s|#Color|Color|" /etc/pacman.conf
+systemctl status ntpd &>/dev/null || _enable_ntpd
 
-# Install package manager yay
-pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-rm -rf yay
+# 2) install yay
+_install_yay() {
+  echo "[*] installing yay"
+  pacman -Syu --needed yay git base-devel
+}
 
-## Install packages via yay
-# TODO
+which yay &>/dev/null || _install_yay
+
+# 3) passwordless sudo
+# TODO: BROKEN
+_enable_passwordless_sudo() {
+  echo "[*] enable passwordless sudo"
+  sed -ie "s|# %wheel|%wheel|" /etc/sudoers
+  usermod -G wheel $real_user
+}
+
+grep "# %wheel ALL=(ALL) NOPASSWD: ALL" /etc/sudoers &>/dev/null && _enable_passwordless_sudo
+
+# 4) make pacman/yay use colors
+_setup_pacman() {
+  echo "[*] pacman colors setup"
+  sed -ie "s|#Color|Color|" /etc/pacman.conf
+}
+
+grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
+
+# TODO: Fix
+# packages=(firefox atom tmux zsh sublime-merge sublime-text-3 meld flameshot postman-bin rbenv ruby-build postgresql xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-source-code-pro)
+#
+# echo "[*] installing packages"
+# cmd="yay -S --noconfirm --needed ${packages[@]}"
+# echo $real_user
+# echo $cmd
+# su -c "$cmd" $real_user
+
+# setup zsh
+_setup_zsh() {
+  current_shell=$(awk -F: "/$real_user/ { print $7}" /etc/passwd)
+  echo $current_shell
+  [ $current_shell = $(which zsh) ] || echo "[*] change shell to zsh" && chsh -s $(which zsh) $real_user &>/dev/null
+
+  touch /home/$real_user/.zshrc
+}
+
+curl -s -L https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg > /home/$real_user/terminal_bg.jpg
+
+# setup ssh
+_setup_ssh() {
+  echo "[*] generating ssh keys"
+  mkdir /home/$real_user/.ssh
+  ssh-keygen -t rsa -b 4096 -f /home/$real_user/.ssh/id_rsa -N ''
+  chown -R $real_user:$real_user /home/$real_user/.ssh
+}
+
+[[ -f /home/$real_user/.ssh/id_rsa.pub ]] || _setup_ssh
+
+# setup postgresql
+_setup_postgresql() {
+  systemctl enable postgresql
+  su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
+  systemctl start postgresql
+}
+
+systemctl status postgresql &>/dev/null || _setup_postgresql
+
+# setup dotfiles
+_setup_dotfiles() {
+  echo "[*] setup .dotfiles"
+  export DOTDIR=/home/$real_user/.dotfiles
+  curl -L 'https://git.io/fNdqS' | zsh
+}
+
+[[ -d /home/$real_user/.dotfiles ]] || _setup_dotfiles
+
+# projects dir
+[[ -d /home/$real_user/projects ]] || mkdir /home/$real_user/projects && chown $real_user /home/$real_user/projects
 
 
-## User setup
-# Change shell to zsh 
-# TODO: Change shell only if nessesary
-chsh -s $(which zsh) $real_user
-# TODO: To apply this changes shell session should be ended?
+# TODO: ru layout
+# setxkbmap -layout us,ru
 
-# Apply my .dotfiles
-# TODO: Check how in works
-curl -L "https://git.io/fNdqS" | zsh
-
-# Create directory for projects
-mkdir ~/projects
-
-# Generate ssh-keypair for github access
-# TODO: Do it if nessesary
-ssg && ssc
-
-# Clone fresh copy of my dotfiles into projects directory
-gcl git@github.com:twinfacer/_dotfiles.git
-
-# Make warp point (via wd)
-wda dot  
-
-
-
-
-
+echo "[*] done!"

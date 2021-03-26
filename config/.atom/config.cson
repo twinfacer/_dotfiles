@@ -1,0 +1,15 @@
+"*":
+  autosave:
+    enabled: true
+  core:
+    closeDeletedFileTabs: true
+    telemetryConsent: "no"
+  editor:
+    preferredLineLength: 120
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "335bb0b1-48af-4783-8a4a-9e690618e9ff"
+  "git-blame":
+    columnWidth: 322
+  welcome:
+    showOnStartup: false

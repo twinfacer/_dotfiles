@@ -3,10 +3,11 @@ alias rgl="gem list"
 alias rgi="gem install"
 
 # rbenv
-[[ -d $HOME/.rbenv ]] || return
+which rbenv &>/dev/null || return
+
+eval "$(rbenv init -)"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 alias r="rbenv"
 alias rl="rbenv versions"

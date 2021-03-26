@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 (26-03-2021)
+- atom && xfce-4-terminal configs added. [EXPIREMENTAL]
+- rbenv strain fixed.
+- setup.sh updated
+
 ## 1.3.0 (14-03-2021)
 - __TMUX_AUTORESTORE__ option added.
 - `callable` bin removed - `callable` is now bash function.
