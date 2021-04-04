@@ -37,9 +37,11 @@
       - [Octotree](https://addons.mozilla.org/ru/firefox/addon/octotree/) - github/gitlab repo utility.
       - [Wappalyzer](https://addons.mozilla.org/ru/firefox/addon/wappalyzer/) - Identify web technologies used by sites.
 - [Tor](https://www.torproject.org/download/) - Deep web browser.
+- [Ungoogled Chromium](https://ungoogled-software.github.io/ungoogled-chromium-binaries/) - Some times you need chrome anyway.
 
 ### Development/Work
 - [Atom](https://atom.io/) - Text editing powerhorse.
+- [Cmder](https://cmder.net/) - Better CMD.
 - [Github Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32) - Github desktop client for Win.
 - [Libre Office](https://www.libreoffice.org/download/download/) - Free office suite.
 - [Postman](https://www.getpostman.com/downloads/) - Multi-purpose HTTP GUI powerhorse.
