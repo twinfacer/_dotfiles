@@ -15,7 +15,7 @@ fi
 
 # 1) enable NTP
 _enable_ntpd() {
-  echo "[*] enable FTP"
+  echo "[*] enable NTP"
   systemctl enable ntpd
   systemctl start ntpd
 }
