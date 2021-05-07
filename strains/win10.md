@@ -24,6 +24,7 @@
   - [Addons](about:addons):
     - Privacy & AdBlockers:
       - [Browsersec VPN](https://addons.mozilla.org/ru/firefox/addon/browsec/) - Free VPN.
+      - [ClearURLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/) - Clear urls from trackers and stuff.
       - [FoxyProxy](https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/) - Better proxy for FF.
       - [I don't care about cookies](https://addons.mozilla.org/ru/firefox/addon/i-dont-care-about-cookies/) - Who cares about cookies?)
       - [Privacy Badger](https://addons.mozilla.org/ru/firefox/addon/privacy-badger17/) - Stop tracking my activity!
