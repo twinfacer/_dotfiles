@@ -5,6 +5,9 @@
     closeDeletedFileTabs: true
     telemetryConsent: "no"
   editor:
+    defaultFontSize: 18
+    fontFamily: "Hack, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontSize: 18
     preferredLineLength: 120
     showIndentGuide: true
   "exception-reporting":

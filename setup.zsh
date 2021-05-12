@@ -33,6 +33,7 @@ fi
 git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
 
 say "$(colorify repo orange): symlinking"
+# TODO: Fix nested configs
 for source_file ($DOTDIR/config/**/*(.D)); do
   target_file=$(echo $source_file | sed -e "s:$DOTDIR/config:$HOME:")
   [ -f $target_file ] && backup $target_file

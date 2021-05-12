@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0 (12-05-2021)
+- setup.sh updated
+- fixed configs/.nanorc
+- added configs for atom && xfce4-terminal
+
 ## 1.4.0 (26-03-2021)
 - atom && xfce-4-terminal configs added. [EXPIREMENTAL]
 - rbenv strain fixed.

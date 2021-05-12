@@ -1,7 +1,5 @@
 set mouse
-set smooth
 set linenumbers
-set morespace
 set nohelp
 
 include "/usr/share/nano/*.nanorc"

@@ -1,4 +1,4 @@
-## \_dotflies 1.4.0
+## \_dotflies 1.5.0
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -8,8 +8,10 @@ For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https:/
 Required packages:
 - [git](https://git-scm.com/)
 - [zsh](http://zsh.sourceforge.net/)
-- [tmux](https://github.com/tmux/tmux)
 - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+Optional deps:
+- [bat](https://github.com/sharkdp/bat)
+- [tmux](https://github.com/tmux/tmux)
 
 ### Installation:
 via curl
