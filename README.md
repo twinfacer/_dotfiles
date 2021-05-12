@@ -5,10 +5,12 @@
 
 ### System requirements:
 For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https://manjaro.org/), [cygwin](https://www.cygwin.com/) and [termux](https://termux.com/) shells. But probably on other distros too.
+
 Required packages:
 - [git](https://git-scm.com/)
 - [zsh](http://zsh.sourceforge.net/)
 - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+
 Optional deps:
 - [bat](https://github.com/sharkdp/bat)
 - [tmux](https://github.com/tmux/tmux)
