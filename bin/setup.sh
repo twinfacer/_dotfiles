@@ -19,7 +19,7 @@ fi
 
 # 1) Enable NTP if not already enabled.
 _enable_ntpd() {
-  echo "[*] enable NTP"
+  echo "[*] Enabling NTP service"
   systemctl enable ntpd
   systemctl start ntpd
 }
@@ -27,11 +27,12 @@ _enable_ntpd() {
 systemctl status ntpd &>/dev/null || _enable_ntpd
 
 # 2) Update system via pacman
-pacman -Syu --noconfirm &>/dev/null
+echo "[*] Updating system"
+pacman -Syu --noconfirm
 
 # 3) Install yay - AUR helper
 _install_yay() {
-  echo "[*] installing yay"
+  echo "[*] Installing yay"
   pacman -Syu --needed --noconfirm yay &>/dev/null
 }
 
@@ -41,16 +42,16 @@ which yay &>/dev/null || _install_yay
 magic_string="%wheel ALL=(ALL) NOPASSWD: ALL"
 
 _enable_passwordless_sudo() {
-  echo "[*] enable passwordless sudo"
+  echo "[*] Enabling passwordless sudo"
   echo $magic_string >> /etc/sudoers
   usermod -G wheel $real_user
 }
 
-tail -n 1 /etc/sudoers | grep $magic_string &>/dev/null && _enable_passwordless_sudo
+[[ $(sudo tail -n 1 /etc/sudoers) == $magic_string ]] || _enable_passwordless_sudo
 
 # 5) make pacman/yay use colors
 _setup_pacman() {
-  echo "[*] pacman colors setup"
+  echo "[*] Pacman colors setup"
   sed -ie "s|#Color|Color|" /etc/pacman.conf
 }
 
@@ -59,7 +60,7 @@ grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
 # TODO: Key is generated with root username =)
 # 6) generate ssh key-pair if nessesary
 _setup_ssh() {
-  echo "[*] generating ssh keys"
+  echo "[*] Generating ssh keys"
   [[ -d /home/$real_user/.ssh ]] || mkdir /home/$real_user/.ssh
   ssh-keygen -t rsa -b 4096 -f /home/$real_user/.ssh/id_rsa -N ''
   chown -R $real_user:$real_user /home/$real_user/.ssh
@@ -70,31 +71,33 @@ _setup_ssh() {
 # 7) Packages sync via yay
 packages=(
   base-devel
-  firefox atom tmux zsh sublime-merge sublime-text-3 meld flameshot postman-bin rbenv ruby-build postgresql
+  # firefox-nightly sublime-merge
+  atom tmux zsh sublime-text-4 meld flameshot postman-bin rbenv ruby-build postgresql
   xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-hack bat
 )
 
 # TODO: Silence 'em
 _sync_packages() {
-  echo "[*] syncing packages"
+  echo "[*] Syncing packages"
   cmd="yay -S --noconfirm --needed ${packages[@]}"
-  su -c "$cmd" $real_user
+  echo $cmd
+  su -c "$cmd" - $real_user
 }
 
-# _sync_packages
+_sync_packages
 
-# TODO: Make me idempotent.
 # 8) setup zsh
 _setup_zsh() {
+  echo "[*] Changing shell to zsh"
   chsh -s $(which zsh) $real_user &>/dev/null
   echo "[!] You need to relogin in order to switch shell!"
 }
 
-[[ $(awk -F: '/$real_user/ { print $7}' /etc/passwd) == $(which zsh) ]] || echo "[*] change shell to zsh" && _setup_zsh
+[[ $(getent passwd $real_user | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
 
 # copy wallpaper for terminal
-curl -s -L https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg > /home/$real_user/terminal_bg.jpg
-
+bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
+curl -s -L $bg_path > /home/$real_user/terminal_bg.jpg
 
 
 # setup postgresql

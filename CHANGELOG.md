@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 (22-06-2021)
+- setup.sh updated
+- disabled `safe paste dialog` in xfce4-termainal 
+
 ## 1.5.0 (12-05-2021)
 - setup.sh updated
 - fixed configs/.nanorc

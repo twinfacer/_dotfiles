@@ -30,7 +30,7 @@ MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
-MiscShowUnsafePasteDialog=TRUE
+MiscShowUnsafePasteDialog=FALSE
 FontName=Hack Nerd Font Mono Bold 14
 ColorForeground=#c0c0bfbfbcbc
 ColorBackground=#00002b2b3636
@@ -41,3 +41,4 @@ ColorPalette=#073642;#dc322f;#859900;#b58900;#268bd2;#d33682;#2aa198;#eee8d5;#00
 TabActivityColor=#dc322f
 BackgroundImageFile=/home/twinfacer/terminal_bg.jpg
 BackgroundImageShading=0,800000
+
