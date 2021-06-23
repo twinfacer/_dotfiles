@@ -74,6 +74,7 @@ packages=(
   # firefox-nightly sublime-merge
   atom tmux zsh sublime-text-4 meld flameshot postman-bin rbenv ruby-build postgresql
   xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-hack bat
+  libreoffice-fresh
 )
 
 # TODO: Silence 'em
