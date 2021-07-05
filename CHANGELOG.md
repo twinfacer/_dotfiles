@@ -1,8 +1,11 @@
 # Changelog
 
+## 1.5.2 (05-07-2021)
+- upd() function now accepts multiplе arguments
+
 ## 1.5.1 (22-06-2021)
 - setup.sh updated
-- disabled `safe paste dialog` in xfce4-termainal 
+- disabled `safe paste dialog` in xfce4-termainal
 
 ## 1.5.0 (12-05-2021)
 - setup.sh updated
