@@ -30,8 +30,8 @@ delocalize() {
 }
 
 upd() {
-  localize $1
+  for gem; do; localize $gem; done
   bundle install
-  delocalize $1
+  for gem; do; delocalize $gem; done
   bundle install
 }
