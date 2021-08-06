@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.3 (05-07-2021)
+- Added --no-edit to `gfix` alias.
+- gcma now correctly adds new files.
+
 ## 1.5.2 (05-07-2021)
 - upd() function now accepts multiplе arguments
 

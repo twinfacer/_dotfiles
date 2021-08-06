@@ -52,8 +52,8 @@ alias gcl='_git_clone_and_cd'
 
 # commit
 alias gcm='git commit -m'
-alias gcma='git commit -am'
-alias gfix='git add . ; git commit --amend'
+alias gcma='git add . ; git commit -m'
+alias gfix='git add . ; git commit --amend --no-edit'
 
 # diff
 alias gd='git diff --color'
