@@ -12,3 +12,10 @@ apply_db() {
 
 alias ddb='dump_db'
 alias udb='apply_db'
+
+alias dps='docker ps'
+alias dps!='watch -n 1 docker ps'
+alias de='docker exec -it'
+
+alias dsl='docker service logs -t'
+alias dsu='docker service update'

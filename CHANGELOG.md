@@ -1,11 +1,15 @@
 # Changelog
 
+## 1.5.4 (29-08-2021)
+- Added `sscp` alias.
+- Added some __docker__ aliases.
+
 ## 1.5.3 (05-07-2021)
 - Added --no-edit to `gfix` alias.
 - gcma now correctly adds new files.
 
 ## 1.5.2 (05-07-2021)
-- upd() function now accepts multiplе arguments
+- upd() function now accepts multiple arguments
 
 ## 1.5.1 (22-06-2021)
 - setup.sh updated

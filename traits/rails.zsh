@@ -8,8 +8,6 @@ alias rgm="rails generate migration"
 alias dbup="rake db:create db:migrate db:seed"
 alias dbup!="rake db:drop db:create db:migrate db:seed"
 
-alias -g L3="localhost:3000"
-
 function _show_coverage() {
   coverage_file=$(pwd)/coverage/index.html
   [ -f $coverage_file ] || (echo "No coverage file found!" && return)
@@ -19,6 +17,7 @@ function _show_coverage() {
 alias cov="_show_coverage"
 alias tt="bundle exec rspec"
 
+# Manual gems localization
 export LOCALIZED_GEM_PREFIX=${LOCALIZED_GEM_PREFIX:-~/projects/}
 
 localize() {

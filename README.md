@@ -107,7 +107,6 @@ _*_ means _global_.
 - [rgl] - __gem list__.
 - [prconf] - __ved ~/.pryrc__.
 - [prh] - __ved ~/.pry_history__.
-- [L3]* - __localhost:3000__.
 - [tt] - __bundle exec rspec__.
 - [dbup] - __rake db:create db:migrate db:seed__.
 - [dbup!] - __rake db:drop db:create db:migrate db:seed__.
@@ -215,6 +214,7 @@ _*_ means _global_.
 #### ssh stuff
 - [ssg] - generate new 4096 RSA keypair.
 - [ssc] - copy open key to clipboard.
+- [sscp] - ssh-copy-id
 
 ### Variables
 This environment variables controls most customizable apps. To take effect just place them under in init.zsh file under you $DOTDIR.
