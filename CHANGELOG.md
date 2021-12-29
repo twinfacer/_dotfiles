@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.4 (29-12-2021)
+- Added `rtc` alias.
+
 ## 1.5.4 (29-08-2021)
 - Added `sscp` alias.
 - Added some __docker__ aliases.

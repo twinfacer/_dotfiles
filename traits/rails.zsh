@@ -5,8 +5,10 @@ alias rr="rails routes"
 alias rdm="rails db:migrate"
 alias rgm="rails generate migration"
 
-alias dbup="rake db:create db:migrate db:seed"
-alias dbup!="rake db:drop db:create db:migrate db:seed"
+alias rtc="rails tmp:cache:clear && rs"
+
+alias dbup="rails db:create db:migrate db:seed"
+alias dbup!="rails db:drop db:create db:migrate"
 
 function _show_coverage() {
   coverage_file=$(pwd)/coverage/index.html

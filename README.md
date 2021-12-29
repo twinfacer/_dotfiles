@@ -1,4 +1,4 @@
-## \_dotflies 1.5.4
+## \_dotflies 1.5.5
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -105,6 +105,7 @@ _*_ means _global_.
 - [rgm] - __rails generate migration__.
 - [rgi] - __gem install__.
 - [rgl] - __gem list__.
+- [rtc] - __rails tmp:cache:clear && rs__.
 - [prconf] - __ved ~/.pryrc__.
 - [prh] - __ved ~/.pry_history__.
 - [tt] - __bundle exec rspec__.
