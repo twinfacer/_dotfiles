@@ -28,7 +28,7 @@ systemctl status ntpd &>/dev/null || _enable_ntpd
 
 # 2) Update system via pacman
 echo "[*] Updating system"
-pacman -Syu --noconfirm
+pacman -Syu --noconfirm &>/dev/null
 
 # 3) Install yay - AUR helper
 _install_yay() {
