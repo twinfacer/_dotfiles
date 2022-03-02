@@ -80,7 +80,7 @@ packages=(
 # TODO: Silence 'em
 _sync_packages() {
   echo "[*] Syncing packages"
-  cmd="yay -S --noconfirm --needed ${packages[@]}"
+  cmd="yay -S --noconfirm --needed ${packages[@]} &>/dev/null"
   echo $cmd
   su -c "$cmd" - $real_user
 }
