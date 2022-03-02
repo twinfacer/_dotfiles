@@ -70,10 +70,10 @@ _setup_ssh() {
 
 # 7) Packages sync via yay
 packages=(
-  base-devel htop tmux zsh gnu-netcat xclip bat
+  base-devel htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
   sublime-merge deluge vivaldi atom sublime-text-4 meld
-  flameshot postman-bin rbenv ruby-build postgresql
-  obsidian yarn python2 nerd-fonts-hack vlc
+  flameshot postman-bin rbenv ruby-build postgresql android-studio
+  obsidian yarn vlc ventoy gimp
   nmap gobuster swaks rkhunter
 )
 
@@ -85,6 +85,12 @@ _sync_packages() {
 }
 
 _sync_packages
+
+_cleanup_manjaro() {
+  pacman -Rsu manjaro-hello manjaro-documentation-en gnome-disk-utility lollypop pidgin gnome-screenshot imagewriter thunderbird transmission-gtk uget totem  &>/dev/null
+}
+
+_cleanup_manjaro()
 
 # 8) setup zsh
 _setup_zsh() {
@@ -127,7 +133,7 @@ _setup_dotfiles() {
 # setup atom
 _setup_atom() {
   echo "[*] setup atom via apm"
-  su -c "apm install -s file-icons git-blame scratch language-pug language-slim language-vue" $real_user
+  su -c "apm install -s file-icons git-blame scratch language-pug language-slim language-vue &>/dev/null" $real_user
 }
 
 which apm &>/dev/null && _setup_atom
