@@ -4,7 +4,7 @@
 
 # we need root
 if ! [ $(id -u) = 0 ]; then
-  echo "The script need to be run as root." >&2
+  echo "[!] The script need to be run as root." >&2
   exit 1
 fi
 
@@ -77,7 +77,6 @@ packages=(
   nmap gobuster swaks rkhunter
 )
 
-# TODO: Silence 'em
 _sync_packages() {
   echo "[*] Syncing packages"
   cmd="yay -S --noconfirm --needed ${packages[@]} &>/dev/null"
@@ -86,13 +85,20 @@ _sync_packages() {
 
 _sync_packages
 
+# 8) Cleanup manjaro garbage
 _cleanup_manjaro() {
-  pacman -Rsu manjaro-hello manjaro-documentation-en gnome-disk-utility lollypop pidgin gnome-screenshot imagewriter thunderbird transmission-gtk uget totem  &>/dev/null
+  echo "[*] Cleanup Manjaro garbage"
+  garbage=(
+    manjaro-hello manjaro-documentation-en 
+    gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin 
+    thunderbird transmission-gtk uget totem
+  )
+  pacman -Rsu "${garbage[@]}"  &>/dev/null
 }
 
 _cleanup_manjaro()
 
-# 8) setup zsh
+# 9) setup zsh
 _setup_zsh() {
   echo "[*] Changing shell to zsh"
   chsh -s $(which zsh) $real_user &>/dev/null
@@ -101,12 +107,17 @@ _setup_zsh() {
 
 [[ $(getent passwd $real_user | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
 
-# copy wallpaper for terminal
-bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
-curl -s -L $bg_path > /home/$real_user/terminal_bg.jpg
+# 10) copy wallpaper for terminal
+_copy_wallpaper() {
+  echo "[*] Copying terminal swallpaper"
+  bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
+  curl -s -L $bg_path > /home/$real_user/terminal_bg.jpg
+}
+
+[[ -f /home/$real_user/terminal_bg.jpg ]] || _copy_wallpaper()
 
 
-# setup postgresql
+# 11) setup postgresql
 _setup_postgresql() {
   echo "[*] Initializin postgresql DB"
   systemctl enable postgresql
@@ -116,7 +127,7 @@ _setup_postgresql() {
 
 systemctl status postgresql &>/dev/null || _setup_postgresql
 
-# setup dotfiles
+# 12) setup dotfiles
 _setup_dotfiles() {
   echo "[*] setup .dotfiles"
   export DOTDIR=/home/$real_user/.dotfiles
@@ -127,10 +138,10 @@ _setup_dotfiles() {
 # TODO: We may need to update dotfiles if needed.
 [[ -d /home/$real_user/.dotfiles ]] || _setup_dotfiles
 
-# Create projects dir
+# 13) Create projects dir
 [[ -d /home/$real_user/projects ]] || mkdir /home/$real_user/projects && chown $real_user /home/$real_user/projects
 
-# setup atom
+# 14) setup atom
 _setup_atom() {
   echo "[*] setup atom via apm"
   su -c "apm install -s file-icons git-blame scratch language-pug language-slim language-vue &>/dev/null" $real_user
