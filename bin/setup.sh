@@ -74,7 +74,7 @@ packages=(
   sublime-merge deluge vivaldi atom sublime-text-4 meld
   flameshot postman-bin rbenv ruby-build postgresql
   obsidian yarn python2 nerd-fonts-hack vlc
-  nmap gobuster swaks
+  nmap gobuster swaks rkhunter
 )
 
 # TODO: Silence 'em
