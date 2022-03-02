@@ -1,6 +1,6 @@
 #!/bin/sh
 # setup.sh - One script for post install configuration.
-# Written by @twinfacer 2021 (C)
+# Written by @twinfacer 2021-2022 (C)
 
 # we need root
 if ! [ $(id -u) = 0 ]; then
@@ -70,11 +70,11 @@ _setup_ssh() {
 
 # 7) Packages sync via yay
 packages=(
-  base-devel
-  # firefox-nightly sublime-merge
-  atom tmux zsh sublime-text-4 meld flameshot postman-bin rbenv ruby-build postgresql
-  xfce4-dockbarx-plugin dockbarx obsidian xclip yarn python2 nerd-fonts-hack bat
-  libreoffice-fresh
+  base-devel htop tmux zsh gnu-netcat xclip bat
+  sublime-merge deluge vivaldi atom sublime-text-4 meld
+  flameshot postman-bin rbenv ruby-build postgresql
+  obsidian yarn python2 nerd-fonts-hack vlc
+  nmap gobuster swaks
 )
 
 # TODO: Silence 'em
@@ -125,6 +125,13 @@ _setup_dotfiles() {
 # Create projects dir
 [[ -d /home/$real_user/projects ]] || mkdir /home/$real_user/projects && chown $real_user /home/$real_user/projects
 
+# setup atom
+_setup_atom() {
+  echo "[*] setup atom via apm"
+  apm install file-icons git-blame scratch language-pug language-slim language-vue
+}
+
+which apm &>/dev/null && _setup_atom
 
 # TODO: add ru layout && change switch layout key
 # setxkbmap -layout us,ru
