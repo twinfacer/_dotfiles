@@ -74,7 +74,7 @@ packages=(
   sublime-merge deluge vivaldi atom sublime-text-4 meld
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn vlc ventoy gimp
-  nmap gobuster swaks rkhunter
+  nmap gobuster sqlmap crackmapexec swaks rkhunter seclists
 )
 
 _sync_packages() {
