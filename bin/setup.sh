@@ -144,7 +144,7 @@ _setup_dotfiles() {
 # 14) setup atom
 _setup_atom() {
   echo "[*] setup atom via apm"
-  su -c "apm install -s file-icons git-blame scratch language-pug language-slim language-vue &>/dev/null" $real_user
+  su -c "apm install -s file-icons git-blame scratch language-pug language-slim language-vue teletype &>/dev/null" $real_user
 }
 
 which apm &>/dev/null && _setup_atom
