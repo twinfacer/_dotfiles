@@ -73,7 +73,7 @@ packages=(
   base-devel htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
   sublime-merge deluge vivaldi atom sublime-text-4 meld
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
-  obsidian yarn vlc ventoy gimp
+  obsidian yarn vlc ventoy filezilla gimp
   nmap gobuster sqlmap crackmapexec swaks rkhunter seclists
 )
 
