@@ -22,6 +22,7 @@ alias gbc!='git branch -C'
 alias gbm='git branch -m'
 alias gbm!='git branch -M'
 alias gbum="git branch --no-merged=master"
+alias gbcl!="git branch | grep -v "master" | xargs git branch -D"
 
 # bisect
 alias gbs="git bisect"
