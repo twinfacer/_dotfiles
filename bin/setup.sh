@@ -20,8 +20,8 @@ fi
 # 1) Enable NTP if not already enabled.
 _enable_ntpd() {
   echo "[*] Enabling NTP service"
-  systemctl enable ntpd
-  systemctl start ntpd
+  systemctl enable ntpd  &>/dev/null
+  systemctl start ntpd  &>/dev/null
 }
 
 systemctl status ntpd &>/dev/null || _enable_ntpd
@@ -62,7 +62,7 @@ grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
 _setup_ssh() {
   echo "[*] Generating ssh keys"
   [[ -d /home/$real_user/.ssh ]] || mkdir /home/$real_user/.ssh
-  ssh-keygen -t rsa -b 4096 -f /home/$real_user/.ssh/id_rsa -N ''
+  ssh-keygen -t rsa -b 4096 -f /home/$real_user/.ssh/id_rsa -N ''  &>/dev/null
   chown -R $real_user:$real_user /home/$real_user/.ssh
 }
 
@@ -96,7 +96,7 @@ _cleanup_manjaro() {
   pacman -Rsu "${garbage[@]}"  &>/dev/null
 }
 
-_cleanup_manjaro()
+_cleanup_manjaro
 
 # 9) setup zsh
 _setup_zsh() {
