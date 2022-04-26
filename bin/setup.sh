@@ -114,7 +114,7 @@ _copy_wallpaper() {
   curl -s -L $bg_path > /home/$real_user/terminal_bg.jpg
 }
 
-[[ -f /home/$real_user/terminal_bg.jpg ]] || _copy_wallpaper()
+[[ -f /home/$real_user/terminal_bg.jpg ]] || _copy_wallpaper
 
 
 # 11) setup postgresql
@@ -151,5 +151,12 @@ which apm &>/dev/null && _setup_atom
 
 # TODO: add ru layout && change switch layout key
 # setxkbmap -layout us,ru
+
+_setup_ruby() {
+  echo "[*] install ruby 2.7.2"
+  rbenv install 2.7.2 &>/dev/null
+}
+
+which ruby || _setup_ruby
 
 echo "[*] done!"
