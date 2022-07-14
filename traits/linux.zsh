@@ -20,3 +20,4 @@ alias duhs="du -sh"
 alias nuke="rm -rf"
 
 alias sa="alias | grep"
+alias sys="inxi -Fazy"
