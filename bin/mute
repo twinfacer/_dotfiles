@@ -1,4 +1,4 @@
-#! /usr/bin/zsh
+#!/usr/bin/env zsh
 # Utility that suppresses all output from noisy command.
 # Usage: -- mute npm i
 
