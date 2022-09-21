@@ -10,4 +10,4 @@ export LC_CTYPE=en_US.UTF-8
 export DOTFILES_QUIET=false
 export DOTFILES_VERBOSE=false
 
-export TMUX_AUTORESTORE=false
+export TMUX_AUTORESTORE=true
