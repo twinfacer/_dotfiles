@@ -28,8 +28,8 @@ source_url() {
   source <(curl -s $1)
 }
 
-source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/utils/icons.zsh"
-source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/utils/output.zsh"
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
 
 # we need root
 if ! [ $(id -u) = 0 ]; then
@@ -191,9 +191,14 @@ parrot_packages=(
   # crackmapexec
 )
 
+PARROT_JUNK=(
+  "/home/$real_user/Desktop/README.license"
+  "/home/$real_user/.emacs"
+)
+
 _setup_parrot() {
   step "remove Parrot junk"
-  rm -f /home/$real_user/Desktop/README.license
+  rm -f "${garbage[@]}"
   step "apt-get: update DB"
   exec_silent "apt update"
   step "apt: full system upgrade"
@@ -261,7 +266,7 @@ _setup_ruby-build() {
 }
 
 which ruby-build &>/dev/null || _setup_ruby-build
-which ruby-build &>/dev/null && ok "ruby build is installed"
+which ruby-build &>/dev/null && ok "ruby-build is installed"
 
 # ruby, ruby, ruby, ruby...
 _setup_ruby() {

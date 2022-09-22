@@ -8,8 +8,8 @@ source $DOTDIR/local/init.zsh
 
 # Set default apps unless any override found
 export EDITOR=${EDITOR:-nano}
-export VISUAL=${VISUAL:-atom}
-export BROWSER=${BROWSER:-firefox}
+export VISUAL=${VISUAL:-codium}
+export BROWSER=${BROWSER:-vivaldi}
 export GIT_EDITOR=${GIT_EDITOR:-nano}
 
 source_dir() {
@@ -25,4 +25,4 @@ source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
-welcome
+echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive $(pp $(_conn_type) 75)"
