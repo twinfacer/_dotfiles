@@ -33,6 +33,8 @@ ODIN_GEMS=(
 # We need to add ssh key to gitlab repos, do it mannually
 cat ~/.ssh/id_rsa.pub
 
+# TODO: create user for pg
+
 # clone gems first
 for gem in ${ODIN_GEMS[*]}
 do

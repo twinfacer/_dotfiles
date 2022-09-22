@@ -69,7 +69,7 @@ _enable_passwordless_sudo() {
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
 [[ $(sudo tail -n 1 /etc/sudoers) != $MAGIC_STRING ]] || ok "Passwordless sudo already enabled"
 
-# generate ssh key-pair if nessesary
+# Generate ssh key-pair if nessesary
 _setup_ssh() {
   say "Generating ssh keys"
   [[ -d /home/$REAL_USER/.ssh ]] || mkdir /home/$REAL_USER/.ssh
@@ -100,14 +100,13 @@ _copy_wallpaper() {
 [[ -f /home/$REAL_USER/terminal_bg.jpg ]] || _copy_wallpaper
 [[ ! -f /home/$REAL_USER/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
-# ## Setup manjaro
+# Setup manjaro
 _setup_postgresql() {
   echo "[*] Initializin postgresql DB"
   systemctl enable postgresql
   su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
   systemctl start postgresql
 }
-
 
 _enable_ntpd() {
   echo "[*] Enabling NTP service"
@@ -247,21 +246,11 @@ _install_hack_font() {
 su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null || _install_hack_font
 su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null && ok "Hack font is already installed"
 
-_add_github_ssh_key() {
-  if [[ ! -f /home/$REAL_USER/.ssh/id_rsa.pub ]]
-  then
-    error "~/.ssh/id_rsa.pub not found!"
-  else
-    say "Adding SSH key to github.com"
-    curl -u "$REAL_USER" \
-    --data "{\"title\":\"Key_`date +%Y%m%d%H%M%S`\",\"key\":\"`cat /home/$REAL_USER/.ssh/id_rsa.pub`\"}" \
-    https://api.github.com/user/keys
-  fi
-}
-ssh -o StrictHostKeyChecking=no -T git@github.com &>/dev/null
-ssh_exit_status=$? 
-[ $ssh_exit_status = 1 ] && ok "SSH key already added to github.com"
-[ $ssh_exit_status = 255 ] && _add_github_ssh_key
+# Add SSH keys to github.com
+su -c "gh auth status  &>/dev/null" - $REAL_USER
+gh_exit_status=$?
+[[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
+[[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
 
 # Setup dotfiles
 _setup_dotfiles() {
@@ -294,7 +283,7 @@ _setup_ruby-build() {
 }
 
 which ruby-build &>/dev/null || _setup_ruby-build
-which ruby-build &>/dev/null && ok "ruby-build is installed"
+which ruby-build &>/dev/null && ok "ruby-build is already installed"
 
 # ruby, ruby, ruby, ruby...
 _setup_ruby() {
