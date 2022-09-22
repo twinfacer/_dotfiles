@@ -1,3 +1,0 @@
-funny() {
-  echo "remote, bitches!!!"
-}

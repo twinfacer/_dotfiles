@@ -6,77 +6,30 @@
 # Output verbosity: [SILENT|NORMAL*|VERBOSE|DEBUG]
 
 _help() {
-  echo <<EOF
+  cat << EOF
+  😎 Setup.zsh v2.0 by @twinfacer
+  # Opts
+  ## Generic
     -h, --help - Display this help message.
-    ## Output Controls
-      -s, --silence - Suppress all noncritical output.
-      -v, --verbose - Increases output verbosity.
-      -vv, --debug - Outputs everything it does, for debug purposes.
+  ## Output Controls
+    -s, --silence - Suppress all noncritical output.
+    -v, --verbose - Increases output verbosity.
+    -vv, --debug - Outputs everything it does, for debug purposes.
 EOF
 }
 
+if [[ $1 == '-h' ]]
+then
+  _help && exit 0
+fi 
 
-### SOME UTILS
-#### source url
-# source_url() {
-#   curl -s -L $1 | 
-# }
-
-# source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/bin/test.zsh"
-
-# funny
-
-
-
-autoload -U colors && colors
-
-#### Icons
-declare -A ICONZ
-
-ICONZ[check]=2714   # ✓
-ICONZ[farrow]=27A4  # ➤
-ICONZ[heart]=2764   # 💝
-
-icon() {
-  echo -e "\u$ICONZ[$1]"
+# SOME UTILS
+source_url() {
+  source <(curl -s $1)
 }
 
-#### Messaging
-say() {
-  echo "$fg[green][*]$reset_color $1"
-}
-
-ok() {
-  echo "$fg[green][$(icon check)]$reset_color $1"
-}
-
-info() {
-  echo "$fg[cyan][$(icon farrow)]$reset_color $1"
-}
-
-warn() {
-  echo "$fg[orange][!]$reset_color $1"
-}
-
-step() {
-  echo "  $fg[cyan][$(icon farrow)]$reset_color $1"
-}
-
-error() {
-  echo "$fg[red][!]$reset_color $1"
-}
-
-#### Generic helpers
-exec_silent() {
-  eval "$1" &>/dev/null
-}
-
-# TODO: IMPLEMENT ME
-exec_or_ok() {
-  eval $1 || ok $2
-}
-
-#### Some preparations and checks
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/utils/icons.zsh"
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/utils/output.zsh"
 
 # we need root
 if ! [ $(id -u) = 0 ]; then
@@ -146,7 +99,6 @@ _copy_wallpaper() {
 
 [[ -f /home/$real_user/terminal_bg.jpg ]] || _copy_wallpaper
 [[ ! -f /home/$real_user/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
-
 
 # ## Setup manjaro
 _setup_postgresql() {
@@ -289,7 +241,7 @@ _setup_dotfiles() {
 # TODO: git stash, git checkout master
 # Update dotfiles
 _update_dotfiles() {
-  say "updating .dotfiles"
+  say "TODO: updating .dotfiles"
   # su -c "dref" $real_user
 }
 
@@ -313,11 +265,11 @@ which ruby-build &>/dev/null && ok "ruby build is installed"
 
 # ruby, ruby, ruby, ruby...
 _setup_ruby() {
-  echo "[*] install ruby 2.7.2"
-  rbenv install 2.7.2
+  say "Installing ruby 2.7.2"
+  exec_silent "rbenv install 2.7.2"
 }
 
 rbenv versions | grep "#Color" &>/dev/null && _setup_ruby
 rbenv versions | grep "#Color" &>/dev/null || ok "ruby 2.7.2 is already installed"
 
-echo "$fg[green][🐱]$reset_color done!"
+echo "$fg[green][👍]$reset_color done!"

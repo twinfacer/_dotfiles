@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0 RC1 (21.10.2022)
+- setup.zsh && odin_up scripts added
+
 ## 1.5.4 (29-12-2021)
 - Added `rtc` alias.
 
