@@ -1,4 +1,4 @@
-## \_dotflies 1.5.5
+## \_dotflies 2.0.0
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -70,7 +70,7 @@ _*_ means _global_.
 #### Generic Linux stuff:
 - [...] - Cd 2 dirs back.
 - [....] - Cd 3 dirs back.
-- [G]* - __grep__.
+- [G]* - __| grep__.
 - [L]* - __less__.
 - [_, yolo] - __sudo__. (Just do it!)
 - [duh] - __du -h__ (Disc usage, huminized).

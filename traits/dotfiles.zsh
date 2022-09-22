@@ -27,6 +27,7 @@ _refresh_dotfiles() {
     cd $DOTDIR
     # TODO: add guard if $DOTDIR is dirty
     git pull origin master &> /dev/null
+    cp -r config/* ~/
     cd $return_dir
     source ~/.zshrc
     clear

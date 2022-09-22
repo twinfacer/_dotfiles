@@ -24,6 +24,7 @@ if [[ -d $DOTDIR ]]; then
   fi
 fi
 
+# TODO: Clone via ssh if available!
 git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
 
 step "copy configs"

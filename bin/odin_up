@@ -4,43 +4,13 @@
 # Written by @twinfacer (https://github.com/twinfacer) 2022 (C)
 #
 
-autoload -U colors && colors
-
-#### Icons
-declare -A ICONZ
-
-ICONZ[check]=2714   # ✓
-ICONZ[farrow]=27A4  # ➤
-ICONZ[heart]=2764   # 💝
-
-icon() {
-  echo -e "\u$ICONZ[$1]"
+# SOME UTILS
+source_url() {
+  source <(curl -s $1)
 }
 
-#### Messaging
-say() {
-  echo "$fg[green][*]$reset_color $1"
-}
-
-ok() {
-  echo "$fg[green][$(icon check)]$reset_color $1"
-}
-
-info() {
-  echo "$fg[cyan][$(icon farrow)]$reset_color $1"
-}
-
-warn() {
-  echo "$fg[orange][!]$reset_color $1"
-}
-
-step() {
-  echo "  $fg[cyan][$(icon farrow)]$reset_color $1"
-}
-
-error() {
-  echo "$fg[red][!]$reset_color $1"
-}
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
+source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
 
 #### LETS DANCE
 PROJECTS_DIR=~/projects

@@ -5,7 +5,8 @@ alias h="man"
 alias m="mount"
 
 alias -g L="less"
-alias -g G="grep"
+alias -g G="| grep"
+alias -g wget='wget --no-hsts'
 
 alias ll="ls -lAhF"
 

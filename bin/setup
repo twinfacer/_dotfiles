@@ -41,10 +41,10 @@ fi
 
 # save real user for later
 if [ $SUDO_USER ]; then
-  real_user=$SUDO_USER
-  info "User - $fg[green]$real_user$reset_color"
+  REAL_USER=$SUDO_USER
+  info "User - $fg[green]$REAL_USER$reset_color"
 else
-  real_user=$(whoami)
+  REAL_USER=$(whoami)
 fi
 
 
@@ -62,7 +62,7 @@ _enable_passwordless_sudo() {
   say "Enabling passwordless sudo"
   getent group wheel || groupadd wheel
   echo $MAGIC_STRING >> /etc/sudoers
-  usermod -G wheel $real_user
+  usermod -G wheel $REAL_USER
   echo $(groups) 
 }
 
@@ -72,33 +72,33 @@ _enable_passwordless_sudo() {
 # generate ssh key-pair if nessesary
 _setup_ssh() {
   say "Generating ssh keys"
-  [[ -d /home/$real_user/.ssh ]] || mkdir /home/$real_user/.ssh
-  ssh-keygen -t rsa -b 4096 -f /home/$real_user/.ssh/id_rsa -N '' -C $real_user@$HOSTMANE  &>/dev/null
-  chown -R $real_user:$real_user /home/$real_user/.ssh
+  [[ -d /home/$REAL_USER/.ssh ]] || mkdir /home/$REAL_USER/.ssh
+  ssh-keygen -t rsa -b 4096 -f /home/$REAL_USER/.ssh/id_rsa -N '' -C $REAL_USER@$HOST  &>/dev/null
+  chown -R $REAL_USER:$REAL_USER /home/$REAL_USER/.ssh
 }
 
-[[ -f /home/$real_user/.ssh/id_rsa.pub ]] || _setup_ssh
-[[ ! -f /home/$real_user/.ssh/id_rsa.pub ]] || ok "SSH keys are fine"
+[[ -f /home/$REAL_USER/.ssh/id_rsa.pub ]] || _setup_ssh
+[[ ! -f /home/$REAL_USER/.ssh/id_rsa.pub ]] || ok "SSH keys are fine"
 
 # setup zsh
 _setup_zsh() {
   say "Changing shell to zsh"
-  chsh -s $(which zsh) $real_user &>/dev/null
+  chsh -s $(which zsh) $REAL_USER &>/dev/null
   warn "You need to relogin in order to switch shell!"
 }
 
-[[ $(getent passwd $real_user | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
-[[ $(getent passwd $real_user | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
+[[ $(getent passwd $REAL_USER | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
+[[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
 
 # copy wallpaper for terminal
 _copy_wallpaper() {
   say "Copying terminal swallpaper"
   bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
-  curl -s -L $bg_path > /home/$real_user/terminal_bg.jpg
+  curl -s -L $bg_path > /home/$REAL_USER/terminal_bg.jpg
 }
 
-[[ -f /home/$real_user/terminal_bg.jpg ]] || _copy_wallpaper
-[[ ! -f /home/$real_user/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
+[[ -f /home/$REAL_USER/terminal_bg.jpg ]] || _copy_wallpaper
+[[ ! -f /home/$REAL_USER/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
 # ## Setup manjaro
 _setup_postgresql() {
@@ -136,7 +136,7 @@ arch_packages=(
 _sync_packages_yay() {
   echo "[*] Syncing packages"
   cmd="yay -S --noconfirm --needed ${arch_packages[@]} &>/dev/null"
-  su -c "$cmd" - $real_user
+  su -c "$cmd" - $REAL_USER
 }
 
 _cleanup_manjaro() {
@@ -173,7 +173,15 @@ _add_sublime_repos() {
   echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list &>/dev/null
 }
 
+_add_gh_repos() {
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+  sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+}
+
 parrot_packages=(
+  gh
   zsh
   bat
   deluge
@@ -192,12 +200,15 @@ parrot_packages=(
 )
 
 PARROT_JUNK=(
-  "/home/$real_user/Desktop/README.license"
-  "/home/$real_user/.emacs"
+  "/home/$REAL_USER/Desktop/README.license"
+  "/home/$REAL_USER/.emacs"
 )
 
 _setup_parrot() {
   step "remove Parrot junk"
+  for files in "${PARROT_JUNK[@]}"; do
+      rm -f "$files"
+  done
   rm -f "${garbage[@]}"
   step "apt-get: update DB"
   exec_silent "apt update"
@@ -205,7 +216,8 @@ _setup_parrot() {
   exec_silent "apt upgrade -y"
   step "apt: install required packages"
   exec_silent "apt install -y ${parrot_packages[@]}"
-  _add_sublime_repos
+  which sublime_text &>/dev/null || _add_sublime_repos
+  which gh &>/dev/null || _add_gh_repos
 }
 
 ## SETUP APPROPRIATE OS
@@ -225,42 +237,58 @@ esac
 # Install nerd font 'Hack'
 _install_hack_font() {
   say "installing Hack"
-  mkdir -p /home/$real_user/.fonts
-  cd /home/$real_user/.fonts
+  mkdir -p /home/$REAL_USER/.fonts
+  cd /home/$REAL_USER/.fonts
   wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip
   unzip -qq -f Hack.zip
   fc-cache -fv &>/dev/null
 }
 
-su -c "fc-list" $real_user | grep "Hack" &>/dev/null || _install_hack_font
-su -c "fc-list" $real_user | grep "Hack" &>/dev/null && ok "Hack font is already installed"
+su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null || _install_hack_font
+su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null && ok "Hack font is already installed"
+
+_add_github_ssh_key() {
+  if [[ ! -f /home/$REAL_USER/.ssh/id_rsa.pub ]]
+  then
+    error "~/.ssh/id_rsa.pub not found!"
+  else
+    say "Adding SSH key to github.com"
+    curl -u "$REAL_USER" \
+    --data "{\"title\":\"Key_`date +%Y%m%d%H%M%S`\",\"key\":\"`cat /home/$REAL_USER/.ssh/id_rsa.pub`\"}" \
+    https://api.github.com/user/keys
+  fi
+}
+ssh -o StrictHostKeyChecking=no -T git@github.com &>/dev/null
+ssh_exit_status=$? 
+[ $ssh_exit_status = 1 ] && ok "SSH key already added to github.com"
+[ $ssh_exit_status = 255 ] && _add_github_ssh_key
 
 # Setup dotfiles
 _setup_dotfiles() {
   say "installing .dotfiles"
-  export DOTDIR=/home/$real_user/.dotfiles
+  export DOTDIR=/home/$REAL_USER/.dotfiles
   cmd="curl -L 'https://git.io/fNdqS' | zsh"
-  su -c "$cmd" $real_user
+  su -c "$cmd" $REAL_USER
 }
 
 # TODO: git stash, git checkout master
 # Update dotfiles
 _update_dotfiles() {
   say "TODO: updating .dotfiles"
-  # su -c "dref" $real_user
+  # su -c "dref" $REAL_USER
 }
 
-[[ -d /home/$real_user/.dotfiles ]] || _setup_dotfiles
-[[ ! -d /home/$real_user/.dotfiles ]] || _update_dotfiles
+[[ -d /home/$REAL_USER/.dotfiles ]] || _setup_dotfiles
+[[ ! -d /home/$REAL_USER/.dotfiles ]] || _update_dotfiles
 
 # Create projects dir
-[[ -d /home/$real_user/projects ]] || mkdir /home/$real_user/projects && chown $real_user /home/$real_user/projects
-[[ ! -d /home/$real_user/projects ]] || ok "Project directory already exists."
+[[ -d /home/$REAL_USER/projects ]] || mkdir /home/$REAL_USER/projects && chown $REAL_USER /home/$REAL_USER/projects
+[[ ! -d /home/$REAL_USER/projects ]] || ok "Project directory already exists."
 
 # ruby-build because system is old as shit
 _setup_ruby-build() {
-  say "installing ruby-build"
-  cd /home/$real_user/projects
+  say "Installing ruby-build"
+  cd /home/$REAL_USER/projects
   git clone https://github.com/rbenv/ruby-build.git
   PREFIX=/usr/local ./ruby-build/install.sh
 }
