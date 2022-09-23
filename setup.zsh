@@ -28,6 +28,6 @@ fi
 git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
 
 step "copy configs"
-cp -r --backup $DOTDIR/config/* ~/
+cp -r --backup $DOTDIR/config/ ~
 
 source $HOME/.zshrc
