@@ -25,4 +25,4 @@ source_dir $DOTDIR/lib
 source_dir $DOTDIR/traits
 source_dir $DOTDIR/local
 
-echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive)"
+echo "$(pp "=>" yellow) $(pp "\ufb82" 40) connected as $(pp $USER cyan) on $(pp $HOST white) hive"

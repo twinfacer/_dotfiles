@@ -5,11 +5,11 @@ export DEFAULT_RIGHT_SEGMENTS=(git rbenv)
 
 # promt parts
 left_separator_prompt() {
-  echo "$(icon e0b0)"
+  icon "l_prompt"
 }
 
 right_separator_prompt() {
-  echo "$(icon e0b2)"
+  icon "r_prompt"
 }
 
 export STATUS_PROMPT_BG_COLOR="yellow"
@@ -58,9 +58,9 @@ export RVM_PROMPT_BG_COLOR="red"
 
 rvm_prompt() {
   if [[ -d $HOME/.rvm ]]; then
-    local icon=$(icon "\ue21e")
     local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
-    echo " $icon $ruby_version "
+    echo " $(icon "ruby") $ruby_version "jb1326tf
+    
   else
     echo ""
   fi
@@ -70,9 +70,8 @@ export RBENV_PROMPT_BG_COLOR="red"
 
 rbenv_prompt() {
   if [[ -d $HOME/.rbenv ]]; then
-    local icon=$(icon "\ue21e")
     local ruby_version=$(rbenv local 2>/dev/null | grep -o -E '[0-9]+.[0-9]+.[0-9]+')
-    echo " $icon $ruby_version "
+    echo " $(icon "ruby") $ruby_version "
   else
     echo ""
   fi
