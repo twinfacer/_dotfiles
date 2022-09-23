@@ -18,7 +18,7 @@ Optional deps:
 ### Installation:
 via curl
 ```shell
-curl -L "https://git.io/fNdqS" | zsh
+curl -s -L "https://git.io/fNdqS" | zsh
 ```
 This environment variables controls all things:
 - __DOTDIR__ controls where to store dotfiles. (default - __~/.dotfiles__)
