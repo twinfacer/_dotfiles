@@ -38,6 +38,6 @@ else
 fi
 
 step "copy configs"
-cp -r --backup $DOTDIR/config/ $HOME/
+cp -r -v --backup $DOTDIR/config/ $HOME/
 
 source $HOME/.zshrc
