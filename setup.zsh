@@ -24,8 +24,18 @@ if [[ -d $DOTDIR ]]; then
   fi
 fi
 
-# TODO: Clone via ssh if available!
-git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
+if which gh; then
+  gh auth status &>/dev/null
+  gh_exit_status=$?
+else
+  gh_exit_status=1
+fi
+
+if [[ $gh_exit_status -eq 0 ]]; then
+  git clone git@github.com:twinfacer/_dotfiles.git $DOTDIR &> /dev/null
+else
+  git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
+fi
 
 step "copy configs"
 cp -r --backup $DOTDIR/config $HOME
