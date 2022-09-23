@@ -39,6 +39,7 @@ else
 fi
 
 step "copy configs"
+echo $CFG_PATH
 cp -R -v $CFG_PATH/ $HOME/
 
 source $HOME/.zshrc
