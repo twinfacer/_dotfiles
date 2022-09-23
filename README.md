@@ -228,6 +228,5 @@ This environment variables controls most customizable apps. To take effect just 
 ### Functions
 
 - callable $1 - Is $1 is available on my mashine?
-- mute $1 - Suppress all output from command $1
 - peek - Smart FS lookup utility.
 - serve - File serve from current directory using `ruby`.

@@ -13,6 +13,17 @@ alias gaa='git add .; git status -s'
 alias gae='git add -e'
 
 # branch
+function git_current_branch() {
+  local ref
+  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+  echo ${ref#refs/heads/}
+}
+
 alias gb='git --no-pager branch'
 alias gbl='gb -l'
 alias gbr='git branch -d'

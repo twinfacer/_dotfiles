@@ -4,10 +4,6 @@
 setopt auto_cd
 # Sometimes we wanna to paste something that can contains comments, right?
 setopt interactive_comments
-
-alias ...="cd ../.."
-alias ....="cd ../../.."
-
 # Removes pesky last space at right prompt
 ZLE_RPROMPT_INDENT=0
 # Use emacs key bindings
@@ -38,14 +34,10 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 # [Home] - Go to beginning of line
-if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line
-fi
+if [[ "${terminfo[khome]}" != "" ]]; then bindkey "${terminfo[khome]}" beginning-of-line; fi
 
 # [End] - Go to end of line
-if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}"  end-of-line
-fi
+if [[ "${terminfo[kend]}" != "" ]]; then bindkey "${terminfo[kend]}"  end-of-line; fi
 
 # [Space] - do history expansion
 bindkey ' ' magic-space
@@ -57,9 +49,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
 # [Shift-Tab] - move through the completion menu backwards
-if [[ "${terminfo[kcbt]}" != "" ]]; then
-  bindkey "${terminfo[kcbt]}" reverse-menu-complete
-fi
+if [[ "${terminfo[kcbt]}" != "" ]]; then bindkey "${terminfo[kcbt]}" reverse-menu-complete; fi
 
 # [Backspace] - delete backward
 bindkey '^?' backward-delete-char
