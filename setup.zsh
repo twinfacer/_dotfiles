@@ -40,6 +40,6 @@ fi
 
 step "copy configs"
 echo $CFG_PATH
-cp -ra -v ~/.dotfiles/config/. $HOME/
+cp -R -v ~/.dotfiles/config/. $HOME/
 
 source $HOME/.zshrc
