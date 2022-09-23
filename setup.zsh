@@ -24,7 +24,7 @@ if [[ -d $DOTDIR ]]; then
   fi
 fi
 
-if which gh; then
+if which gh &>/dev/null; then
   gh auth status &>/dev/null
   gh_exit_status=$?
 else
@@ -38,6 +38,6 @@ else
 fi
 
 step "copy configs"
-cp -r --backup $DOTDIR/config $HOME
+cp -r --backup $DOTDIR/config/ $HOME/
 
 source $HOME/.zshrc
