@@ -3,7 +3,7 @@
 
 DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/twinfacer/_dotfiles.git}
 DOTDIR=${DOTDIR:-$HOME/.dotfiles}
-CFG_PATH=$DOTDIR/config
+CFG_PATH=$DOTDIR/config/
 
 source_url() {
   source <(curl -s $1)
@@ -40,6 +40,6 @@ fi
 
 step "copy configs"
 echo $CFG_PATH
-cp -R -v $CFG_PATH/* $HOME/
+cp -R -v -t $HOME/ $CFG_PATH
 
 source $HOME/.zshrc
