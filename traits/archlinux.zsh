@@ -1,4 +1,4 @@
-callable pacman || return
+which pacman &>/dev/null || return
 
 # pacman (pac*)
 alias pacl="pacman -Q"

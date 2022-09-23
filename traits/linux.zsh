@@ -31,11 +31,6 @@ take() {
   mkdir -p $1 && cd $1
 }
 
-# Check binary existence
-callable() {
-  which $1 &>/dev/null
-}
-
 # peek - Smart file system lookup utility.
 # usage: peek /etc/docker
 peek() {
