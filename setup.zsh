@@ -13,8 +13,8 @@ source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/ico
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
 
 info "installation path: ${DOTDIR}"
-step "cloning git repository"
 
+step "cloning git repository"
 if [[ -d $DOTDIR ]]; then
   local overwrite_dotdir
   vared -p "$fg[red][!] $DOTDIR is not empty! remove it contents and continue? : (y/n) $reset_color" overwrite_dotdir
@@ -25,6 +25,7 @@ if [[ -d $DOTDIR ]]; then
   fi
 fi
 
+step "github credentials"
 if which gh &>/dev/null; then
   gh auth status &>/dev/null
   gh_exit_status=$?
@@ -35,11 +36,11 @@ fi
 if [[ $gh_exit_status -eq 0 ]]; then
   git clone git@github.com:twinfacer/_dotfiles.git $DOTDIR &> /dev/null
 else
-  git clone --depth=1 $DOTFILES_REPO $DOTDIR &> /dev/null
+  gh auth login
+  git clone git@github.com:twinfacer/_dotfiles.git $DOTDIR &> /dev/null
 fi
 
 step "copy configs"
-
 cp -R ~/.dotfiles/config/. $HOME/
 
 source $HOME/.zshrc

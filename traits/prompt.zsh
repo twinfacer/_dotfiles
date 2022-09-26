@@ -1,7 +1,7 @@
 setopt PROMPT_SUBST
 
 export DEFAULT_LEFT_SEGMENTS=(status path)
-export DEFAULT_RIGHT_SEGMENTS=(git rbenv)
+export DEFAULT_RIGHT_SEGMENTS=(git nvm rbenv)
 
 # promt parts
 left_separator_prompt() {
@@ -74,6 +74,12 @@ rbenv_prompt() {
   else
     echo ""
   fi
+}
+
+export NVM_PROMPT_BG_COLOR="yellow"
+
+nvm_prompt() {
+  echo -n "$(icon "js_icon") $(nvm current | sed -e s/v//) "
 }
 
 build_segment() {

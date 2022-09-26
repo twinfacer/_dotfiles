@@ -7,7 +7,7 @@ _exec_as_postgres() {
 alias pge="_exec_as_postgres"
 
 _create_pg_superadmin() {
-  _exec_as_postgres "createuser -d -P -s"
+  _exec_as_postgres "createuser -d -P -s $1"
 }
 
 alias pgu!="_create_pg_superadmin"

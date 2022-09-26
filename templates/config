@@ -1,0 +1,78 @@
+Host *
+  User odin
+
+Host demo
+  HostName demo.o-din.ru
+ 
+Host demo-stage
+  HostName demo-stage.o-din.ru
+ 
+Host ordin
+  HostName app.ord-in.com
+ 
+Host ordin-stage
+  HostName staging.ord-in.com
+ 
+Host goldengate
+  HostName goldengate.o-din.ru
+ 
+Host real-estate
+  HostName real-estate.o-din.ru
+ 
+Host oko
+  HostName oko-service.online
+ 
+Host o1
+  HostName odin.o1standard.ru
+  Port 3022
+ 
+Host o1-stage
+  HostName o1-stage.o-din.ru
+ 
+Host skk
+  HostName skkpodmsk.o-din.ru
+ 
+Host sok
+  HostName sok.o-din.ru
+ 
+Host crosswall
+  HostName crosswall.o-din.ru
+ 
+Host poklonka
+  HostName poklonkaplace.o-din.ru
+ 
+Host rdms
+  HostName bma.rdms.ru
+ 
+Host rdms-stage
+  HostName bma-stage.o-din.ru
+ 
+Host kazanmall
+  HostName kazanmall.o-din.ru
+ 
+Host kp16
+  HostName kp16.o-din.ru
+ 
+Host kvs
+  HostName kvs.o-din.ru
+ 
+Host raven
+  HostName raven.o-din.ru
+ 
+Host rusprod
+  HostName rusprod.o-din.ru
+ 
+Host rekafm-stage
+  HostName rekafm-stage.o-din.ru
+ 
+Host rekafm
+  HostName rekafm.o-din.ru
+ 
+Host bcdepo
+  HostName bcdepo.o-din.ru
+ 
+Host prsv
+  HostName prsv.o-din.ru
+ 
+Host poklonkaplace
+  HostName poklonkaplace.o-din.ru

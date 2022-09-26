@@ -7,7 +7,7 @@ dump_db() {
 }
 
 apply_db() {
-  psql -d $1 -U odin < ~/projects/$1.sql
+  psql -h localhost -d $1 -U odin < ~/projects/$1.sql
 }
 
 alias ddb='dump_db'

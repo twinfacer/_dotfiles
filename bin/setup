@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 #
-# setup_parrot.zsh - One script for post install configuration.
+# setup.zsh - One script for post install configuration.
 # Written by @twinfacer (https://github.com/twinfacer) 2021-2022 (C)
 
 # Output verbosity: [SILENT|NORMAL*|VERBOSE|DEBUG]
@@ -176,7 +176,12 @@ _add_gh_repos() {
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+}
 
+_setup_node() {
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &>/dev/null
+  nvm install lts/fermium
+  npm install --global yarn
 }
 
 parrot_packages=(
@@ -195,6 +200,7 @@ parrot_packages=(
   sublime-text
   sublime-merge
   apt-transport-https
+  libpq-dev
   # crackmapexec
 )
 
@@ -205,10 +211,7 @@ PARROT_JUNK=(
 
 _setup_parrot() {
   step "remove Parrot junk"
-  for files in "${PARROT_JUNK[@]}"; do
-      rm -f "$files"
-  done
-  rm -f "${garbage[@]}"
+  for files in "${PARROT_JUNK[@]}"; do; rm -f "$files"; done
   step "apt-get: update DB"
   exec_silent "apt update"
   step "apt: full system upgrade"
@@ -217,6 +220,7 @@ _setup_parrot() {
   exec_silent "apt install -y ${parrot_packages[@]}"
   which sublime_text &>/dev/null || _add_sublime_repos
   which gh &>/dev/null || _add_gh_repos
+  which nvm &>/dev/null || _setup_node
 }
 
 ## SETUP APPROPRIATE OS
@@ -280,6 +284,7 @@ _setup_ruby-build() {
   cd /home/$REAL_USER/projects
   git clone https://github.com/rbenv/ruby-build.git
   PREFIX=/usr/local ./ruby-build/install.sh
+  rm -rf ruby-build
 }
 
 which ruby-build &>/dev/null || _setup_ruby-build
@@ -291,7 +296,7 @@ _setup_ruby() {
   exec_silent "rbenv install 2.7.2"
 }
 
-rbenv versions | grep "#Color" &>/dev/null && _setup_ruby
-rbenv versions | grep "#Color" &>/dev/null || ok "ruby 2.7.2 is already installed"
+rbenv versions | grep "2.7.2" &>/dev/null && _setup_ruby
+rbenv versions | grep "2.7.2" &>/dev/null || ok "ruby 2.7.2 is already installed"
 
 echo "$fg[green][👍]$reset_color done!"

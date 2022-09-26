@@ -12,6 +12,7 @@ icon() {
   ICONZ[git_branch]=e725       #
   ICONZ[git_feature]=e726       #
   ICONZ[bug]=f188       #
+  ICONZ[js_icon]=f898       #
 
   echo -e "\u$ICONZ[$1]"
 }
