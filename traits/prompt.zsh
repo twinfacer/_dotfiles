@@ -21,7 +21,7 @@ status_prompt() {
   else
     local color=red;
   fi
-  echo " %F{$color}$(icon 'fcb5')%f "
+  echo " %F{$color}$(icon "status")%f "
 }
 
 export PATH_PROMPT_BG_COLOR="blue"
@@ -35,13 +35,13 @@ export GIT_PROMPT_BG_COLOR="green"
 git_prompt() {
   if [[ -d "./.git" ]]; then
     local current_branch=$(git_current_branch)
-    local branch_type_icon=$(icon "e725")
+    local branch_type_icon=$(icon "git_branch")
     if [[ $current_branch =~ 'feature/' ]]; then
       current_branch=${current_branch//feature\//}
-      branch_type_icon=$(icon "e726")
+      branch_type_icon=$(icon "git_branch")
     elif [[ $current_branch =~ 'bugfix/' ]]; then
       current_branch=${current_branch//bugfix\//}
-      branch_type_icon=$(icon "f188")
+      branch_type_icon=$(icon "bug")
     fi
     if [[ -n $(git status -s) ]]; then
       local status_color=red
@@ -59,8 +59,7 @@ export RVM_PROMPT_BG_COLOR="red"
 rvm_prompt() {
   if [[ -d $HOME/.rvm ]]; then
     local ruby_version=$(rvm-prompt | sed -e s/ruby-// -e s/-latest//)
-    echo " $(icon "ruby") $ruby_version "jb1326tf
-    
+    echo " $(icon "ruby") $ruby_version "
   else
     echo ""
   fi

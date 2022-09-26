@@ -8,6 +8,10 @@ icon() {
   ICONZ[l_prompt]=e0b0
   ICONZ[r_prompt]=e0b2
   ICONZ[ruby]=e21e       # 
+  ICONZ[status]=fcb5       #
+  ICONZ[git_branch]=e725       #
+  ICONZ[git_feature]=e726       #
+  ICONZ[bug]=f188       #
 
   echo -e "\u$ICONZ[$1]"
 }
