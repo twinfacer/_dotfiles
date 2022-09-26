@@ -1,8 +1,7 @@
 # Changelog
 
-## 2.0.0 RC2 (26.10.2022)
+## 2.0.2 (26.10.2022)
 - node version added in prompt.
-
 
 ## 2.0.0 RC1 (21.10.2022)
 - setup.zsh && odin_up scripts added
