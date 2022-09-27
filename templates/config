@@ -1,78 +1,93 @@
 Host *
   User odin
 
+Host arcus
+  HostName arcus.o-din.ru
+Host bcdepo
+  HostName bcdepo.o-din.ru
+Host blackwood
+  HostName blackwood.o-din.ru
+Host bosch
+  HostName bosch.o-din.ru
+Host crosswall
+  HostName covenant-service.o-din.ru
+Host cushwake
+  HostName cw.bck.o-din.ru
 Host demo
   HostName demo.o-din.ru
- 
 Host demo-stage
   HostName demo-stage.o-din.ru
- 
-Host ordin
+Host demo-eng
   HostName app.ord-in.com
- 
-Host ordin-stage
+Host demo-eng-stage
   HostName staging.ord-in.com
- 
+Host elma
+  HostName elma.o-din.ru
+Host foursquares
+  HostName foursquares.o-din.ru
 Host goldengate
   HostName goldengate.o-din.ru
- 
-Host real-estate
-  HostName real-estate.o-din.ru
- 
-Host oko
-  HostName oko-service.online
- 
+Host kamar
+  HostName kamar.o-din.ru
+Host kazanmall
+  HostName kazanmall.o-din.ru
+Host kp16
+  HostName kp16.o-din.ru
+Host kvs
+  HostName kvs.o-din.ru
 Host o1
   HostName odin.o1standard.ru
   Port 3022
- 
 Host o1-stage
   HostName o1-stage.o-din.ru
- 
-Host skk
-  HostName skkpodmsk.o-din.ru
- 
-Host sok
-  HostName sok.o-din.ru
- 
-Host crosswall
-  HostName crosswall.o-din.ru
- 
-Host poklonka
-  HostName poklonkaplace.o-din.ru
- 
-Host rdms
-  HostName bma.rdms.ru
- 
-Host rdms-stage
-  HostName bma-stage.o-din.ru
- 
-Host kazanmall
-  HostName kazanmall.o-din.ru
- 
-Host kp16
-  HostName kp16.o-din.ru
- 
-Host kvs
-  HostName kvs.o-din.ru
- 
-Host raven
-  HostName raven.o-din.ru
- 
-Host rusprod
-  HostName rusprod.o-din.ru
- 
-Host rekafm-stage
-  HostName rekafm-stage.o-din.ru
- 
-Host rekafm
-  HostName rekafm.o-din.ru
- 
-Host bcdepo
-  HostName bcdepo.o-din.ru
- 
-Host prsv
-  HostName prsv.o-din.ru
- 
+Host oko
+  HostName oko-service.online
+Host phosagro
+  HostName sp-izumrud.o-din.ru
 Host poklonkaplace
   HostName poklonkaplace.o-din.ru
+Host prsv
+  HostName prsv.o-din.ru
+Host raven
+  HostName raven.o-din.ru
+Host rdms
+  HostName bma.rdms.ru
+Host rdms-stage
+  HostName bma-stage.o-din.ru
+Host real-estate
+  HostName real-estate.o-din.ru
+Host redhills
+  HostName redhills.o-din.ru
+Host rekafm
+  HostName rekafm.o-din.ru
+Host rekafm-stage
+  HostName rekafm-stage.o-din.ru
+Host rusprod
+  HostName rusprod.o-din.ru
+Host skk
+  HostName skkpodmsk.o-din.ru
+Host sok
+  HostName sok.o-din.ru
+Host trg
+  HostName trg.o-din.ru
+Host trilogy
+  Hostname trilogy.o-din.ru
+Host veermall
+  Hostname veermall.o-din.ru
+
+ 
+
+ 
+
+
+
+
+ 
+
+
+ 
+
+ 
+
+ 
+

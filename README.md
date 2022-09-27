@@ -4,7 +4,7 @@
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
 
 ### System requirements:
-For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https://manjaro.org/), [cygwin](https://www.cygwin.com/) and [termux](https://termux.com/) shells. But probably on other distros too.
+For now only tested on [archlinux](https://www.archlinux.org/)/[manjaro](https://manjaro.org/)/[Parrot security](), [cygwin](https://www.cygwin.com/) and [termux](https://termux.com/) shells. But probably on other distros too.
 
 Required packages:
 - [git](https://git-scm.com/)
@@ -30,7 +30,7 @@ Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> 
 
 __ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
-This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...).
+This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer and security specialist. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...).
 
 ### Features:
   - __zsh__ is shell of choice.
