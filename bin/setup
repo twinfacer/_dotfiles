@@ -201,6 +201,8 @@ parrot_packages=(
   sublime-merge
   apt-transport-https
   libpq-dev
+  python2
+  docker
   # crackmapexec
 )
 
