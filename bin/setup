@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 #
 # setup.zsh - One script for post install configuration.
 # Written by @twinfacer (https://github.com/twinfacer) 2021-2022 (C)
@@ -18,14 +18,17 @@ _help() {
 EOF
 }
 
-if [[ $1 == '-h' ]]
-then
+if [[ $1 == '-h' ]]; then
   _help && exit 0
 fi 
 
 # SOME UTILS
 source_url() {
   source <(curl -s $1)
+}
+
+exec_as() {
+  sudo -u $REAL_USER $1
 }
 
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
@@ -47,6 +50,14 @@ else
   REAL_USER=$(whoami)
 fi
 
+# damn OS X
+if [[ "$OSTYPE" = Darwin* ]]; then
+  IS_OSX=1
+  HOME_DIR=/Users/$REAL_USER
+else
+  IS_OSX=0
+  HOME_DIR=/home/$REAL_USER
+fi
 
 # TODO:
 # - add argparse
@@ -72,13 +83,13 @@ _enable_passwordless_sudo() {
 # Generate ssh key-pair if nessesary
 _setup_ssh() {
   say "Generating ssh keys"
-  [[ -d /home/$REAL_USER/.ssh ]] || mkdir /home/$REAL_USER/.ssh
-  ssh-keygen -t rsa -b 4096 -f /home/$REAL_USER/.ssh/id_rsa -N '' -C $REAL_USER@$HOST  &>/dev/null
-  chown -R $REAL_USER:$REAL_USER /home/$REAL_USER/.ssh
+  [[ -d $HOME_DIR/.ssh ]] || mkdir $HOME_DIR/.ssh
+  ssh-keygen -t rsa -b 4096 -f $HOME_DIR/.ssh/id_rsa -N '' -C $REAL_USER@$HOST  &>/dev/null
+  chown -R $REAL_USER:$REAL_USER $HOME_DIR/.ssh
 }
 
-[[ -f /home/$REAL_USER/.ssh/id_rsa.pub ]] || _setup_ssh
-[[ ! -f /home/$REAL_USER/.ssh/id_rsa.pub ]] || ok "SSH keys are fine"
+[[ -f $HOME_DIR/.ssh/id_rsa.pub ]] || _setup_ssh
+[[ ! -f $HOME_DIR/.ssh/id_rsa.pub ]] || ok "SSH keys are fine"
 
 # setup zsh
 _setup_zsh() {
@@ -87,8 +98,10 @@ _setup_zsh() {
   warn "You need to relogin in order to switch shell!"
 }
 
-[[ $(getent passwd $REAL_USER | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
-[[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
+if [[ IS_OSX != 1 ]]; then
+  [[ $(getent passwd $REAL_USER | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
+  [[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
+fi
 
 # copy wallpaper for terminal
 _copy_wallpaper() {
@@ -97,8 +110,8 @@ _copy_wallpaper() {
   curl -s -L $bg_path > /home/$REAL_USER/terminal_bg.jpg
 }
 
-[[ -f /home/$REAL_USER/terminal_bg.jpg ]] || _copy_wallpaper
-[[ ! -f /home/$REAL_USER/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
+[[ -f $HOME_DIR/terminal_bg.jpg ]] || _copy_wallpaper
+[[ ! -f $HOME_DIR/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
 # Setup manjaro
 _setup_postgresql() {
@@ -225,11 +238,20 @@ _setup_parrot() {
   which nvm &>/dev/null || _setup_node
 }
 
+## SETUP OS X
+_setup_os_x() {
+
+}
+
 ## SETUP APPROPRIATE OS
 case $(uname -a) in
 *parrot*)
   info "Parrot detected, configuring ..."
     _setup_parrot
+  ;;
+Darwin)
+  info "OS X detected, configuring ..."
+    _setup_os_x
   ;;
 *)
   info "[*] Manjaro detected, configuring ..."
@@ -242,28 +264,32 @@ esac
 # Install nerd font 'Hack'
 _install_hack_font() {
   say "installing Hack"
-  mkdir -p /home/$REAL_USER/.fonts
-  cd /home/$REAL_USER/.fonts
+  mkdir -p $HOME_DIR/.fonts
+  cd $HOME_DIR/.fonts
   wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip
   unzip -qq -f Hack.zip
   fc-cache -fv &>/dev/null
 }
 
-su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null || _install_hack_font
-su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null && ok "Hack font is already installed"
+if [[ IS_OSX != 1 ]]; then
+  su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null || _install_hack_font
+  su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null && ok "Hack font is already installed"
+fi
 
 # Add SSH keys to github.com
-su -c "gh auth status  &>/dev/null" - $REAL_USER
-gh_exit_status=$?
-[[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
-[[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
+if [[ IS_OSX != 1 ]]; then
+  su -c "gh auth status  &>/dev/null" - $REAL_USER
+  gh_exit_status=$?
+  [[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
+  [[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
+fi
 
 # Setup dotfiles
 _setup_dotfiles() {
   say "installing .dotfiles"
-  export DOTDIR=/home/$REAL_USER/.dotfiles
+  export DOTDIR=$HOME_DIR/.dotfiles
   cmd="curl -L 'https://git.io/fNdqS' | zsh"
-  su -c "$cmd" $REAL_USER
+  exec_as $cmd
 }
 
 # TODO: git stash, git checkout master
@@ -273,17 +299,17 @@ _update_dotfiles() {
   # su -c "dref" $REAL_USER
 }
 
-[[ -d /home/$REAL_USER/.dotfiles ]] || _setup_dotfiles
-[[ ! -d /home/$REAL_USER/.dotfiles ]] || _update_dotfiles
+[[ -d $HOME_DIR/.dotfiles ]] || _setup_dotfiles
+[[ ! -d $HOME_DIR/.dotfiles ]] || _update_dotfiles
 
 # Create projects dir
-[[ -d /home/$REAL_USER/projects ]] || mkdir /home/$REAL_USER/projects && chown $REAL_USER /home/$REAL_USER/projects
-[[ ! -d /home/$REAL_USER/projects ]] || ok "Project directory already exists."
+[[ -d $HOME_DIR/projects ]] || mkdir $HOME_DIR/projects && chown $REAL_USER $HOME_DIR/projects
+[[ ! -d $HOME_DIR/projects ]] || ok "Project directory already exists."
 
 # ruby-build because system is old as shit
 _setup_ruby-build() {
   say "Installing ruby-build"
-  cd /home/$REAL_USER/projects
+  cd $HOME_DIR/projects
   git clone https://github.com/rbenv/ruby-build.git
   PREFIX=/usr/local ./ruby-build/install.sh
   rm -rf ruby-build
