@@ -5,7 +5,7 @@ alias rr="rails routes"
 alias rdm="rails db:migrate"
 alias rgm="rails generate migration"
 
-alias rtc="rails tmp:cache:clear && rs"
+alias rtcc="rails tmp:cache:clear && rs"
 
 alias dbup="rails db:create db:migrate db:seed"
 alias dbup!="rails db:drop db:create db:migrate"

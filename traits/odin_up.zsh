@@ -68,7 +68,7 @@ _get_projects() {
     step "rails db"
     rails db:create &>/dev/null
     # TODO: Pipe dump directly to psql
-    ssh -q -o BatchMode=yes  -o StrictHostKeyChecking=no -o ConnectTimeout=5 $project 'exit 0'
+    ssh -q -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=5 $project 'exit 0'
     if [ $? = 0 ]; then
       ok "SSH connection configured"
       step "dumping"

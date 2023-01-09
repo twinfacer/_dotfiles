@@ -27,6 +27,8 @@ Host foursquares
   HostName foursquares.o-din.ru
 Host goldengate
   HostName goldengate.o-din.ru
+Host istra
+  HostName istra.o-din.ru
 Host kamar
   HostName kamar.o-din.ru
 Host kazanmall

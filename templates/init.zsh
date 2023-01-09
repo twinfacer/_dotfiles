@@ -3,14 +3,32 @@
 export LC_CTYPE=en_US.UTF-8
 
 # export EDITOR="nano"
-# export VISUAL="atom"
-# export BROWSER="firefox"
+# export VISUAL="codium"
+# export BROWSER="vivaldi"
 # export GIT_EDITOR="nano"
 
 export DOTFILES_QUIET=false
 export DOTFILES_VERBOSE=false
 
 export TMUX_AUTORESTORE=true
+
+# o-din stuff
+# Спиcок наших гемов модулей
+gems=(
+  o-din
+  o-din-maintenance
+  o-din-audit
+  o-din-director
+  o-din-ku
+  o-din-parking
+  o-din-pm
+  o-din-ppr
+  o-din-rounds
+  o-din-stock
+  o-din-turnover
+  o-din-lk
+  o-din-report
+)
 
 # Обновляет все модули на указанных проектах
 # $ _update_projects demo o1 rekafm
@@ -51,21 +69,7 @@ alias upda="_update_projects"
 function _update_gems() {
   # Уже было
   local cwd=$(pwd)
-  # Спиcок наших гемов модулей
-  gems=(
-    o-din
-    o-din-audit
-    o-din-director
-    o-din-ku
-    o-din-parking
-    o-din-pm
-    o-din-ppr
-    o-din-rounds
-    o-din-stock
-    o-din-lk
-    o-din-report
-  )
- 
+
   # Итерируемся по всем модулям
   for gem in ${gems[*]}
   do

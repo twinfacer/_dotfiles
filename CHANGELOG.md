@@ -1,13 +1,16 @@
 # Changelog
+## 2.0.3 (09.01.2023)
+- Changed default apps.
+- Added new template for __wd__.
 
 ## 2.0.2 (26.10.2022)
-- node version added in prompt.
+- __node__ version added in prompt.
 
 ## 2.0.0 RC1 (21.10.2022)
 - setup.zsh && odin_up scripts added
 
 ## 1.5.4 (29-12-2021)
-- Added `rtc` alias.
+- Added `rtcc` alias.
 
 ## 1.5.4 (29-08-2021)
 - Added `sscp` alias.
@@ -15,7 +18,7 @@
 
 ## 1.5.3 (05-07-2021)
 - Added --no-edit to `gfix` alias.
-- gcma now correctly adds new files.
+- `gcma` now correctly adds new files.
 
 ## 1.5.2 (05-07-2021)
 - upd() function now accepts multiple arguments
