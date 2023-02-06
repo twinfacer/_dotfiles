@@ -1,9 +1,7 @@
 #!/bin/zsh
 #
 # setup.zsh - One script for post install configuration.
-# Written by @twinfacer (https://github.com/twinfacer) 2021-2022 (C)
-
-# Output verbosity: [SILENT|NORMAL*|VERBOSE|DEBUG]
+# Written by @twinfacer (https://github.com/twinfacer) 2021-2023 (C)
 
 _help() {
   cat << EOF
@@ -11,29 +9,20 @@ _help() {
   # Opts
   ## Generic
     -h, --help - Display this help message.
-  ## Output Controls
-    -s, --silence - Suppress all noncritical output.
-    -v, --verbose - Increases output verbosity.
-    -vv, --debug - Outputs everything it does, for debug purposes.
 EOF
 }
 
-if [[ $1 == '-h' ]]; then
-  _help && exit 0
-fi 
+if [[ $1 == '-h' ]]; then; _help && exit 0 ; fi 
 
-# SOME UTILS
-source_url() {
-  source <(curl -s $1)
-}
+### SOME UTILS
+source_url() { source <(curl -s $1) }
 
-exec_as() {
-  sudo -u $REAL_USER $1
-}
+exec_as() { sudo -u $REAL_USER $1 }
 
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
 
+### SETUP
 # we need root
 if ! [ $(id -u) = 0 ]; then
   error "The script need to be run as root." >&2
@@ -59,14 +48,9 @@ else
   HOME_DIR=/home/$REAL_USER
 fi
 
-# TODO:
-# - add argparse
-# - add verbosity to output
-# - add moar custiomization via ENVs
+### GENERIC *NIX SETUP
 
-## GENERIC SETUP LINUX
-
-# Enable passwordless sudo
+## 1) Enable passwordless sudo
 MAGIC_STRING="%wheel ALL=(ALL) NOPASSWD: ALL"
 
 _enable_passwordless_sudo() {
@@ -80,7 +64,7 @@ _enable_passwordless_sudo() {
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
 [[ $(sudo tail -n 1 /etc/sudoers) != $MAGIC_STRING ]] || ok "Passwordless sudo already enabled"
 
-# Generate ssh key-pair if nessesary
+## 2) Generate ssh key-pair if nessesary
 _setup_ssh() {
   say "Generating ssh keys"
   [[ -d $HOME_DIR/.ssh ]] || mkdir $HOME_DIR/.ssh
@@ -91,19 +75,21 @@ _setup_ssh() {
 [[ -f $HOME_DIR/.ssh/id_rsa.pub ]] || _setup_ssh
 [[ ! -f $HOME_DIR/.ssh/id_rsa.pub ]] || ok "SSH keys are fine"
 
-# setup zsh
+# 3) Switch default shell to zsh
 _setup_zsh() {
   say "Changing shell to zsh"
   chsh -s $(which zsh) $REAL_USER &>/dev/null
   warn "You need to relogin in order to switch shell!"
 }
 
+# TODO: Make it works with MACOS
 if [[ IS_OSX != 1 ]]; then
   [[ $(getent passwd $REAL_USER | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
   [[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
 fi
 
-# copy wallpaper for terminal
+# TODO: Customize wallpaper path
+## 4) Copy wallpaper for terminal
 _copy_wallpaper() {
   say "Copying terminal swallpaper"
   bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
@@ -113,33 +99,31 @@ _copy_wallpaper() {
 [[ -f $HOME_DIR/terminal_bg.jpg ]] || _copy_wallpaper
 [[ ! -f $HOME_DIR/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
-# Setup manjaro
-_setup_postgresql() {
-  echo "[*] Initializin postgresql DB"
-  systemctl enable postgresql
-  su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
-  systemctl start postgresql
-}
+## 5) Setup specific distros 
 
+### 5.1) manjaro - Enable NTP
 _enable_ntpd() {
   echo "[*] Enabling NTP service"
   systemctl enable ntpd  &>/dev/null
   systemctl start ntpd  &>/dev/null
 }
 
+### 5.2) manjaro - Install yay
 _install_yay() {
   echo "[*] Installing yay"
   pacman -Syu --needed --noconfirm yay &>/dev/null
 }
 
+### 5.3) manjaro - setup pacman/yay colors
 _setup_pacman() {
   echo "[*] Pacman colors setup"
   sed -ie "s|#Color|Color|" /etc/pacman.conf
 }
 
+### 5.3) manjaro - install nessecary packages 
 arch_packages=(
   base-devel downgrade htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
-  sublime-merge deluge vivaldi atom sublime-text-4 meld
+  sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn vlc ventoy filezilla gimp
   nmap gobuster sqlmap crackmapexec swaks rkhunter seclists
@@ -162,20 +146,12 @@ _cleanup_manjaro() {
 }
 
 _setup_manjaro() {
-  # Enable NTP if not already enabled.
   systemctl status ntpd &>/dev/null || _enable_ntpd
-  # Update system via pacman
   echo "[*] Updating system"
   pacman -Syu --noconfirm &>/dev/null
-  # Install yay - AUR helper
   which yay &>/dev/null || _install_yay
-  # Make pacman/yay use colors
   grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
-  # Packages sync via yay
   _sync_packages_yay
-  # setup postgresql
-  systemctl status postgresql &>/dev/null || _setup_postgresql
-  # Cleanup manjaro garbage
   _cleanup_manjaro
 }
 
@@ -238,6 +214,7 @@ _setup_parrot() {
   which nvm &>/dev/null || _setup_node
 }
 
+# TODO
 ## SETUP OS X
 _setup_os_x() {
 
@@ -260,6 +237,16 @@ Darwin)
 esac
 
 ## SETUP REST
+
+### Setup Postgres
+_setup_postgresql() {
+  echo "[*] Initializin postgresql DB"
+  systemctl enable postgresql
+  su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
+  systemctl start postgresql
+}
+
+systemctl status postgresql &>/dev/null || _setup_postgresql
 
 # Install nerd font 'Hack'
 _install_hack_font() {
@@ -306,6 +293,20 @@ _update_dotfiles() {
 [[ -d $HOME_DIR/projects ]] || mkdir $HOME_DIR/projects && chown $REAL_USER $HOME_DIR/projects
 [[ ! -d $HOME_DIR/projects ]] || ok "Project directory already exists."
 
+VSCODIUM_PACKAGES=(
+  hediet.vscode-drawio
+  mrmlnc.vscode-duplicate
+  eamodio.gitlens
+  bierner.markdown-preview-github-styles
+  rebornix.ruby
+  castwide.solargraph
+  pflannery.vscode-versionlens
+  octref.vetur
+  wingrunr21.vscode-ruby
+)
+
+_setup_vscodium() { for ext in "${VSCODIUM_PACKAGES[@]}"; do; codium --install-extension  "$ext"; done }
+
 # ruby-build because system is old as shit
 _setup_ruby-build() {
   say "Installing ruby-build"
@@ -319,12 +320,14 @@ which ruby-build &>/dev/null || _setup_ruby-build
 which ruby-build &>/dev/null && ok "ruby-build is already installed"
 
 # ruby, ruby, ruby, ruby...
-_setup_ruby() {
+_setup_ruby_272() {
   say "Installing ruby 2.7.2"
   exec_silent "rbenv install 2.7.2"
 }
 
-rbenv versions | grep "2.7.2" &>/dev/null && _setup_ruby
+rbenv versions | grep "2.7.2" &>/dev/null && _setup_ruby_272
 rbenv versions | grep "2.7.2" &>/dev/null || ok "ruby 2.7.2 is already installed"
+
+# TODO: Setup solagraph and rubocop as well
 
 echo "$fg[green][👍]$reset_color done!"
