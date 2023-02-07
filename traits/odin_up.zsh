@@ -89,9 +89,11 @@ _get_gems() {
  for gem in ${ODIN_GEMS[*]}; do _clone_or_upd "gems/$gem"; done
 }
 
+_get_project()
+
 _get_projects() {
-  local = pwd
-  for project in $ODIN_PROJECTS; do
+  local cwd=$(pwd)
+  for project url in ${(kv)ODIN_PROJECTS}; do
     info "Processing - $project"
     _clone_or_upd $project
     cd $PROJECTS_DIR/$project
@@ -106,14 +108,14 @@ _get_projects() {
     fi
     step "rails db"
     rails db:create &>/dev/null
-    ssh -q -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=5 $project 'exit 0'
+    ssh -q -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=5 $url 'exit 0'
     if [ $? = 0 ]; then
       ok "SSH connection already configured"
       step "dumping"
       ddb! $project
     else
       step "SSH not configured"
-      ssh-copy-id -o LogLevel=QUIET -o StrictHostKeyChecking=no $project
+      ssh-copy-id -o LogLevel=QUIET -o StrictHostKeyChecking=no $url
       step "dumping"
       ddb! $project
     fi
