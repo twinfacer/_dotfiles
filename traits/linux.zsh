@@ -11,7 +11,7 @@ alias -g L="less"
 alias -g G="| grep"
 alias -g wget='wget --no-hsts'
 
-alias ll="ls -lAhF"
+alias -g ll="ls -lAhF"
 
 alias ed="${EDITOR}"
 alias ved="${VISUAL}"
@@ -27,9 +27,7 @@ alias sa="alias | grep"
 alias sys="inxi -Fazy"
 
 # Small shortcut for creating and cd'ing into <TARGET_DIR>
-take() {
-  mkdir -p $1 && cd $1
-}
+take() { mkdir -p $1 && cd $1 }
 
 # peek - Smart file system lookup utility.
 # usage: peek /etc/docker

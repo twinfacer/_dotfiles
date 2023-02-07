@@ -12,7 +12,7 @@ _help() {
 EOF
 }
 
-if [[ $1 == '-h' ]]; then; _help && exit 0 ; fi 
+if [[ $1 == '-h' ]]; then; _help && exit 0 ; fi
 
 ### SOME UTILS
 source_url() { source <(curl -s $1) }
@@ -58,7 +58,7 @@ _enable_passwordless_sudo() {
   getent group wheel || groupadd wheel
   echo $MAGIC_STRING >> /etc/sudoers
   usermod -G wheel $REAL_USER
-  echo $(groups) 
+  echo $(groups)
 }
 
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
@@ -91,7 +91,7 @@ fi
 # TODO: Customize wallpaper path
 ## 4) Copy wallpaper for terminal
 _copy_wallpaper() {
-  say "Copying terminal swallpaper"
+  say "Copying terminal wallpaper"
   bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
   curl -s -L $bg_path > /home/$REAL_USER/terminal_bg.jpg
 }
@@ -99,7 +99,7 @@ _copy_wallpaper() {
 [[ -f $HOME_DIR/terminal_bg.jpg ]] || _copy_wallpaper
 [[ ! -f $HOME_DIR/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
-## 5) Setup specific distros 
+## 5) Setup specific distros
 
 ### 5.1) manjaro - Enable NTP
 _enable_ntpd() {
@@ -120,7 +120,7 @@ _setup_pacman() {
   sed -ie "s|#Color|Color|" /etc/pacman.conf
 }
 
-### 5.3) manjaro - install nessecary packages 
+### 5.3) manjaro - install nessecary packages
 arch_packages=(
   base-devel downgrade htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
   sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli
@@ -135,23 +135,29 @@ _sync_packages_yay() {
   su -c "$cmd" - $REAL_USER
 }
 
+### 5.4) manjaro - cleanup usused apps
 _cleanup_manjaro() {
   echo "[*] Cleanup Manjaro garbage"
   garbage=(
-    manjaro-hello manjaro-documentation-en 
-    gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin 
+    manjaro-hello manjaro-documentation-en
+    gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin
     thunderbird transmission-gtk uget totem
   )
   pacman -Rsu "${garbage[@]}"  &>/dev/null
 }
 
 _setup_manjaro() {
+  step "[*] Checking NTP"
   systemctl status ntpd &>/dev/null || _enable_ntpd
-  echo "[*] Updating system"
+  step "[*] Updating system"
   pacman -Syu --noconfirm &>/dev/null
+  step "[*] Setup yay"
   which yay &>/dev/null || _install_yay
+  step "[*] Enabling pacman/yay colors"
   grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
+  step "[*] Installing required packages via yay"
   _sync_packages_yay
+  step "[*] Cleanup unused manjaro staff"
   _cleanup_manjaro
 }
 
@@ -183,7 +189,7 @@ parrot_packages=(
   filezilla
   yarnpkg
   rkhunter
-  rbenv 
+  rbenv
   ruby-build
   seclists
   sublime-text
@@ -282,15 +288,22 @@ _setup_dotfiles() {
 # TODO: git stash, git checkout master
 # Update dotfiles
 _update_dotfiles() {
-  say "TODO: updating .dotfiles"
-  # su -c "dref" $REAL_USER
+  say "updating .dotfiles"
+  cd $DOTDIR
+  git stash save -u
+  git checkout master
+  git pull --rebase origin master
 }
 
 [[ -d $HOME_DIR/.dotfiles ]] || _setup_dotfiles
 [[ ! -d $HOME_DIR/.dotfiles ]] || _update_dotfiles
 
+_create_projects_folder() {
+  say "Creating ~/projects folder"
+}
+
 # Create projects dir
-[[ -d $HOME_DIR/projects ]] || mkdir $HOME_DIR/projects && chown $REAL_USER $HOME_DIR/projects
+[[ -d $HOME_DIR/projects ]] || _create_projects_folder
 [[ ! -d $HOME_DIR/projects ]] || ok "Project directory already exists."
 
 VSCODIUM_PACKAGES=(

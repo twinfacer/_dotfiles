@@ -1,15 +1,16 @@
 {
     "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
     "diffEditor.wordWrap": "on",
-    "editor.wordWrap": "on",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.tabSize": 2,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "editor.multiCursorModifier": "ctrlCmd",
+    "editor.wordWrap": "on",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.unicodeHighlight.ambiguousCharacters": false,
     "window.zoomLevel": 1
 }

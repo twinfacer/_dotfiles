@@ -5,9 +5,7 @@ DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/twinfacer/_dotfiles.git}
 DOTDIR=${DOTDIR:-$HOME/.dotfiles}
 CFG_PATH=$DOTDIR/config/
 
-source_url() {
-  source <(curl -s $1)
-}
+source_url() { source <(curl -s $1) }
 
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
