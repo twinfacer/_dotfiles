@@ -12,7 +12,7 @@ source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/out
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/traits/docker.zsh"
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/traits/postgresql.zsh"
 
-PROJECTS_DIR=${$PROJECTS_DIR:-~/projects}
+PROJECTS_DIR=${PROJECTS_DIR:-$HOME/projects}
 
 ODIN_GEMS=(
   o-din
@@ -128,7 +128,8 @@ _get_projects() {
 
 _get_stuff() {
   ssh -T git@gitlab.com || _check_ssh_key
-  if [[ psql postgres -tXAc "SELECT 1 FROM pg_roles WHERE rolname='odin'" = 1 ]]; then
+  hasUser=$(psql postgres -tXAc "SELECT 1 FROM pg_roles WHERE rolname='odin'")
+  if [[ hasUser = 1 ]]; then
     info "User odin already exist"
   else
     step "Createing new posstresql user - odin"
