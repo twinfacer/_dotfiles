@@ -1,16 +1,32 @@
 #!/bin/zsh
 #
-# setup.zsh - One script for post install configuration.
+# setup.sh - One script for post install configuration.
 # Written by @twinfacer (https://github.com/twinfacer) 2021-2023 (C)
 
 _help() {
   cat << EOF
-  😎 Setup.zsh v2.0 by @twinfacer
+  😎 setup.sh v2.0 by @twinfacer
   # Opts
   ## Generic
     -h, --help - Display this help message.
 EOF
 }
+
+_banner() {
+  cat << EOF
+           _                    _
+          | |                  | |
+  ___  ___| |_ _   _ _ __   ___| |__
+ / __|/ _ \ __| | | | '_ \ / __| '_ \
+ \__ \  __/ |_| |_| | |_) |\__ \ | | |
+ |___/\___|\__|\__,_| .__(_)___/_| |_|
+                    | |
+                    |_|
+  v 2.0
+EOF
+}
+
+_banner
 
 if [[ $1 == '-h' ]]; then; _help && exit 0 ; fi
 
@@ -103,41 +119,41 @@ _copy_wallpaper() {
 
 ### 5.1) manjaro - Enable NTP
 _enable_ntpd() {
-  echo "[*] Enabling NTP service"
+  step "Enabling NTP service"
   systemctl enable ntpd  &>/dev/null
   systemctl start ntpd  &>/dev/null
 }
 
 ### 5.2) manjaro - Install yay
 _install_yay() {
-  echo "[*] Installing yay"
+  step "Installing yay"
   pacman -Syu --needed --noconfirm yay &>/dev/null
 }
 
 ### 5.3) manjaro - setup pacman/yay colors
 _setup_pacman() {
-  echo "[*] Pacman colors setup"
+  step "Pacman colors setup"
   sed -ie "s|#Color|Color|" /etc/pacman.conf
 }
 
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
   base-devel downgrade htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
-  sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli
+  sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli vscodium
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn vlc ventoy filezilla gimp
   nmap gobuster sqlmap crackmapexec swaks rkhunter seclists
 )
 
 _sync_packages_yay() {
-  echo "[*] Syncing packages"
+  step "Syncing packages"
   cmd="yay -S --noconfirm --needed ${arch_packages[@]} &>/dev/null"
   su -c "$cmd" - $REAL_USER
 }
 
 ### 5.4) manjaro - cleanup usused apps
 _cleanup_manjaro() {
-  echo "[*] Cleanup Manjaro garbage"
+  step "Cleanup Manjaro garbage"
   garbage=(
     manjaro-hello manjaro-documentation-en
     gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin
@@ -147,17 +163,17 @@ _cleanup_manjaro() {
 }
 
 _setup_manjaro() {
-  step "[*] Checking NTP"
+  step "Checking NTP"
   systemctl status ntpd &>/dev/null || _enable_ntpd
-  step "[*] Updating system"
+  step "Updating system"
   pacman -Syu --noconfirm &>/dev/null
-  step "[*] Setup yay"
+  step "Setup yay"
   which yay &>/dev/null || _install_yay
-  step "[*] Enabling pacman/yay colors"
+  step "Enabling pacman/yay colors"
   grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
-  step "[*] Installing required packages via yay"
+  step "Installing required packages via yay"
   _sync_packages_yay
-  step "[*] Cleanup unused manjaro staff"
+  step "Cleanup unused manjaro staff"
   _cleanup_manjaro
 }
 
@@ -237,7 +253,7 @@ Darwin)
     _setup_os_x
   ;;
 *)
-  info "[*] Manjaro detected, configuring ..."
+  info "Manjaro detected, configuring ..."
   _setup_manjaro
   ;;
 esac
@@ -290,9 +306,9 @@ _setup_dotfiles() {
 _update_dotfiles() {
   say "updating .dotfiles"
   cd $DOTDIR
-  git stash save -u
-  git checkout master
-  git pull --rebase origin master
+  git stash save -u &>/dev/null
+  git checkout master &>/dev/null
+  git pull --rebase origin master &>/dev/null
 }
 
 [[ -d $HOME_DIR/.dotfiles ]] || _setup_dotfiles

@@ -39,6 +39,6 @@ else
 fi
 
 step "copy configs"
-cp -R ~/.dotfiles/config/. $HOME/
+cp -R $CFG_PATH/. $HOME/
 
 source $HOME/.zshrc
