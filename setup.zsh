@@ -3,7 +3,7 @@
 
 DOTFILES_REPO=${DOTFILES_REPO:-https://github.com/twinfacer/_dotfiles.git}
 DOTDIR=${DOTDIR:-$HOME/.dotfiles}
-CFG_PATH=$DOTDIR/config/
+CFG_PATH=$DOTDIR/config
 
 source_url() { source <(curl -s $1) }
 
@@ -23,20 +23,7 @@ if [[ -d $DOTDIR ]]; then
   fi
 fi
 
-step "github credentials"
-if which gh &>/dev/null; then
-  gh auth status &>/dev/null
-  gh_exit_status=$?
-else
-  gh_exit_status=1
-fi
-
-if [[ $gh_exit_status -eq 0 ]]; then
-  git clone git@github.com:twinfacer/_dotfiles.git $DOTDIR &> /dev/null
-else
-  gh auth login
-  git clone git@github.com:twinfacer/_dotfiles.git $DOTDIR &> /dev/null
-fi
+git clone https://github.com/twinfacer/_dotfiles.git $DOTDIR &>/dev/null
 
 step "copy configs"
 cp -R $CFG_PATH/. $HOME/
