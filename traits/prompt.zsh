@@ -79,11 +79,15 @@ rbenv_prompt() {
 export NVM_PROMPT_BG_COLOR="yellow"
 
 nvm_prompt() {
-  echo -n "$(icon "js_icon") $(nvm current | sed -e s/v//) "
+  if [ which nvm &>/dev/null ]; then
+    echo -n "$(icon "js_icon") $(nvm current | sed -e s/v//) "
+  else
+    echo ""
+  fi
 }
 
 build_segment() {
-  echo $(colorize "$($1_prompt)" $2 $3)
+    echo $(colorize "$($1_prompt)" $2 $3)
 }
 
 build_prompt() {
