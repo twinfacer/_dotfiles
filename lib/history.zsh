@@ -14,31 +14,3 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
-
-# History wrapper
-function history_wrapper {
-  # Delete the history file if `-c' argument provided.
-  # This won't affect the `history' command output until the next login.
-  zparseopts -E c=clear l=list
-
-  if [[ -n "$clear" ]]; then
-    # if -c provided, clobber the history file
-    echo -n >| "$HISTFILE"
-    echo >&2 History file deleted. Reload the session to see its effects.
-  elif [[ -n "$list" ]]; then
-    # if -l provided, run as if calling `fc' directly
-    builtin fc "$@"
-  else
-    # otherwise, call `fc -l 1` to show all available
-    # history (and pass additional parameters)
-    builtin fc "$@" -l 1
-  fi
-}
-
-# Timestamp format
-case $HIST_STAMPS in
-  "mm/dd/yyyy") alias history='history_wrapper -f' ;;
-  "dd.mm.yyyy") alias history='history_wrapper -E' ;;
-  "yyyy-mm-dd") alias history='history_wrapper -i' ;;
-  *) alias history='history_wrapper' ;;
-esac

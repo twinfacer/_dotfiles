@@ -39,7 +39,6 @@ Host kvs
   HostName kvs.o-din.ru
 Host o1
   HostName odin.o1standard.ru
-  Port 3022
 Host o1-stage
   HostName o1-stage.o-din.ru
 Host oko
@@ -77,19 +76,19 @@ Host trilogy
 Host veermall
   Hostname veermall.o-din.ru
 
- 
-
- 
 
 
 
 
- 
 
 
- 
 
- 
 
- 
+
+
+
+
+
+
+
 

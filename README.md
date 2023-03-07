@@ -1,4 +1,4 @@
-## \_dotflies 2.0.4
+## \_dotflies 2.0.5
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
