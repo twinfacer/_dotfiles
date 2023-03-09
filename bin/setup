@@ -286,12 +286,12 @@ if [[ IS_OSX != 1 ]]; then
 fi
 
 # Add SSH keys to github.com
-if [[ IS_OSX != 1 ]]; then
-  su -c "gh auth status  &>/dev/null" - $REAL_USER
-  gh_exit_status=$?
-  [[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
-  [[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
-fi
+# if [[ IS_OSX != 1 ]]; then
+#   su -c "gh auth status  &>/dev/null" - $REAL_USER
+#   gh_exit_status=$?
+#   [[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
+#   [[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
+# fi
 
 # Setup dotfiles
 _setup_dotfiles() {
