@@ -142,7 +142,7 @@ arch_packages=(
   sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli vscodium
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn vlc ventoy filezilla gimp
-  nmap gobuster sqlmap crackmapexec swaks rkhunter seclists
+  nmap gobuster sqlmap crackmapexec swaks mtr rkhunter seclists
 )
 
 _sync_packages_yay() {
@@ -214,6 +214,7 @@ parrot_packages=(
   libpq-dev
   python2
   docker
+  mtr
   # crackmapexec
 )
 
