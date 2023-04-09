@@ -3,6 +3,10 @@ setopt PROMPT_SUBST
 export DEFAULT_LEFT_SEGMENTS=(status path)
 export DEFAULT_RIGHT_SEGMENTS=(git nvm rbenv)
 
+left_separator_prompt() { icon "l_prompt" }
+
+right_separator_prompt() { icon "r_prompt" }
+
 export STATUS_PROMPT_BG_COLOR="yellow"
 
 status_prompt() {
