@@ -3,20 +3,11 @@ setopt PROMPT_SUBST
 export DEFAULT_LEFT_SEGMENTS=(status path)
 export DEFAULT_RIGHT_SEGMENTS=(git nvm rbenv)
 
-# promt parts
-left_separator_prompt() {
-  icon "l_prompt"
-}
-
-right_separator_prompt() {
-  icon "r_prompt"
-}
-
 export STATUS_PROMPT_BG_COLOR="yellow"
 
 status_prompt() {
   # TODO: Fix me
-  if [[ $? -eq 0 ]]; then
+  if [[ $PROMPT_LAST_STATUS -eq 0 ]]; then
     local color=008;
   else
     local color=red;
@@ -70,6 +61,7 @@ export RBENV_PROMPT_BG_COLOR="red"
 rbenv_prompt() {
   if [[ -d $HOME/.rbenv ]]; then
     local ruby_version=$(rbenv local 2>/dev/null | grep -o -E '[0-9]+.[0-9]+.[0-9]+')
+    if [[ -z $ruby_version ]]; then ruby_version=$(rbenv global 2>/dev/null | grep -o -E '[0-9]+.[0-9]+.[0-9]+'); fi
     echo " $(icon "ruby") $ruby_version "
   else
     echo ""
@@ -79,7 +71,7 @@ rbenv_prompt() {
 export NVM_PROMPT_BG_COLOR="yellow"
 
 nvm_prompt() {
-  if [ which nvm &>/dev/null ]; then
+  if [[ -d $HOME/.nvm ]]; then
     echo -n "$(icon "js_icon") $(nvm current | sed -e s/v//) "
   else
     echo ""
@@ -87,10 +79,11 @@ nvm_prompt() {
 }
 
 build_segment() {
-    echo $(colorize "$($1_prompt)" $2 $3)
+  echo $(colorize "$($1_prompt)" $2 $3)
 }
 
 build_prompt() {
+  export PROMPT_LAST_STATUS=$?
   local position=$1
   local _prompt=""
   local segments_varname=${(U)position}_SEGMENTS
