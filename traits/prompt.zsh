@@ -6,7 +6,6 @@ export DEFAULT_RIGHT_SEGMENTS=(git nvm rbenv)
 export STATUS_PROMPT_BG_COLOR="yellow"
 
 status_prompt() {
-  # TODO: Fix me
   if [[ $PROMPT_LAST_STATUS -eq 0 ]]; then
     local color=008;
   else
