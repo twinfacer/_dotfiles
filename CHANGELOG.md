@@ -2,6 +2,7 @@
 ## 2.0.6 (09.04.2023)
 - Fix ruby && nvm promts parts to display global versions as well.
 - Fixed status prompt to show failed commands status.
+- Fixed history search.
 
 ## 2.0.3 (09.01.2023)
 - Changed default apps.

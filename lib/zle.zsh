@@ -12,48 +12,24 @@ bindkey -e
 bindkey '\ew' kill-region
 # [Esc-r] - Reload
 bindkey -s '\er' "source ~/.zshrc; clear ^M"
-
-# TODO: Seems broken (mb already defined keybind ???) =(
-# [ESC+e] Edit the current command line in $EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\ee' edit-command-line
-
 # start typing + [Up-Arrow] - fuzzy find history forward
-if [[ "${terminfo[kcuu1]}" != "" ]]; then
-  autoload -U up-line-or-beginning-search
-  zle -N up-line-or-beginning-search
-  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-fi
-
+bindkey '\e[B' history-search-forward
 # start typing + [Down-Arrow] - fuzzy find history backward
-if [[ "${terminfo[kcud1]}" != "" ]]; then
-  autoload -U down-line-or-beginning-search
-  zle -N down-line-or-beginning-search
-  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-fi
-
+bindkey '\e[A' history-search-backward
 # [Home] - Go to beginning of line
 if [[ "${terminfo[khome]}" != "" ]]; then bindkey "${terminfo[khome]}" beginning-of-line; fi
-
 # [End] - Go to end of line
 if [[ "${terminfo[kend]}" != "" ]]; then bindkey "${terminfo[kend]}"  end-of-line; fi
-
 # [Space] - do history expansion
 bindkey ' ' magic-space
-
 # [Ctrl-RightArrow] - move forward one word
 bindkey '^[[1;5C' forward-word
-
 # [Ctrl-LeftArrow] - move backward one word
 bindkey '^[[1;5D' backward-word
-
 # [Shift-Tab] - move through the completion menu backwards
 if [[ "${terminfo[kcbt]}" != "" ]]; then bindkey "${terminfo[kcbt]}" reverse-menu-complete; fi
-
 # [Backspace] - delete backward
 bindkey '^?' backward-delete-char
-
 # [Delete] - delete forward
 if [[ "${terminfo[kdch1]}" != "" ]]; then
   bindkey "${terminfo[kdch1]}" delete-char
