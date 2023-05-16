@@ -30,6 +30,8 @@ gems=(
   o-din-report
 )
 
+PROJECTS_DIR=${PROJECTS_DIR:-$HOME/projects}
+
 # Обновляет все модули на указанных проектах
 # $ _update_projects demo o1 rekafm
 function _update_projects() {
@@ -41,7 +43,7 @@ function _update_projects() {
     echo -e "\033[32m [*] updating $project ...\033[0m"
     # TODO: Путь пока захардкожен, вынести в переменную
     # Идем в папку с репозиторием проекта
-    cd ~/projects/$project
+    cd $PROJECTS_DIR$project
     # Если вдруг в репе грязненько - прячем всю каку в стеш
     git stash 1>/dev/null 2>&1
     # Ежели веточка не мастер - го в мастер
@@ -64,7 +66,7 @@ function _update_projects() {
 }
 # У меня лапки, поэтому все функции мнемонически заалиасены
 alias upda="_update_projects"
- 
+
 # Обновляет все локальные гемы на свежий мастер
 function _update_gems() {
   # Уже было
@@ -75,7 +77,7 @@ function _update_gems() {
   do
     # TODO: Путь пока захардкожен, вынести в переменную
     # Идем в папку с репозиторием модуля, остальные действия описаны в функции выше
-    cd ~/projects/$gem
+    cd $PROJECTS_DIR$gem
     git stash 1>/dev/null 2>&1
     if [[ _git_curent_branch -ne 'master' ]]; then
       git checkout master 1>/dev/null 2>&1
@@ -87,16 +89,16 @@ function _update_gems() {
 }
 # У меня лапки, поэтому все функции мнемонически заалиасены
 alias updg="_update_gems"
- 
+
 ## Мобилка
- 
+
 # Сборка МП андройда указанного проекта
 function _build_android() {
   node build.js --app $1 --platform android --resources && cd apps/$1 && npx cap open android && rm -rf ./node_modules && cd ../..
 }
 # У меня лапки, поэтому все функции мнемонически заалиасены
 alias abuild="_build_android"
- 
+
 # Сборка МП iOS указанного проекта
 function _build_ios() {
   node build.js --app $1 --platform ios --resources && cd apps/$1 && npx cap open ios && cd ../..
