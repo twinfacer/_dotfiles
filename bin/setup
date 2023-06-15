@@ -235,6 +235,9 @@ _setup_parrot() {
   which sublime_text &>/dev/null || _add_sublime_repos
   which gh &>/dev/null || _add_gh_repos
   which nvm &>/dev/null || _setup_node
+  # for docker
+  mkdir /sys/fs/cgroup/systemd
+  mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
 }
 
 # TODO
