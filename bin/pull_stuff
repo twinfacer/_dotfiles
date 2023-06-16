@@ -1,0 +1,66 @@
+pg_container_id() {
+  ssh $1 'docker ps --format="{{.ID}} {{.Names}}" | grep _postgres | cut -c-12'
+}
+
+dump_db() {
+  ssh $1 "docker exec -i $(pg_container_id $1) pg_dump -U app app"
+}
+apply_db() {
+  psql -h localhost -d $1 -U odin < ~/projects/$1.sql
+}
+dump_and_apply_db() {
+  dump_db $1 | psql -h localhost -d $1 -U odin
+}
+
+GEMS=(
+  o-din o-din-maintenance o-din-audit o-din-director o-din-ku o-din-parking
+  o-din-pm o-din-ppr o-din-rounds o-din-stock o-din-turnover o-din-lk o-din-report
+)
+REPOS=(
+  demo demo-eng o1 rekafm kazanmall kp16
+  oko aven goldengate elma sok kvs poklonkaplace phosagro
+  rusprod prsv trg redhills crosswall cushwake
+  bosch arcus veermall istra cityparkgrad
+)
+
+old=$(pwd)
+
+for repo in "${GEMS[@]}"
+do
+  if [[ -d ~/projects/$repo ]]; then
+    echo "[*] updating $repo"
+    cd ~/projects/$repo
+    git stash save -u &>/dev/null
+    git checkout master &>/dev/null
+    git pull --rebase origin master &>/dev/null
+  else
+    echo "[*] cloning $repo"
+    cd ~/projects
+    git clone git@gitlab.com:o-din/gems/$repo.git &>/dev/null
+  fi
+done
+
+for repo in "${REPOS[@]}"
+do
+  if [[ -d ~/projects/$repo ]]; then
+    echo "[*] updating $repo"
+    cd ~/projects/$repo
+    git stash save -u &>/dev/null
+    git checkout master &>/dev/null
+    git pull --rebase origin master &>/dev/null
+    bundle &>/dev/null
+    bundle exec rails db:migrate &>/dev/null
+  else
+    echo "[*] cloning $repo"
+    cd ~/projects
+    git clone git@gitlab.com:o-din/$repo.git &>/dev/null
+    cd $repo
+    cp .env.example .env
+    bundle &>/dev/null
+    yarn &>/dev/null
+    bundle exec rails db:create &>/dev/null
+    dump_and_apply_db $repo &>/dev/null
+  fi
+done
+
+cd $old
