@@ -17,7 +17,7 @@ GEMS=(
   o-din-pm o-din-ppr o-din-rounds o-din-stock o-din-turnover o-din-lk o-din-report
 )
 REPOS=(
-  demo demo-eng o1 rekafm kazanmall kp16
+  demo demo-eng o1 rdms rekafm kazanmall kp16
   oko aven goldengate elma sok kvs poklonkaplace phosagro
   rusprod prsv trg redhills crosswall cushwake
   bosch arcus veermall istra cityparkgrad
