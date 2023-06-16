@@ -22,7 +22,7 @@ _banner() {
  |___/\___|\__|\__,_| .__(_)___/_| |_|
                     | |
                     |_|
-  v 2.0
+  v 3.0
 EOF
 }
 
@@ -74,7 +74,6 @@ _enable_passwordless_sudo() {
   getent group wheel || groupadd wheel
   echo $MAGIC_STRING >> /etc/sudoers
   usermod -G wheel $REAL_USER
-  echo $(groups)
 }
 
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
@@ -127,7 +126,9 @@ _enable_ntpd() {
 ### 5.2) manjaro - Install yay
 _install_yay() {
   step "Installing yay"
-  pacman -Syu --needed --noconfirm yay &>/dev/null
+  su -c "git clone https://aur.archlinux.org/yay.git &>/dev/null" - $REAL_USER
+  su -c "cd yay; makepkg -si --noconfirm &>/dev/null" - $REAL_USER
+  rm -rf yay
 }
 
 ### 5.3) manjaro - setup pacman/yay colors
@@ -138,11 +139,13 @@ _setup_pacman() {
 
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
-  base-devel downgrade htop tmux zsh gnu-netcat xclip bat python2 nerd-fonts-hack
-  sublime-merge deluge vivaldi atom sublime-text-4 meld github-cli vscodium
+  base-devel man-db downgrade htop tmux zsh gnu-netcat xclip bat 7-zip-full
+  xfce4-docklike-plugin deluge vivaldi vlc
+  sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
-  obsidian yarn vlc ventoy filezilla gimp
-  nmap gobuster sqlmap crackmapexec swaks mtr rkhunter seclists
+  obsidian yarn ventoy filezilla gimp
+  nmap gobuster sqlmap crackmapexec rkhunter seclists
+  john-git thc-hydra burpsuite metasploit-git hashcat-git
 )
 
 _sync_packages_yay() {
@@ -276,11 +279,11 @@ systemctl status postgresql &>/dev/null || _setup_postgresql
 
 # Install nerd font 'Hack'
 _install_hack_font() {
-  say "installing Hack"
-  mkdir -p $HOME_DIR/.fonts
-  cd $HOME_DIR/.fonts
-  wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip
-  unzip -qq -f Hack.zip
+  say "Installing Hack"
+  su -c "mkdir -p $HOME_DIR/.fonts" - $REAL_USER
+  su -c "cd $HOME_DIR/.fonts; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip" - $REAL_USER
+  su -c "cd $HOME_DIR/.fonts; 7zz e Hack.zip" - $REAL_USER
+  su -c "rm $HOME_DIR/.fonts/Hack.zip" - $REAL_USER
   fc-cache -fv &>/dev/null
 }
 
@@ -320,11 +323,12 @@ _update_dotfiles() {
 
 _create_projects_folder() {
   say "Creating ~/projects folder"
+  su -c "mkdir $HOME_DIR/projects" - $REAL_USER
 }
 
 # Create projects dir
-[[ -d $HOME_DIR/projects ]] || _create_projects_folder
-[[ ! -d $HOME_DIR/projects ]] || ok "Project directory already exists."
+[[ -d $HOME_DIR/projects ]] && ok "Project directory already exists."
+[[ ! -d $HOME_DIR/projects ]] &&  _create_projects_folder
 
 VSCODIUM_PACKAGES=(
   hediet.vscode-drawio
@@ -338,7 +342,13 @@ VSCODIUM_PACKAGES=(
   wingrunr21.vscode-ruby
 )
 
-_setup_vscodium() { for ext in "${VSCODIUM_PACKAGES[@]}"; do; codium --install-extension  "$ext"; done }
+_setup_vscodium() {
+  for ext in "${VSCODIUM_PACKAGES[@]}"; do;
+    su -c "codium --install-extension $ext &>/dev/null" - $REAL_USER;
+  done
+}
+
+which codium &>/dev/null && _setup_vscodium
 
 # ruby-build because system is old as shit
 _setup_ruby-build() {
@@ -353,13 +363,22 @@ which ruby-build &>/dev/null || _setup_ruby-build
 which ruby-build &>/dev/null && ok "ruby-build is already installed"
 
 # ruby, ruby, ruby, ruby...
-_setup_ruby_272() {
-  say "Installing ruby 2.7.2"
-  exec_silent "rbenv install 2.7.2"
+_setup_ruby_320() {
+  say "Installing ruby 3.2.0"
+  su -c "rbenv install 3.2.0" - $REAL_USER
+  su -c "rbenv global 3.2.0" - $REAL_USER
+
 }
 
-rbenv versions | grep "2.7.2" &>/dev/null && _setup_ruby_272
-rbenv versions | grep "2.7.2" &>/dev/null || ok "ruby 2.7.2 is already installed"
+_setup_node() {
+  say "Installing nodejs v14"
+  nvm install lts/fermium
+}
+
+_setup_node
+
+rbenv versions &>/dev/null | grep "3.2.0" || _setup_ruby_320
+rbenv versions &>/dev/null | grep "3.2.0" && ok "ruby 3.2.0 is already installed"
 
 # TODO: Setup solagraph and rubocop as well
 
