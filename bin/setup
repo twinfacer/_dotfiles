@@ -145,7 +145,7 @@ arch_packages=(
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn ventoy filezilla gimp
   nmap gobuster sqlmap crackmapexec rkhunter seclists
-  john-git thc-hydra burpsuite metasploit-git hashcat-git
+  john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap
 )
 
 _sync_packages_yay() {
