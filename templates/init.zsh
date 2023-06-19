@@ -43,7 +43,7 @@ function _update_projects() {
     echo -e "\033[32m [*] updating $project ...\033[0m"
     # TODO: Путь пока захардкожен, вынести в переменную
     # Идем в папку с репозиторием проекта
-    cd $PROJECTS_DIR$project
+    cd $PROJECTS_DIR/$project
     # Если вдруг в репе грязненько - прячем всю каку в стеш
     git stash 1>/dev/null 2>&1
     # Ежели веточка не мастер - го в мастер
@@ -77,7 +77,7 @@ function _update_gems() {
   do
     # TODO: Путь пока захардкожен, вынести в переменную
     # Идем в папку с репозиторием модуля, остальные действия описаны в функции выше
-    cd $PROJECTS_DIR$gem
+    cd $PROJECTS_DIR/$gem
     git stash 1>/dev/null 2>&1
     if [[ _git_curent_branch -ne 'master' ]]; then
       git checkout master 1>/dev/null 2>&1
