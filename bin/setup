@@ -168,6 +168,8 @@ _cleanup_manjaro() {
 _setup_manjaro() {
   step "Checking NTP"
   systemctl status ntpd &>/dev/null || _enable_ntpd
+  step "Enabling Network Manager"
+  su -c "sudo systemctl enable --now NetworkManager" - $REAL_USER
   step "Updating system"
   pacman -Syu --noconfirm &>/dev/null
   step "Setup yay"
