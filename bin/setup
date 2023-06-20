@@ -144,8 +144,9 @@ arch_packages=(
   sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn ventoy filezilla gimp
-  nmap gobuster sqlmap crackmapexec rkhunter seclists
+  nmap gobuster sqlmap  rkhunter seclists rockyou
   john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap
+  crackmapexec
 )
 
 _sync_packages_yay() {
