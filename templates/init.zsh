@@ -53,7 +53,7 @@ function _update_projects() {
     # Пулим свежатину, с ребейзом
     git pull --rebase 1>/dev/null 2>&1
     # Мой чит для обновления проектов, см выше
-    upd o-din o-din-lk o-din-ppr o-din-rounds o-din-pm o-din-ku o-din-stock o-din-parking o-din-reports o-din-audit o-din-director 1>/dev/null 2>&1
+    upd {gems[@]} 1>/dev/null 2>&1
     # JS тоже обновим на свежее
     yarn upgrade o-din-package 1>/dev/null 2>&1
     # Коммитимся
