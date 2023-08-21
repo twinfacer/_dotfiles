@@ -147,7 +147,7 @@ arch_packages=(
   obsidian yarn ventoy filezilla gimp
   nmap masscan gobuster sqlmap rkhunter seclists rockyou git-dumper-git
   john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap
-  crackmapexec sslyze
+  crackmapexec sslyze nuclei nikto
 )
 
 _sync_packages_yay() {
