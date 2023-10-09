@@ -2,13 +2,13 @@
 alias rc="rails console"
 alias rs="rails server"
 alias rr="rails routes"
+
+alias rdc="rails db:create"
 alias rdm="rails db:migrate"
+alias rdd="rails db:drop"
 alias rgm="rails generate migration"
 
 alias rtcc="rails tmp:cache:clear && rs"
-
-alias dbup="rails db:create db:migrate db:seed"
-alias dbup!="rails db:drop db:create db:migrate"
 
 function _show_coverage() {
   coverage_file=$(pwd)/coverage/index.html
