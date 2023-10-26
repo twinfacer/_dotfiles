@@ -264,7 +264,7 @@ Darwin)
     _setup_os_x
   ;;
 *)
-  info "Manjaro detected, configuring ..."
+  info "Arch-based detected, configuring ..."
   _setup_manjaro
   ;;
 esac
