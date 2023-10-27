@@ -9,7 +9,7 @@ source $DOTDIR/local/init.zsh
 # Set default apps unless any override found
 export EDITOR=${EDITOR:-nano}
 export VISUAL=${VISUAL:-codium}
-export BROWSER=${BROWSER:-vivaldi}
+export BROWSER=${BROWSER:-vivaldi-stable}
 export GIT_EDITOR=${GIT_EDITOR:-nano}
 
 source_dir() {
