@@ -145,7 +145,8 @@ arch_packages=(
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   proxychains-ng
   obsidian yarn ventoy filezilla gimp
-  nmap masscan gobuster sqlmap rkhunter seclists rockyou git-dumper-git
+  nmap masscan rustscan gobuster sqlmap rkhunter seclists rockyou git-dumper-git
+  subfinder
   john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap
   crackmapexec sslyze nuclei nikto
 )
