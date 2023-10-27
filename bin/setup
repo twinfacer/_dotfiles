@@ -135,12 +135,11 @@ arch_packages=(
   xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet libreoffice-still
   sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr docker
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
-  proxychains-ng
   obsidian yarn ventoy filezilla gimp
-  nmap masscan rustscan gobuster sqlmap rkhunter seclists rockyou git-dumper-git
-  subfinder
+  proxychains-ng rkhunter seclists rockyou exploitdb
+  nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder
   john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap ffuf
-  crackmapexec sslyze nuclei nikto wapiti exploitdb
+  crackmapexec sslyze nuclei nikto wapiti 
 )
 
 _sync_packages_yay() {
