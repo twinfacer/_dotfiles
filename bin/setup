@@ -3,9 +3,11 @@
 # setup.sh - One script for post install configuration.
 # Written by @twinfacer (https://github.com/twinfacer) 2021-2023 (C)
 
+VER="3.1"
+
 _help() {
   cat << EOF
-  😎 setup.sh v2.0 by @twinfacer
+  setup.sh v$VER by @twinfacer
   # Opts
   ## Generic
     -h, --help - Display this help message.
@@ -13,17 +15,9 @@ EOF
 }
 
 _banner() {
-  cat << EOF
-           _                    _
-          | |                  | |
-  ___  ___| |_ _   _ _ __   ___| |__
- / __|/ _ \ __| | | | '_ \ / __| '_ \
- \__ \  __/ |_| |_| | |_) |\__ \ | | |
- |___/\___|\__|\__,_| .__(_)___/_| |_|
-                    | |
-                    |_|
-  v 3.0
-EOF
+  which figlet &>/dev/null && figlet setup.sh
+  which figlet &>/dev/null || echo "setup.sh"
+  echo "v$VER\n"
 }
 
 _banner
@@ -32,8 +26,6 @@ if [[ $1 == '-h' ]]; then; _help && exit 0 ; fi
 
 ### SOME UTILS
 source_url() { source <(curl -s $1) }
-
-exec_as() { sudo -u $REAL_USER $1 }
 
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/icons.zsh"
 source_url "https://raw.githubusercontent.com/twinfacer/_dotfiles/master/lib/output.zsh"
@@ -73,7 +65,7 @@ _enable_passwordless_sudo() {
   say "Enabling passwordless sudo"
   getent group wheel || groupadd wheel
   echo $MAGIC_STRING >> /etc/sudoers
-  usermod -G wheel $REAL_USER
+  usermod -G wheel $REAL_USER &>/dev/null
 }
 
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
@@ -100,19 +92,19 @@ _setup_zsh() {
 # TODO: Make it works with MACOS
 if [[ IS_OSX != 1 ]]; then
   [[ $(getent passwd $REAL_USER | cut -d: -f7) == $(which zsh) ]] || _setup_zsh
-  [[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is configured"
+  [[ $(getent passwd $REAL_USER | cut -d: -f7) != $(which zsh) ]] || ok "zsh is set as default shell"
 fi
 
 # TODO: Customize wallpaper path
 ## 4) Copy wallpaper for terminal
-_copy_wallpaper() {
-  say "Copying terminal wallpaper"
-  bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
-  curl -s -L $bg_path > /home/$REAL_USER/terminal_bg.jpg
-}
+#_copy_wallpaper() {
+#  say "Copying terminal wallpaper"
+#  bg_path="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/126048-Magic_The_Gathering-Elesh_Norn.jpg"
+#  curl -s -L $bg_path > /home/$REAL_USER/terminal_bg.jpg
+#}
 
-[[ -f $HOME_DIR/terminal_bg.jpg ]] || _copy_wallpaper
-[[ ! -f $HOME_DIR/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
+# [[ -f $HOME_DIR/terminal_bg.jpg ]] || _copy_wallpaper
+# [[ ! -f $HOME_DIR/terminal_bg.jpg ]] || ok "Terminal wallpaper is already copied"
 
 ## 5) Setup specific distros
 
@@ -139,16 +131,16 @@ _setup_pacman() {
 
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
-  base-devel man-db downgrade htop tmux zsh gnu-netcat xclip bat 7-zip-full openvpn asciinema paruz
-  xfce4-docklike-plugin deluge vivaldi vlc smbclient nfs-utils figlet xscreensaver-xmatrix-color
+  base-devel man-db downgrade htop tmux zsh gnu-netcat xclip bat 7-zip-full openvpn asciinema paruz ttf-hack-nerd
+  xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet libreoffice-still
   sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr docker
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   proxychains-ng
   obsidian yarn ventoy filezilla gimp
   nmap masscan rustscan gobuster sqlmap rkhunter seclists rockyou git-dumper-git
   subfinder
-  john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap
-  crackmapexec sslyze nuclei nikto
+  john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap ffuf
+  crackmapexec sslyze nuclei nikto wapiti exploitdb
 )
 
 _sync_packages_yay() {
@@ -179,7 +171,6 @@ _setup_manjaro() {
   which yay &>/dev/null || _install_yay
   step "Enabling pacman/yay colors"
   grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
-  step "Installing required packages via yay"
   _sync_packages_yay
   step "Cleanup unused manjaro staff"
   _cleanup_manjaro
@@ -195,12 +186,6 @@ _add_gh_repos() {
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-}
-
-_setup_node() {
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &>/dev/null
-  nvm install lts/fermium
-  npm install --global yarn
 }
 
 parrot_packages=(
@@ -274,43 +259,20 @@ esac
 
 ### Setup Postgres
 _setup_postgresql() {
-  echo "[*] Initializin postgresql DB"
-  systemctl enable postgresql
+  say "Initializing postgresql DB"
+  systemctl enable postgresql &>/dev/null
   su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'"
   systemctl start postgresql
 }
 
 systemctl status postgresql &>/dev/null || _setup_postgresql
-
-# Install nerd font 'Hack'
-_install_hack_font() {
-  say "Installing Hack"
-  su -c "mkdir -p $HOME_DIR/.fonts" - $REAL_USER
-  su -c "cd $HOME_DIR/.fonts; wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip" - $REAL_USER
-  su -c "cd $HOME_DIR/.fonts; 7zz e Hack.zip" - $REAL_USER
-  su -c "rm $HOME_DIR/.fonts/Hack.zip" - $REAL_USER
-  fc-cache -fv &>/dev/null
-}
-
-if [[ IS_OSX != 1 ]]; then
-  su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null || _install_hack_font
-  su -c "fc-list" $REAL_USER | grep "Hack" &>/dev/null && ok "Hack font is already installed"
-fi
-
-# Add SSH keys to github.com
-# if [[ IS_OSX != 1 ]]; then
-#   su -c "gh auth status  &>/dev/null" - $REAL_USER
-#   gh_exit_status=$?
-#   [[ $gh_exit_status -eq 0 ]] && ok "SSH key already added to github.com"
-#   [[ ! $gh_exit_status -eq 0 ]] && su -c "gh auth login" - $REAL_USER
-# fi
+systemctl status postgresql &>/dev/null && ok "postgresql already initialized"
 
 # Setup dotfiles
 _setup_dotfiles() {
   say "installing .dotfiles"
   export DOTDIR=$HOME_DIR/.dotfiles
-  cmd="curl -L 'https://git.io/fNdqS' | zsh"
-  exec_as $cmd
+  su -c "curl -L 'https://git.io/fNdqS' | zsh" - $REAL_USER
 }
 
 # TODO: git stash, git checkout master
@@ -348,6 +310,7 @@ VSCODIUM_PACKAGES=(
 )
 
 _setup_vscodium() {
+  say "Installing vscodium packages"
   for ext in "${VSCODIUM_PACKAGES[@]}"; do;
     su -c "codium --install-extension $ext &>/dev/null" - $REAL_USER;
   done
@@ -372,19 +335,22 @@ _setup_ruby_320() {
   say "Installing ruby 3.2.0"
   su -c "rbenv install 3.2.0" - $REAL_USER
   su -c "rbenv global 3.2.0" - $REAL_USER
-
 }
 
 _setup_node() {
-  say "Installing nodejs v14"
-  nvm install lts/fermium
+  say "installing nvm && lts/fermium node"
+  su -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &>/dev/null" - $REAL_USER
+  export NVM_DIR="$HOME_DIR/.nvm"
+  su -c "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh; nvm install lts/fermium &>/dev/null" - $REAL_USER
+  [ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh
 }
 
-_setup_node
+[[ ! -d $HOME_DIR/.nvm ]] &>/dev/null && _setup_node
+[[ -d $HOME_DIR/.nvm ]] &>/dev/null && ok "nvm already installed"
 
-rbenv versions &>/dev/null | grep "3.2.0" || _setup_ruby_320
-rbenv versions &>/dev/null | grep "3.2.0" && ok "ruby 3.2.0 is already installed"
+[[ ! -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && _setup_ruby_320
+[[ -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && ok "ruby 3.2.0 is already installed"
 
 # TODO: Setup solagraph and rubocop as well
 
-echo "$fg[green][👍]$reset_color done!"
+ok "done!"
