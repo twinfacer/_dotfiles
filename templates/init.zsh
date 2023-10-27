@@ -4,7 +4,7 @@ export LC_CTYPE=en_US.UTF-8
 
 # export EDITOR="nano"
 # export VISUAL="codium"
-# export BROWSER="vivaldi"
+# export BROWSER="vivaldi-stable"
 # export GIT_EDITOR="nano"
 
 export DOTFILES_QUIET=false
@@ -53,7 +53,7 @@ function _update_projects() {
     # Пулим свежатину, с ребейзом
     git pull --rebase 1>/dev/null 2>&1
     # Мой чит для обновления проектов, см выше
-    upd {gems[@]} 1>/dev/null 2>&1
+    upd "${gems[@]}" 1>/dev/null 2>&1
     # JS тоже обновим на свежее
     yarn upgrade o-din-package 1>/dev/null 2>&1
     # Коммитимся
