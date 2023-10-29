@@ -136,7 +136,7 @@ arch_packages=(
   deluge deluge-gtk vivaldi obsidian flameshot vlc filezilla gimp loupe libreoffice-still ventoy
   sublime-merge sublime-text-4 meld postman-bin rbenv ruby-build postgresql android-studio nvm vscodium yarn  
   proxychains-ng openvpn rkhunter seclists rockyou exploitdb
-  nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder amass ghidra
+  nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder amass ghidra gdb gef
   john-git thc-hydra burpsuite zaproxy metasploit-git hashcat-git ffuf sslyze nuclei nikto wapiti
   # crackmapexec smbmap  
 )
