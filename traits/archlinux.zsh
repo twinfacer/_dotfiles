@@ -6,5 +6,4 @@ alias pacl!="pacman -Qe"
 alias pacle='pacman -Qent'
 alias pacs="pacman -Qo"
 alias pacr="sudo pacman -Rsu"
-alias pacu="sudo pacman -Suyy"
-alias pacc="sudo pacman -Scc"
+alias pacru="pacman -Qtdq | pacman -Rns -"
