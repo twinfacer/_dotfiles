@@ -131,15 +131,15 @@ _setup_pacman() {
 
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
-  base-devel man-db downgrade htop tmux zsh gnu-netcat xclip bat 7-zip-full openvpn asciinema paruz ttf-hack-nerd
-  xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet libreoffice-still
-  sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr docker
+  base-devel man-db downgrade htop tmux zsh zsh-autosuggestions gnu-netcat xclip bat 7-zip-full openvpn asciinema paruz ttf-hack-nerd
+  xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet 
+  sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr docker open-vm-tools
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
-  obsidian yarn ventoy filezilla gimp
+  obsidian yarn ventoy filezilla gimp loupe libreoffice-still
   proxychains-ng rkhunter seclists rockyou exploitdb
   nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder
-  john-git thc-hydra burpsuite metasploit-git hashcat-git smbmap ffuf
-  crackmapexec sslyze nuclei nikto wapiti 
+  john-git thc-hydra burpsuite metasploit-git hashcat-git ffuf sslyze nuclei nikto wapiti
+  crackmapexec smbmap  
 )
 
 _sync_packages_yay() {
@@ -155,6 +155,11 @@ _cleanup_manjaro() {
     manjaro-hello manjaro-documentation-en
     gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin
     thunderbird transmission-gtk uget totem
+    # arch
+    parole ristretto mousepad xfce4-eyes-plugin xfce4-screenshooter xfce4-weather-plugin 
+    xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-sensors-plugin xfce4-systemload-plugin 
+    xfce4-netload-plugin xfce4-battery-plugin xfce4-dict xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mount-plugin 
+    xfce4-mpc-plugin xfce4-smartbookmark-plugin xfce4-time-out-plugin xfce4-timer-plugin xfce4-verve-plugin
   )
   pacman -Rsu "${garbage[@]}"  &>/dev/null
 }
