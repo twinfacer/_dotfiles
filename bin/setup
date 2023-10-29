@@ -132,7 +132,7 @@ _setup_pacman() {
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
   base-devel man-db downgrade htop tmux zsh zsh-autosuggestions gnu-netcat xclip bat 7-zip-full openvpn asciinema paruz ttf-hack-nerd
-  xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet 
+  xfce4-docklike-plugin deluge deluge-gtk vivaldi vlc smbclient nfs-utils figlet jq fzf
   sublime-merge sublime-text-4 meld github-cli vscodium swaks mtr docker open-vm-tools
   flameshot postman-bin rbenv ruby-build postgresql android-studio nvm
   obsidian yarn ventoy filezilla gimp loupe libreoffice-still
