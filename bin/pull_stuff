@@ -20,7 +20,7 @@ REPOS=(
   demo demo-eng o1 rdms rekafm kazanmall kp16
   oko raven goldengate elma sok kvs poklonkaplace phosagro
   rusprod prsv trg redhills crosswall cushwake
-  bosch arcus veermall istra
+  bosch arcus veermall istra zvezdnyj
 )
 
 old=$(pwd)
