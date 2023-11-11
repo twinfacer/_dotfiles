@@ -1,9 +1,13 @@
+## Aliases for archlinux
+
 which pacman &>/dev/null || return
 
-# pacman (pac*)
+## pacman (pac*)
+# List all installed packages.
 alias pacl="pacman -Q"
-alias pacl!="pacman -Qe"
-alias pacle='pacman -Qent'
+# List all explicitly installed packages.
+alias pacl!='pacman -Qent'
+# Search for package owns a file.
 alias pacs="pacman -Qo"
+# Remove selected packages
 alias pacr="sudo pacman -Rsu"
-alias pacru="pacman -Qtdq | pacman -Rns -"
