@@ -1,4 +1,8 @@
 # Changelog
+## 2.1.0 (24.01.2024)
+- Droped some unused aliases.
+- Added helper script - __archup.sh__. It speeds up __Archlinux__ postinstall.
+
 ## 2.0.6 (09.04.2023)
 - Fix ruby && nvm promts parts to display global versions as well.
 - Fixed status prompt to show failed commands status.

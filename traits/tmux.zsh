@@ -15,15 +15,7 @@ restore() {
 alias tconf="ed ~/.tmux.conf"
 alias tref="tmux source-file ~/.tmux.conf"
 
-# client
-alias tdc="tmux detach-client"
-alias tlc="tmux list-clients"
-
 # sessions manipulation (ts*)
-alias tsl="tmux list-sessions"
-alias tsc="tmux new-session -s"
-alias tsa="tmux attach-session -t"
-alias tsk="tmux kill-session -t"
 alias tsr="restore"
 
 [ "$TMUX_AUTORESTORE" = true ] && restore

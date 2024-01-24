@@ -1,4 +1,4 @@
-## \_dotflies 2.0.7
+## \_dotflies 2.1.0
 ~~Magical~~ Basic dotfiles for linuz && zsh.
 
 ![Preview](https://github.com/twinfacer/_dotfiles/raw/master/preview.png)
@@ -70,18 +70,11 @@ _*_ means _global_.
 - [....] - Cd 3 dirs back.
 - [G]* - __| grep__.
 - [L]* - __less__.
-- [_, yolo] - __sudo__. (Just do it!)
 - [duh] - __du -h__ (Disc usage, huminized).
 - [duhs] - __du -sh__ (Disc usage, hummanized, summarize).
-- [ed] - __$EDITOR__.
-- [ved] - __$VISUAL__.
-- [h] - __man__ (RTFM && TLDR).
 - [wcl] - __wc -l__ (How many sweet aliases I have? __alias | wcl__).
 - [ll] __ls -lAhF__ (ls all as list for humans).
-- [m] - __mount__ ( Mount 'em!).
 - [nuke] - __rm -rf__( :city_sunrise: ).
-- [p] - __echo__ (because __ruby__).
-- [wh] - __which__ (WTF is that???).
 - [sa] - __alias | grep__ (search aliases with ez)
 
 #### Ruby/Rails stuff:
@@ -171,9 +164,9 @@ _*_ means _global_.
 
 #### Archlinux stuff (pacman):
 - [pacl] - __pacman -Q <package_name>__. (Get stuff in)
+- [pacl!] - __pacman -Qent__ - Show all explicitly installed packages.
 - [pacr] - __sudo pacman -R <package_name>__. (Get :poop: out)
-- [pacu] - __sudo pacman -Suyy__. (Keep it up to date!)
-- [pacc] - __sudo pacman -Scc__. (Clear pacman cache)
+- [pacs] - __pacman -Qo <path>__. Search for package owns a file at <path>.
 
 #### Systemd stuff:
 - [sc] - __sudo systemctl__ (to ctrl 'em all!).
@@ -185,14 +178,8 @@ _*_ means _global_.
 - [scup!] - __sudo systemctl enable__. (...and stay up)
 
 #### Tmux Stuff:
-- [tconf] - __ed ~/.tmux.conf__ (open tux config file in editor)
-- [tdc] - __tmux detach-client__.
-- [tlc] - __tmux list-clients__.
+- [tconf] - __ed ~/.tmux.conf__ (open tmux config file in editor)
 - [tref] - __tmux source-file ~/.tmux.conf__.
-- [tsa] - __tmux attach-session -t__.
-- [tsc] - __tmux new-session -s__.
-- [tsk] - __tmux kill-session -t__.
-- [tsl] - __tmux list-sessions__.
 - [tsr] - __restore__.
 
 #### WD stuff:
@@ -200,10 +187,6 @@ _*_ means _global_.
 - [wpa] - __wd add <name>__ (add current dir as waypoint named <name>)
 - [wpl] - __wd list__ (lists all known waypoints)
 - [wpr] - __wd rm__ <name> (remove waypoint named <name>)
-
-#### JS stuff:
-- [ya] - __yarn__.
-- [yaa]  - __yarn add__.
 
 #### zsh stuff
 - [zref] - __source ~/.zshrc__.

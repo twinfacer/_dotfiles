@@ -5,7 +5,7 @@ alias rr="rails routes"
 
 alias rdc="rails db:create"
 alias rdm="rails db:migrate"
-alias rdd="rails db:drop"
+alias rdd="DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:drop"
 alias rgm="rails generate migration"
 
 alias rtcc="rails tmp:cache:clear && rs"

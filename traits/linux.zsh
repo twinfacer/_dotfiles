@@ -1,9 +1,3 @@
-alias _="sudo"
-alias yolo="sudo"
-alias p="echo"
-alias h="man"
-alias m="mount"
-
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
@@ -12,10 +6,6 @@ alias -g G="| grep"
 alias -g wget='wget --no-hsts'
 
 alias -g ll="ls -lAhF"
-
-alias ed="${EDITOR}"
-alias ved="${VISUAL}"
-alias wh="which"
 
 alias wcl="wc -l"
 alias duh="du -h"
