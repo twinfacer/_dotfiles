@@ -12,7 +12,6 @@ Required packages:
 - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
 
 Optional deps:
-- [bat](https://github.com/sharkdp/bat)
 - [tmux](https://github.com/tmux/tmux)
 
 ### Installation:
@@ -27,8 +26,6 @@ This environment variables controls all things:
 
 ### Advanced Usage:
 Start terminal -> __tsr__ (aka restore (create/attach) tmux default session) -> You are ready!
-
-__ssh__ to remote host -> __tsr__ -> You are remotely ready (WIP and wanky but helpfull)!
 
 This tools setup works almost perfectly for me as daily terminal ~~ab~~user, git nerd and js/ruby (mostly, but not limited to) full stack web developer and security specialist. Feel free to add your own zsh scripts, just put whem into _~/.dotfiles/local/_ dir. Useful for per machine configuration (env variables, credentials, hardware hacks, etc ...).
 
