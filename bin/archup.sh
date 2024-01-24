@@ -119,7 +119,7 @@ _setup_pacman() {
 ### 5.4) archlinux - install nessecary packages
 arch_packages=(
   # Core stuff
-  man-db downgrade xfce4-docklike-plugin libyaml libyaml-devel
+  archinstall man-db downgrade xfce4-docklike-plugin libyaml libyaml-devel
   # Terminal stuff
   tmux zsh zsh-autosuggestions xclip figlet jq fzf asciinema ttf-hack-nerd
   # Network stuff
