@@ -133,7 +133,7 @@ _setup_pacman() {
 arch_packages=(
   base-devel man-db downgrade htop tmux zsh zsh-autosuggestions gnu-netcat xclip bat 7-zip-full docker mtr swaks
   xfce4-docklike-plugin smbclient nfs-utils figlet jq fzf asciinema paruz open-vm-tools ttf-hack-nerd github-cli
-  deluge deluge-gtk vivaldi obsidian flameshot vlc filezilla gimp loupe libreoffice-still ventoy bleachbit
+  deluge deluge-gtk vivaldi obsidian-bin flameshot vlc filezilla gimp loupe libreoffice-still ventoy bleachbit
   sublime-merge sublime-text-4 meld postman-bin rbenv ruby-build postgresql android-studio nvm vscodium yarn  
   proxychains-ng openvpn rkhunter seclists rockyou exploitdb
   nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder amass ghidra gdb gef
