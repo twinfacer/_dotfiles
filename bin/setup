@@ -139,7 +139,7 @@ arch_packages=(
   burpsuite exploitdb git-dumper-git proxychains-ng rkhunter seclists rockyou zaproxy
   nmap masscan rustscan gobuster ffuf sqlmap subfinder amass-bin ghidra gdb gef
   john-git thc-hydra metasploit-git hashcat-git sslyze nuclei nikto
-  netexec python-smbmap-git  
+  netexec python-smbmap-git wireshark-qt
 )
 
 _sync_packages_yay() {
