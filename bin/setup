@@ -136,7 +136,7 @@ arch_packages=(
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
   docker rbenv ruby-build postgresql redis nvm yarn
-  burpsuite exploitdb git-dumper-git proxychains-ng rkhunter seclists rockyou zaproxy
+  burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy
   nmap masscan rustscan gobuster ffuf sqlmap subfinder amass-bin ghidra gdb gef
   john-git thc-hydra metasploit-git hashcat-git sslyze nuclei nikto
   netexec python-smbmap-git wireshark-qt
