@@ -138,6 +138,7 @@ arch_packages=(
   docker rbenv ruby-build postgresql redis nvm yarn
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy
   nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin ghidra gdb gef
+  whatweb wafw00f gowitness gospider gau
   john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
   netexec python-smbmap-git wireshark-qt
   aircrack-ng airgeddon
