@@ -131,14 +131,15 @@ _setup_pacman() {
 
 ### 5.3) manjaro - install nessecary packages
 arch_packages=(
-  base-devel man-db downgrade htop tmux zsh zsh-autosuggestions gnu-netcat xclip bat 7-zip-full docker mtr swaks
-  xfce4-docklike-plugin smbclient nfs-utils figlet jq fzf asciinema paruz open-vm-tools ttf-hack-nerd github-cli
-  deluge deluge-gtk vivaldi obsidian-bin flameshot vlc filezilla gimp loupe libreoffice-still ventoy bleachbit
-  sublime-merge sublime-text-4 meld postman-bin rbenv ruby-build postgresql android-studio nvm vscodium yarn  
-  proxychains-ng openvpn rkhunter seclists rockyou exploitdb
-  nmap masscan rustscan gobuster sqlmap git-dumper-git subfinder amass ghidra gdb gef
-  john-git thc-hydra burpsuite zaproxy metasploit-git hashcat-git ffuf sslyze nuclei nikto wapiti
-  # crackmapexec smbmap  
+  base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
+  figlet fzf jq gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
+  bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
+  android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
+  docker rbenv ruby-build postgresql redis nvm yarn
+  burpsuite exploitdb git-dumper-git proxychains-ng rkhunter seclists rockyou zaproxy
+  nmap masscan rustscan gobuster ffuf sqlmap subfinder amass-bin ghidra gdb gef
+  john-git thc-hydra metasploit-git hashcat-git sslyze nuclei nikto
+  netexec python-smbmap-git  
 )
 
 _sync_packages_yay() {
