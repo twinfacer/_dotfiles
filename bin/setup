@@ -3,7 +3,7 @@
 # setup.sh - One script for post install configuration.
 # Written by @twinfacer (https://github.com/twinfacer) 2021-2024 (C)
 
-VER="3.1"
+VER="3.3"
 
 _help() {
   cat << EOF
@@ -108,14 +108,14 @@ fi
 
 ## 5) Setup specific distros
 
-### 5.1) manjaro - Enable NTP
+### 5.1) arch - Enable NTP
 _enable_ntpd() {
   step "Enabling NTP service"
   systemctl enable ntpd  &>/dev/null
   systemctl start ntpd  &>/dev/null
 }
 
-### 5.2) manjaro - Install yay
+### 5.2) arch - Install yay
 _install_yay() {
   step "Installing yay"
   su -c "git clone https://aur.archlinux.org/yay.git &>/dev/null" - $REAL_USER
@@ -123,13 +123,13 @@ _install_yay() {
   rm -rf yay
 }
 
-### 5.3) manjaro - setup pacman/yay colors
+### 5.3) arch - setup pacman/yay colors
 _setup_pacman() {
   step "Pacman colors setup"
   sed -ie "s|#Color|Color|" /etc/pacman.conf
 }
 
-### 5.3) manjaro - install nessecary packages
+### 5.3) arch - install nessecary packages
 arch_packages=(
   base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
   figlet fzf jq gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
@@ -150,23 +150,19 @@ _sync_packages_yay() {
   su -c "$cmd" - $REAL_USER
 }
 
-### 5.4) manjaro - cleanup usused apps
-_cleanup_manjaro() {
-  step "Cleanup Manjaro garbage"
+### 5.4) arch - cleanup usused apps
+_cleanup_arch() {
+  step "Cleanup arch garbage"
   garbage=(
-    manjaro-hello manjaro-documentation-en
-    gnome-disk-utility gnome-screenshot imagewriter lollypop pidgin
-    thunderbird transmission-gtk uget totem
-    # arch
-    parole ristretto mousepad xfce4-eyes-plugin xfce4-screenshooter xfce4-weather-plugin 
-    xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-sensors-plugin xfce4-systemload-plugin 
-    xfce4-netload-plugin xfce4-battery-plugin xfce4-dict xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mount-plugin 
+    parole ristretto mousepad xfce4-eyes-plugin xfce4-screenshooter xfce4-weather-plugin
+    xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-sensors-plugin xfce4-systemload-plugin
+    xfce4-netload-plugin xfce4-battery-plugin xfce4-dict xfce4-genmon-plugin xfce4-mailwatch-plugin xfce4-mount-plugin
     xfce4-mpc-plugin xfce4-smartbookmark-plugin xfce4-time-out-plugin xfce4-timer-plugin xfce4-verve-plugin
   )
   pacman -Rsu "${garbage[@]}"  &>/dev/null
 }
 
-_setup_manjaro() {
+_setup_arch() {
   step "Checking NTP"
   systemctl status ntpd &>/dev/null || _enable_ntpd
   step "Enabling Network Manager"
@@ -178,8 +174,8 @@ _setup_manjaro() {
   step "Enabling pacman/yay colors"
   grep "#Color" /etc/pacman.conf &>/dev/null && _setup_pacman
   _sync_packages_yay
-  step "Cleanup unused manjaro staff"
-  _cleanup_manjaro
+  step "Cleanup unused archlinux staff"
+  _cleanup_arch
 }
 
 ## SETUP PARROT
@@ -257,7 +253,7 @@ Darwin)
   ;;
 *)
   info "Arch-based detected, configuring ..."
-  _setup_manjaro
+  _setup_arch
   ;;
 esac
 
@@ -281,7 +277,6 @@ _setup_dotfiles() {
   su -c "curl -L 'https://git.io/fNdqS' | zsh" - $REAL_USER
 }
 
-# TODO: git stash, git checkout master
 # Update dotfiles
 _update_dotfiles() {
   say "updating .dotfiles"
@@ -324,6 +319,7 @@ _setup_vscodium() {
 
 which codium &>/dev/null && _setup_vscodium
 
+# TODO: actual?
 # ruby-build because system is old as shit
 _setup_ruby-build() {
   say "Installing ruby-build"
@@ -344,10 +340,9 @@ _setup_ruby_320() {
 }
 
 _setup_node() {
-  say "installing nvm && lts/fermium node"
+  say "installing nvm"
   su -c "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &>/dev/null" - $REAL_USER
   export NVM_DIR="$HOME_DIR/.nvm"
-  su -c "[ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh; nvm install lts/fermium &>/dev/null" - $REAL_USER
   [ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh
 }
 
