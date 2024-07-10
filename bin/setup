@@ -168,6 +168,33 @@ _install_assetfinder() {
 which assetfinder &>/dev/null || _install_assetfinder
 which assetfinder &>/dev/null && ok "assetfinder already installed"
 
+# httpx
+_install_httpx() {
+  step "installing httpx via go" 
+  go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &>/dev/null
+}
+
+which httpx &>/dev/null || _install_httpx
+which httpx &>/dev/null && ok "httpx already installed"
+
+# dalfox
+_install_dalfox() {
+  step "installing dalfox via go" 
+  go install github.com/hahwul/dalfox/v2@latest &>/dev/null
+}
+
+which dalfox &>/dev/null || _install_dalfox
+which dalfox &>/dev/null && ok "dalfox already installed"
+
+# webanalyse
+_install_webanalyse() {
+  step "installing webanalyse via go" 
+  go install -v github.com/rverton/webanalyze/cmd/webanalyze@latest
+}
+
+which webanalyse &>/dev/null || _install_webanalyse
+which webanalyse &>/dev/null && ok "webanalyse already installed"
+
 ### 5.4) arch - cleanup usused apps
 _cleanup_arch() {
   step "Cleanup arch garbage"
