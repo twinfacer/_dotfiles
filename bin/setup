@@ -346,12 +346,19 @@ _setup_node() {
   [ -s $NVM_DIR/nvm.sh ] && \. $NVM_DIR/nvm.sh
 }
 
+_setup_solargraph() {
+  say "Installing solargraph"
+  su -c "gem install solargraph" - $REAL_USER
+  su -c "rbenv rehash" - $REAL_USER
+}
+
 [[ ! -d $HOME_DIR/.nvm ]] &>/dev/null && _setup_node
 [[ -d $HOME_DIR/.nvm ]] &>/dev/null && ok "nvm already installed"
 
 [[ ! -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && _setup_ruby_320
 [[ -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && ok "ruby 3.2.0 is already installed"
 
-# TODO: Setup solagraph and rubocop as well
+which solargraph &>/dev/null || _setup_solargraph
+which solargraph &>/dev/null && ok "solargraph is already installed"
 
 ok "done!"
