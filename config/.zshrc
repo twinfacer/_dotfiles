@@ -1,6 +1,6 @@
 # enviroment
 export DOTDIR="$HOME/.dotfiles"
-export PATH="$PATH:$DOTDIR/bin"
+export PATH="$PATH:$DOTDIR/bin:$HOME/go/bin"
 
 # user customizations
 [ -f $DOTDIR/local/init.zsh ] || cp $DOTDIR/templates/init.zsh $DOTDIR/local/init.zsh
