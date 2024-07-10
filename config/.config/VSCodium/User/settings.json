@@ -12,5 +12,10 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "[vue]": {
+        "editor.foldingStrategy": "indentation",
+    },
+    "editor.selectionClipboard": false,
+    "solargraph.commandPath": "/home/twinfacer/.rbenv/shims/solargraph"
 }
