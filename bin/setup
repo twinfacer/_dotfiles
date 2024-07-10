@@ -135,12 +135,12 @@ arch_packages=(
   figlet fzf jq gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
-  docker imagemagic postgresql redis rbenv ruby-build nvm yarn
+  docker imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy
-  nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin ghidra gdb gef
-  whatweb wafw00f gowitness gospider gau
+  nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin assetfinder
+  whatweb wafw00f gowitness gospider gau httprobe  ghidra gdb gef
   john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
-  netexec python-smbmap-git wireshark-qt
+  netexec python-smbmap-git wireshark-qt kerbrute-bin
   aircrack-ng airgeddon
 )
 
@@ -149,6 +149,24 @@ _sync_packages_yay() {
   cmd="yay -S --noconfirm --needed ${arch_packages[@]} &>/dev/null"
   su -c "$cmd" - $REAL_USER
 }
+
+# anubis
+_install_anubis() {
+  step "installing anubis via pipx" 
+  pipx install anubis
+}
+
+which anubis &>/dev/null || _install_anubis
+which anubis &>/dev/null && ok "anubis already installed"
+
+# assetfinder
+_install_assetfinder() {
+  step "installing assetfinder via pipx" 
+  pipx install assetfinder
+}
+
+which assetfinder &>/dev/null || _install_assetfinder
+which assetfinder &>/dev/null && ok "assetfinder already installed"
 
 ### 5.4) arch - cleanup usused apps
 _cleanup_arch() {
