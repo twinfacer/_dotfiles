@@ -195,6 +195,8 @@ _install_webanalyse() {
 which webanalyse &>/dev/null || _install_webanalyse
 which webanalyse &>/dev/null && ok "webanalyse already installed"
 
+# TODO: commix from github
+
 ### 5.4) arch - cleanup usused apps
 _cleanup_arch() {
   step "Cleanup arch garbage"
