@@ -186,7 +186,7 @@ _install_dalfox() {
 which dalfox &>/dev/null || _install_dalfox
 which dalfox &>/dev/null && ok "dalfox already installed"
 
-# webanalyse
+# commix
 _install_webanalyse() {
   step "installing webanalyse via go" 
   go install -v github.com/rverton/webanalyze/cmd/webanalyze@latest
@@ -195,7 +195,16 @@ _install_webanalyse() {
 which webanalyse &>/dev/null || _install_webanalyse
 which webanalyse &>/dev/null && ok "webanalyse already installed"
 
-# TODO: commix from github
+# commix
+_install_commix() {
+  step "installing commix via github" 
+  git clone https://github.com/commixproject/commix.git /opt/commix
+  chown $REAL_USER:$REAL_USER -R /opt/commix
+  ln -s /opt/commix/commix.py /usr/bin/commix
+}
+
+which commix &>/dev/null || _install_commix
+which commix &>/dev/null && ok "commix already installed"
 
 ### 5.4) arch - cleanup usused apps
 _cleanup_arch() {
