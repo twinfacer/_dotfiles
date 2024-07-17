@@ -138,7 +138,7 @@ arch_packages=(
   docker imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy
   nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin assetfinder
-  whatweb wafw00f gowitness gospider gau httprobe  ghidra gdb gef
+  whatweb wafw00f gowitness gospider gau httprobe ghidra gdb gef rot13
   john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
   netexec python-smbmap-git wireshark-qt kerbrute-bin
   aircrack-ng airgeddon
