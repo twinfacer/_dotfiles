@@ -140,7 +140,7 @@ arch_packages=(
   nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin assetfinder
   whatweb wafw00f gowitness gospider gau httprobe ghidra gdb gef rot13 trufflehog
   john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
-  netexec python-smbmap-git wireshark-qt kerbrute-bin
+  netexec python-smbmap-git wireshark-qt kerbrute-bin responder
   aircrack-ng airgeddon
 )
 
