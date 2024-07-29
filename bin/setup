@@ -132,7 +132,7 @@ _setup_pacman() {
 ### 5.3) arch - install nessecary packages
 arch_packages=(
   base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
-  figlet fzf jq gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
+  figlet fzf jq pup dasel gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
   docker imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
@@ -186,7 +186,7 @@ _install_dalfox() {
 which dalfox &>/dev/null || _install_dalfox
 which dalfox &>/dev/null && ok "dalfox already installed"
 
-# commix
+# webanalyse
 _install_webanalyse() {
   step "installing webanalyse via go" 
   go install -v github.com/rverton/webanalyze/cmd/webanalyze@latest
