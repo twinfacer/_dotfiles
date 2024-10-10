@@ -1,3 +1,5 @@
+# TODO: move me out, no so helpfull on local machines
+
 pg_container_id() { ssh $1 'docker ps --format="{{.ID}} {{.Names}}" | grep _postgres | cut -c-12' }
 dump_db() { ssh $1 "docker exec -i $(pg_container_id $1) pg_dump -U app app" }
 apply_db() { psql -h localhost -d $1 -U odin < ~/projects/$1.sql }

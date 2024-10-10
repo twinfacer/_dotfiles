@@ -1,7 +1,3 @@
-# rubygems
-alias rgl="gem list"
-alias rgi="gem install"
-
 # rbenv
 which rbenv &>/dev/null || return
 

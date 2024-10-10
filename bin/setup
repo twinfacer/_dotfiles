@@ -10,14 +10,18 @@ _help() {
   setup.sh v$VER by @twinfacer
   # Opts
   ## Generic
-    -h, --help - Display this help message.
+    -h - Display this help message.
 EOF
 }
 
 _banner() {
-  which figlet &>/dev/null && figlet setup.sh
-  which figlet &>/dev/null || echo "setup.sh"
-  echo "v$VER\n"
+  echo "           _                    _      "
+  echo "  ___  ___| |_ _   _ _ __   ___| |__   "
+  echo " / __|/ _ \ __| | | | '_ \ / __| '_ \  "
+  echo " \__ \  __/ |_| |_| | |_) |\__ \ | | | "
+  echo " |___/\___|\__|\__,_| .__(_)___/_| |_| "
+  echo "                    |_|                "
+  echo "  v$VER\n"
 }
 
 _banner
@@ -152,7 +156,7 @@ _sync_packages_yay() {
 
 # anubis
 _install_anubis() {
-  step "installing anubis via pipx" 
+  step "installing anubis via pipx"
   pipx install anubis
 }
 
@@ -161,7 +165,7 @@ which anubis &>/dev/null && ok "anubis already installed"
 
 # assetfinder
 _install_assetfinder() {
-  step "installing assetfinder via pipx" 
+  step "installing assetfinder via pipx"
   pipx install assetfinder
 }
 
@@ -170,7 +174,7 @@ which assetfinder &>/dev/null && ok "assetfinder already installed"
 
 # httpx
 _install_httpx() {
-  step "installing httpx via go" 
+  step "installing httpx via go"
   go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &>/dev/null
 }
 
@@ -179,7 +183,7 @@ which httpx &>/dev/null && ok "httpx already installed"
 
 # dalfox
 _install_dalfox() {
-  step "installing dalfox via go" 
+  step "installing dalfox via go"
   go install github.com/hahwul/dalfox/v2@latest &>/dev/null
 }
 
@@ -188,7 +192,7 @@ which dalfox &>/dev/null && ok "dalfox already installed"
 
 # webanalyse
 _install_webanalyse() {
-  step "installing webanalyse via go" 
+  step "installing webanalyse via go"
   go install -v github.com/rverton/webanalyze/cmd/webanalyze@latest
 }
 
@@ -197,7 +201,7 @@ which webanalyse &>/dev/null && ok "webanalyse already installed"
 
 # commix
 _install_commix() {
-  step "installing commix via github" 
+  step "installing commix via github"
   git clone https://github.com/commixproject/commix.git /opt/commix
   chown $REAL_USER:$REAL_USER -R /opt/commix
   ln -s /opt/commix/commix.py /usr/bin/commix
