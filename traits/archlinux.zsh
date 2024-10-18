@@ -18,3 +18,6 @@ alias pacr="sudo pacman -Rsu"
 
 # Clear pacman package cache
 alias pacc="sudo pacman -Scc"
+
+## yay
+alias yay!="yay --noconfirm"
