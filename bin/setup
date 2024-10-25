@@ -139,7 +139,7 @@ arch_packages=(
   figlet fzf jq pup dasel gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
-  docker imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
+  docker dive imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy
   nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin assetfinder
   whatweb wafw00f gowitness gospider gau httprobe ghidra gdb gef rot13 trufflehog
