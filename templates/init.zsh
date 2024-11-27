@@ -12,6 +12,8 @@ export DOTFILES_VERBOSE=false
 
 export TMUX_AUTORESTORE=true
 
+export CAPACITOR_ANDROID_STUDIO_PATH=/usr/bin/android-studio
+
 # o-din stuff
 # Спиcок наших гемов модулей
 gems=(
@@ -94,7 +96,7 @@ alias updg="_update_gems"
 
 # Сборка МП андройда указанного проекта
 function _build_android() {
-  node build.js --app $1 --platform android --resources && cd apps/$1 && npx cap open android && rm -rf ./node_modules && cd ../..
+  node build.js --app $1 --platform android --resources && cd apps/$1 && npx cap open android && cd ../..
 }
 # У меня лапки, поэтому все функции мнемонически заалиасены
 alias abuild="_build_android"
