@@ -145,7 +145,8 @@ arch_packages=(
   whatweb wafw00f gowitness gospider gau httprobe ghidra gdb gef rot13 trufflehog
   john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
   enum4linux netexec python-smbmap-git kerbrute-bin responder
-  aircrack-ng airgeddon
+  ## Wireless toolz
+  aircrack-ng airgeddon pixiewps
 )
 
 _sync_packages_yay() {
