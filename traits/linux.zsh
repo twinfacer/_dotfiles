@@ -62,3 +62,12 @@ serve() {
   callable ruby || (echo "No ruby found - no fun for ya" && exit 0)
   ruby -run -e httpd . -p ${1:-8000}
 }
+
+clean() {
+  info "Cleanup filesystem"
+  bleachbit --preset -c &> /dev/null
+  info "Cleanup danglin docker images"
+  sudo docker image prune -g &> /dev/null
+  info "Cleanup pacman packages cache"
+  pacman -Scc --noconfirm &> /dev/null
+}

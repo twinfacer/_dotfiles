@@ -136,15 +136,15 @@ _setup_pacman() {
 ### 5.3) arch - install nessecary packages
 arch_packages=(
   base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
-  figlet fzf jq pup dasel gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd
-  bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc
+  figlet fzf jq pup dasel-bin gnu-netcat htop mtr nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd asciinema dust
+  bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc dbeaver gparted
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
-  docker dive imagemagic postgresql redis rbenv ruby-build nvm yarn python-pipx
-  burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy wireshark-qt 
-  nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r amass-bin assetfinder
-  whatweb wafw00f gowitness gospider gau httprobe ghidra gdb gef rot13 trufflehog
-  john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto
-  enum4linux netexec python-smbmap-git kerbrute-bin responder
+  docker dive imagemagick postgresql redis rbenv ruby-build nvm yarn python-pipx
+  burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy wireshark-qt
+  nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r-git amass-bin assetfinder
+  whatweb wafw00f gowitness aquatone-bin gospider-bin gau httprobe ghidra gdb gef rot13 trufflehog
+  john-git thc-hydra metasploit-git hashcat-git sslyze sslscan testssl.sh nuclei nikto cmsscanner
+  enum4linux netexec python-smbmap-git kerbrute-bin responder httpx
   ## Wireless toolz
   aircrack-ng airgeddon pixiewps
 )
@@ -155,15 +155,6 @@ _sync_packages_yay() {
   su -c "$cmd" - $REAL_USER
 }
 
-# anubis
-_install_anubis() {
-  step "installing anubis via pipx"
-  pipx install anubis
-}
-
-which anubis &>/dev/null || _install_anubis
-which anubis &>/dev/null && ok "anubis already installed"
-
 # assetfinder
 _install_assetfinder() {
   step "installing assetfinder via pipx"
@@ -173,14 +164,6 @@ _install_assetfinder() {
 which assetfinder &>/dev/null || _install_assetfinder
 which assetfinder &>/dev/null && ok "assetfinder already installed"
 
-# httpx
-_install_httpx() {
-  step "installing httpx via go"
-  go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest &>/dev/null
-}
-
-which httpx &>/dev/null || _install_httpx
-which httpx &>/dev/null && ok "httpx already installed"
 
 # dalfox
 _install_dalfox() {

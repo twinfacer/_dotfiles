@@ -1,9 +1,10 @@
 # Some aliases for scanz
+alias -g httpx="httpx-toolkit"
 
 # Reverse DNS lookup
 revdns() {
   callable pup || (echo "[!] pup not installed!" && return)
-  curl https://rapiddns.io/sameip/$1#result -s | pup "tbody tr td:nth-of-type(1) text{}"
+  curl https://rapiddns.io/sameip/$1#result -s | pup "tbody tr td:nth-of-type(1) text{}" | httpx | cut -d '/' -f 3 | sort -u
 }
 
 # Scan for active subdomains using _subfinder_ & _httpx_.
