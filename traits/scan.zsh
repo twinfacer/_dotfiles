@@ -14,3 +14,8 @@ subz() {
 
   subfinder -silent -d $1 2>/dev/null | httpx -silent | cut -d '/' -f 3 | sort -u
 }
+
+# Default nmap portscan
+pscan() {
+  sudo nmap -sC -sV -vv $1
+}
