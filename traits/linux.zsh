@@ -15,6 +15,7 @@ alias nuke="rm -rf"
 
 alias sa="alias | grep"
 alias sys="inxi -Fazy"
+alias sref="sudo swapoff -a; sudo swapon -a"
 
 # Small shortcut for creating and cd'ing into <TARGET_DIR>
 take() { mkdir -p $1 && cd $1 }
