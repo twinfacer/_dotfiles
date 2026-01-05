@@ -75,7 +75,7 @@ _enable_passwordless_sudo() {
 [[ $(sudo tail -n 1 /etc/sudoers) == $MAGIC_STRING ]] || _enable_passwordless_sudo
 [[ $(sudo tail -n 1 /etc/sudoers) != $MAGIC_STRING ]] || ok "Passwordless sudo already enabled"
 
-## 2) Generate ssh key-pair if nessesary
+## 2) Generate ssh key-pair if necessary
 _setup_ssh() {
   say "Generating ssh keys"
   [[ -d $HOME_DIR/.ssh ]] || mkdir $HOME_DIR/.ssh
