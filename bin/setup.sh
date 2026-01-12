@@ -135,11 +135,13 @@ _setup_pacman() {
 
 ### 5.3) arch - install nessecary packages
 arch_packages=(
+  # Base
   base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
   figlet fzf jq pup dasel-bin gnu-netcat htop mtr witr-bin nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd asciinema dust
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc dbeaver gparted
   android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
   docker dive imagemagick postgresql redis rbenv ruby-build nvm yarn python-pipx
+  # Security
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy wireshark-qt
   nmap masscan rustscan gobuster ffuf sqlmap subfinder sublist3r-git amass-bin assetfinder
   whatweb wafw00f gowitness aquatone-bin gospider-bin gau httprobe ghidra gdb gef rot13 trufflehog
@@ -377,10 +379,10 @@ which ruby-build &>/dev/null || _setup_ruby-build
 which ruby-build &>/dev/null && ok "ruby-build is already installed"
 
 # ruby, ruby, ruby, ruby...
-_setup_ruby_320() {
-  say "Installing ruby 3.2.0"
-  su -c "rbenv install 3.2.0" - $REAL_USER
-  su -c "rbenv global 3.2.0" - $REAL_USER
+_setup_ruby_336() {
+  say "Installing ruby 3.3.6"
+  su -c "rbenv install 3.3.6" - $REAL_USER
+  su -c "rbenv global 3.3.6" - $REAL_USER
 }
 
 _setup_node() {
@@ -399,8 +401,8 @@ _setup_solargraph() {
 [[ ! -d $HOME_DIR/.nvm ]] &>/dev/null && _setup_node
 [[ -d $HOME_DIR/.nvm ]] &>/dev/null && ok "nvm already installed"
 
-[[ ! -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && _setup_ruby_320
-[[ -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && ok "ruby 3.2.0 is already installed"
+[[ ! -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && _setup_ruby_336
+[[ -d $HOME_DIR/.rbenv/versions/3.2.0 ]] && ok "ruby 3.3.6 is already installed"
 
 which solargraph &>/dev/null || _setup_solargraph
 which solargraph &>/dev/null && ok "solargraph is already installed"
