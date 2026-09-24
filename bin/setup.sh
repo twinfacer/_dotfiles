@@ -139,7 +139,7 @@ arch_packages=(
   base-devel downgrade man-db xclip xfce4-docklike-plugin zsh zsh-autosuggestions 7-zip-full
   figlet fzf jq pup dasel-bin gnu-netcat htop mtr witr-bin nfs-utils open-vm-tools openvpn smbclient swaks tmux ttf-hack-nerd asciinema dust
   bleachbit deluge deluge-gtk filezilla firefox flameshot gimp libreoffice-still loupe vivaldi vlc dbeaver gparted
-  android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium
+  android-studio meld postman-bin sublime-merge sublime-text-4 obsidian-bin vscodium-bin
   docker dive imagemagick postgresql redis rbenv ruby-build nvm yarn python-pipx
   # Security
   burpsuite exploitdb git-dumper-git jmeter proxychains-ng rkhunter seclists rockyou zaproxy wireshark-qt
